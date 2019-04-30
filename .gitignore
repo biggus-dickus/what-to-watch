@@ -1,15 +1,20 @@
-# Файлы и папки операционной системы
+*.*~
+*/**/*.*~
 .DS_Store
 Thumbs.db
 
-# Файлы редактора
 .idea
 *.sublime*
 .vscode
 
-# Вспомогательные файлы
 *.log*
-node_modules/
+*.map
+.env
 
-# Папка с собранными файлами проекта
+bower_components/
+lib/
+node_modules/
+vendor/
 build/
+
+public/bundle.js.
