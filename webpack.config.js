@@ -9,7 +9,10 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, `public`),
     compress: false,
-    port: 1488,
+    port: 1488
+  },
+  resolve: {
+    extensions: [`.js`, `.jsx`]
   },
   module: {
     rules: [
@@ -17,10 +20,10 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: `babel-loader`,
-        },
+          loader: `babel-loader`
+        }
       }
-    ],
+    ]
   },
   devtool: `source-map`
 };
