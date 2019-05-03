@@ -316,7 +316,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-  outline: none; }
+}
 
 body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -1164,7 +1164,8 @@ main {
 .small-movie-card:hover {
   z-index: 3;
   transform: scale(1.2); }
-.small-movie-card:hover .small-movie-card__play-btn {
+.small-movie-card:hover .small-movie-card__play-btn,
+.small-movie-card:focus .small-movie-card__play-btn {
   opacity: 1;
   pointer-events: auto; }
 .small-movie-card img {
@@ -1220,6 +1221,10 @@ main {
   transition: 0.2s opacity;
   font-size: 0;
   cursor: pointer; }
+
+.small-movie-card__play-btn:focus {
+  opacity: 1;
+}
 
 .small-movie-card__link {
   display: inline-block;
