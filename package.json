@@ -7,8 +7,7 @@
     "build": "webpack --mode development",
     "start": "webpack-dev-server",
     "eslint": "eslint src/**/*.js src/**/*.jsx",
-    "test": "npm run eslint && jest",
-    "snapshot:update": "jest -u"
+    "test": "npm run eslint && jest"
   },
   "jest": {
     "moduleNameMapper": {
