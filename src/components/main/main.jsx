@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {films} from "../../mock/films";
-import {genres} from "../../mock/genres";
+import {films} from '../../mock/films';
+import {genres} from '../../mock/genres';
 
 import FilmCard from '../film-card/film-card';
 
