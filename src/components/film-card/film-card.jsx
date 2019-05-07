@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const filmCard = ({name, picUrl, pageUrl, clickHandler}) => (
-  <article className="small-movie-card catalog__movies-card" tabIndex="0">
+const filmCard = ({name, picUrl, pageUrl, onHover}) => (
+  <article className="small-movie-card catalog__movies-card"
+    tabIndex="0"
+    onMouseEnter={() => onHover({name, pageUrl, picUrl})}>
     <button className="small-movie-card__play-btn" type="button">Play</button>
 
     <div className="small-movie-card__image">
@@ -10,7 +12,7 @@ const filmCard = ({name, picUrl, pageUrl, clickHandler}) => (
     </div>
 
     <h3 className="small-movie-card__title">
-      <a className="small-movie-card__link" href={pageUrl} onClick={clickHandler}>{name}</a>
+      <a className="small-movie-card__link" href={pageUrl}>{name}</a>
     </h3>
   </article>
 );
@@ -19,7 +21,7 @@ filmCard.propTypes = {
   name: PropTypes.string.isRequired,
   picUrl: PropTypes.string.isRequired,
   pageUrl: PropTypes.string.isRequired,
-  clickHandler: PropTypes.func
+  onHover: PropTypes.func
 };
 
 export default filmCard;
