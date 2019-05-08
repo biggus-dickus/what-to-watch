@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly after relaunch 1`] = `
+<div
+  className="catalog__movies-list"
+>
+  <article
+    className="small-movie-card catalog__movies-card"
+    tabIndex="0"
+  >
+    <button
+      className="small-movie-card__play-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Play
+    </button>
+    <div
+      className="small-movie-card__image"
+    >
+      <img
+        alt="L'elephant vert"
+        height="175"
+        src="http://lurkmore.so/images/4/47/Slonik_macro.jpg"
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="https://www.imdb.com/title/tt1003080/"
+      >
+        L'elephant vert
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    tabIndex="0"
+  >
+    <button
+      className="small-movie-card__play-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Play
+    </button>
+    <div
+      className="small-movie-card__image"
+    >
+      <img
+        alt="Salò o le 120 giornate di Sodoma"
+        height="175"
+        src="https://www.imdb.com/title/tt0073650/mediaviewer/rm2659000576"
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="https://www.imdb.com/title/tt0073650/"
+      >
+        Salò o le 120 giornate di Sodoma
+      </a>
+    </h3>
+  </article>
+</div>
+`;

@@ -7,6 +7,7 @@ exports[`<FilmCard /> should render correctly 1`] = `
 >
   <button
     className="small-movie-card__play-btn"
+    onClick={[Function]}
     type="button"
   >
     Play
@@ -15,9 +16,9 @@ exports[`<FilmCard /> should render correctly 1`] = `
     className="small-movie-card__image"
   >
     <img
-      alt="Fantastic Beasts: The Crimes of Grindelwald"
+      alt="L'elephant vert"
       height="175"
-      src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      src="http://lurkmore.so/images/4/47/Slonik_macro.jpg"
       width="280"
     />
   </div>
@@ -26,9 +27,9 @@ exports[`<FilmCard /> should render correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="https://thepiratebay.org"
+      href="https://www.imdb.com/title/tt1003080/"
     >
-      Fantastic Beasts: The Crimes of Grindelwald
+      L'elephant vert
     </a>
   </h3>
 </article>

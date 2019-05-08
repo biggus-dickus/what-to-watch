@@ -1,16 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import {films} from '../../mock/films';
-import {genres} from '../../mock/genres';
-
-import FilmCard from '../film-card/film-card';
+import FilmsList from '../films-list/films-list';
 
 import avatar from '../../../public/img/avatar.jpg';
 import grandBudapest from '../../../public/img/the-grand-budapest-hotel-poster.jpg';
 import grandBudapestBg from '../../../public/img/bg-the-grand-budapest-hotel.jpg';
 
 
-const main = () => (
+const main = ({films, genres}) => (
   <>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -82,9 +80,7 @@ const main = () => (
           ))}
         </ul>
 
-        <div className="catalog__movies-list">
-          {films.map((film) => <FilmCard key={film.picUrl} {...film} />)}
-        </div>
+        <FilmsList {...{films}} />
 
         <div className="catalog__more">
           <button className="catalog__button" type="button">Show more</button>
@@ -109,3 +105,8 @@ const main = () => (
 );
 
 export default main;
+
+main.propTypes = {
+  films: PropTypes.array.isRequired,
+  genres: PropTypes.array.isRequired
+};
