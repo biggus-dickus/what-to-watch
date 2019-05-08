@@ -8,7 +8,7 @@ import {mockFilms} from '../../mocks/mock-schmock';
 
 configure({adapter: new Adapter()});
 
-it(`Hovering on film preview returns an object with film info`, () => {
+it(`Clicking on film card button returns an object with film info`, () => {
   const mockHandler = jest.fn(() => mockFilms[0]);
   const movieCard = shallow(<FilmCard {...mockFilms[0]} onActive={mockHandler} />);
 
