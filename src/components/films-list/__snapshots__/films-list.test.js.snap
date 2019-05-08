@@ -6,7 +6,6 @@ exports[`renders correctly after relaunch 1`] = `
 >
   <article
     className="small-movie-card catalog__movies-card"
-    onMouseEnter={[Function]}
     tabIndex="0"
   >
     <button
@@ -39,7 +38,6 @@ exports[`renders correctly after relaunch 1`] = `
   </article>
   <article
     className="small-movie-card catalog__movies-card"
-    onMouseEnter={[Function]}
     tabIndex="0"
   >
     <button

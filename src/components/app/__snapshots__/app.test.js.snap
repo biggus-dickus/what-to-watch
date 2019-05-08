@@ -213,7 +213,6 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
-          onMouseEnter={[Function]}
           tabIndex="0"
         >
           <button
@@ -246,7 +245,6 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
-          onMouseEnter={[Function]}
           tabIndex="0"
         >
           <button

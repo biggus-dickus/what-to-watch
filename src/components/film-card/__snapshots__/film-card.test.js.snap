@@ -3,7 +3,6 @@
 exports[`<FilmCard /> should render correctly 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
-  onMouseEnter={[Function]}
   tabIndex="0"
 >
   <button

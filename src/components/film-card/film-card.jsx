@@ -5,9 +5,7 @@ const filmCard = ({name, picUrl, pageUrl, onActive}) => {
   const evtHandler = () => onActive({name, pageUrl, picUrl});
 
   return (
-    <article className="small-movie-card catalog__movies-card"
-      tabIndex="0"
-      onMouseEnter={evtHandler}>
+    <article className="small-movie-card catalog__movies-card" tabIndex="0">
       <button className="small-movie-card__play-btn"
         type="button"
         onClick={evtHandler}>Play</button>
