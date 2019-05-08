@@ -28,7 +28,7 @@ export default class FilmsList extends React.PureComponent {
         {this.props.films.map((film) =>
           <FilmCard
             key={film.picUrl}
-            onHover={this.previewHandler}
+            onActive={this.previewHandler}
             {...film} />)}
       </div>
     );

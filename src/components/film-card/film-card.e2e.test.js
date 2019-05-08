@@ -10,10 +10,10 @@ configure({adapter: new Adapter()});
 
 it(`Hovering on film preview returns an object with film info`, () => {
   const mockHandler = jest.fn(() => mockFilms[0]);
-  const movieCard = shallow(<FilmCard {...mockFilms[0]} onHover={mockHandler} />);
+  const movieCard = shallow(<FilmCard {...mockFilms[0]} onActive={mockHandler} />);
 
-  const article = movieCard.find(`article`);
-  article.simulate(`mouseenter`, mockHandler);
+  const button = movieCard.find(`button`);
+  button.simulate(`click`, mockHandler);
 
   expect(mockHandler).toHaveReturnedWith(mockFilms[0]);
 });
