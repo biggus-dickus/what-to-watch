@@ -1168,12 +1168,11 @@ main {
 .small-movie-card:focus .small-movie-card__play-btn {
   opacity: 1;
   pointer-events: auto; }
-.small-movie-card img {
+.small-movie-card img,
+.small-movie-card video {
   vertical-align: top;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-  font-family: "object-fit:cover";
   object-fit: cover; }
 
 .small-movie-card__image {

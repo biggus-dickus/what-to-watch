@@ -9,18 +9,14 @@ export default class FilmsList extends React.PureComponent {
     super(props);
 
     this.state = {activeCard: null};
-
-    // Welcome to the Stone Age!
-    this.previewHandler = this.previewHandler.bind(this);
   }
 
   /**
    * Launch the movie preview.
    * @param {Object} activeCard
+   * @return {*}
    */
-  previewHandler(activeCard) {
-    this.setState({activeCard});
-  }
+  previewHandler = (activeCard) => this.setState({activeCard});
 
   render() {
     return (
