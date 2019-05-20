@@ -2,29 +2,25 @@ import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import FilmCard from './film-card';
 import {mockFilms} from '../../mocks/mock-schmock';
+
+import FilmCard from './film-card';
+import Video from '../video-player/video-player';
 
 configure({adapter: new Adapter()});
 
 
-let isHovered = false;
-function toggleHovered(state) {
-  isHovered = state;
-}
+describe(`FilmCard test suite.`, () => {
+  const movieCard = shallow(<FilmCard {...mockFilms[0]} />);
+  const video = movieCard.find(Video);
 
-const movieCard = shallow(<FilmCard {...mockFilms[0]} />);
+  it(`Hovering over FilmCard changes 'isHovered' status to true`, () => {
+    movieCard.simulate(`mouseenter`);
+    expect(video.props().isHovered).toBe(true);
+  });
 
-it(`Hovering over FilmCard changes 'isHovered' status to true`, () => {
-  React.useState = toggleHovered(true);
-
-  movieCard.simulate(`mouseover`);
-  expect(isHovered).toBe(true);
-});
-
-it(`Moving the mouse away from FilmCard changes 'isHovered' status to false`, () => {
-  React.useState = toggleHovered(false);
-
-  movieCard.simulate(`mouseover`);
-  expect(isHovered).toBe(false);
+  it(`Moving the mouse away from FilmCard changes 'isHovered' status to false`, () => {
+    movieCard.simulate(`mouseleave`);
+    expect(video.props().isHovered).toBe(false);
+  });
 });

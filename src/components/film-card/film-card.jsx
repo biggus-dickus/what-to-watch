@@ -40,8 +40,7 @@ filmCard.propTypes = {
   name: PropTypes.string.isRequired,
   picUrl: PropTypes.string.isRequired,
   pageUrl: PropTypes.string.isRequired,
-  videoUrl: PropTypes.string.isRequired,
-  onActive: PropTypes.func
+  videoUrl: PropTypes.string.isRequired
 };
 
 export default filmCard;
