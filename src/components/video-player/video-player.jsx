@@ -2,46 +2,48 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
+const HOVER_DELAY = 1000;
+
 export default class VideoPlayer extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.ref = React.createRef();
-
-    this.state = {
-      isPlaying: false
-    };
   }
 
   render() {
-    return <video
-      ref={this.ref}
-      {...this.props}
-      onMouseEnter={this._handleMouseEnter}
-      onMouseLeave={this._handleMouseLeave} />;
+    const {poster, muted, src, width, height} = this.props;
+
+    return <video ref={this.ref} {...{poster, muted, src, width, height}} />;
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (!prevState.isPlaying && this.state.isPlaying) {
-      this.ref.current.play();
+  componentDidUpdate(prevProps) {
+    if (!prevProps.isHovered && this.props.isHovered) {
+      this._handleVideoPlayback();
     }
 
-    if (prevState.isPlaying && !this.state.isPlaying) {
-      this.ref.current.currentTime = 0;
+    if (prevProps.isHovered && !this.props.isHovered) {
+      this._handleVideoStop();
     }
   }
 
-  _handleMouseEnter = () => {
-    // setTimeout(() => this.setState({isPlaying: true}), 1000);
-    this.setState({isPlaying: true})
+  _handleVideoPlayback = () => {
+    this._delay = setTimeout(() => this.ref.current.play(), HOVER_DELAY);
   };
 
-  _handleMouseLeave = () => this.setState({isPlaying: false});
+  _handleVideoStop = () => {
+    clearTimeout(this._delay);
+    this.ref.current.pause();
+    this.ref.current.load();
+  }
 }
 
 
 VideoPlayer.propTypes = {
-  muted: PropTypes.bool,
   poster: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired
+  src: PropTypes.string.isRequired,
+  isHovered: PropTypes.bool.isRequired,
+  muted: PropTypes.bool,
+  width: PropTypes.string,
+  height: PropTypes.string
 };

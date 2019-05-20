@@ -6,11 +6,12 @@ exports[`renders correctly after relaunch 1`] = `
 >
   <article
     className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     tabIndex="0"
   >
     <button
       className="small-movie-card__play-btn"
-      onClick={[Function]}
       type="button"
     >
       Play
@@ -18,10 +19,11 @@ exports[`renders correctly after relaunch 1`] = `
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="L'elephant vert"
+      <video
         height="175"
-        src="http://lurkmore.so/images/4/47/Slonik_macro.jpg"
+        muted={true}
+        poster="http://lurkmore.so/images/4/47/Slonik_macro.jpg"
+        src="https://storage.googleapis.com/coverr-main/mp4%2FCam-Man.mp4"
         width="280"
       />
     </div>
@@ -38,11 +40,12 @@ exports[`renders correctly after relaunch 1`] = `
   </article>
   <article
     className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     tabIndex="0"
   >
     <button
       className="small-movie-card__play-btn"
-      onClick={[Function]}
       type="button"
     >
       Play
@@ -50,10 +53,11 @@ exports[`renders correctly after relaunch 1`] = `
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="Salò o le 120 giornate di Sodoma"
+      <video
         height="175"
-        src="https://www.imdb.com/title/tt0073650/mediaviewer/rm2659000576"
+        muted={true}
+        poster="https://m.media-amazon.com/images/M/MV5BYjE0NTU3MTUtYjE0OC00ZGM1LWIwNzYtNDU2YWI2YWJjZjEwXkEyXkFqcGdeQXVyMTA2ODMzMDU@._V1_SY1000_CR0,0,764,1000_AL_.jpg"
+        src="etc/na-zdorovnya.mp4"
         width="280"
       />
     </div>

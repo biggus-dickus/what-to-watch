@@ -15,13 +15,13 @@ export const films = [
     name: `Macbeth`,
     picUrl: `img/macbeth.jpg`,
     pageUrl: `https://thepiratebay.org`,
-    videoUrl: `https://dl3.webmfiles.org/big-buck-bunny_trailer.webm`
+    videoUrl: `https://storage.googleapis.com/coverr-main/mp4%2FCam-Man.mp4`
   },
   {
     name: `Aviator`,
     picUrl: `img/aviator.jpg`,
     pageUrl: `https://thepiratebay.org`,
-    videoUrl: `http://dl3.webmfiles.org/elephants-dream.webm`
+    videoUrl: `https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5b/Marnie_%281964%29_trailer.webm/Marnie_%281964%29_trailer.webm.360p.vp9.webm`
   },
   {
     name: `We need to talk about Kevin`,
