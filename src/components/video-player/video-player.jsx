@@ -27,11 +27,11 @@ export default class VideoPlayer extends React.PureComponent {
     }
   }
 
-  _handleVideoPlayback = () => {
+  _handleVideoPlayback() {
     this._delay = setTimeout(() => this.ref.current.play(), HOVER_DELAY);
-  };
+  }
 
-  _handleVideoStop = () => {
+  _handleVideoStop() {
     clearTimeout(this._delay);
     this.ref.current.pause();
     this.ref.current.load();
