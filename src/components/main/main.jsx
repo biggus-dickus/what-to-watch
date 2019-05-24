@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FilmsList from '../films-list/films-list';
+import Catalog from '../catalog/catalog';
 
 import avatar from '../../../public/img/avatar.jpg';
 import grandBudapest from '../../../public/img/the-grand-budapest-hotel-poster.jpg';
 import grandBudapestBg from '../../../public/img/bg-the-grand-budapest-hotel.jpg';
 
 
-const main = ({films, genres}) => (
+const main = ({genres}) => (
   <>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -66,26 +66,7 @@ const main = ({films, genres}) => (
     </section>
 
     <div className="page-content">
-      <section className="catalog">
-        <h2 className="catalog__title visually-hidden">Catalog</h2>
-
-        <ul className="catalog__genres-list">
-          <li className="catalog__genres-item catalog__genres-item--active">
-            <a href="#" className="catalog__genres-link">All genres</a>
-          </li>
-          {genres.map((genre) => (
-            <li key={genre} className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">{genre}</a>
-            </li>
-          ))}
-        </ul>
-
-        <FilmsList {...{films}} />
-
-        <div className="catalog__more">
-          <button className="catalog__button" type="button">Show more</button>
-        </div>
-      </section>
+      <Catalog genres={genres} />
 
       <footer className="page-footer">
         <div className="logo">
@@ -107,6 +88,5 @@ const main = ({films, genres}) => (
 export default main;
 
 main.propTypes = {
-  films: PropTypes.array.isRequired,
   genres: PropTypes.array.isRequired
 };

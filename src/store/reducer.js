@@ -1,18 +1,18 @@
-import {CHANGE_FILTER} from './action-types';
+import {CHANGE_GENRE} from './action-types';
 import {films, getByGenre} from '../mocks/films';
 import {Genre} from '../mocks/genres';
 
 
 const initialState = {
-  currentFilter: Genre.ALL,
+  currentGenre: Genre.ALL,
   movies: [...films]
 };
 
 const getMovies = (state = initialState, action) => {
-  if (action.type === CHANGE_FILTER) {
+  if (action.type === CHANGE_GENRE) {
     return {
-      currentFilter: action.filter,
-      movies: getByGenre(action.filter)
+      currentGenre: action.genre,
+      movies: (action.genre === Genre.ALL) ? initialState.movies : getByGenre(action.genre)
     };
   }
 

@@ -1,6 +1,6 @@
-import {CHANGE_FILTER} from './action-types';
+import {CHANGE_GENRE} from './action-types';
 
-export const changeFilter = (filter) => ({
-  type: CHANGE_FILTER,
-  filter
+export const changeGenre = (genre) => ({
+  type: CHANGE_GENRE,
+  genre
 });

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Main from '../main/main';
 
 
-const app = ({films, genres}) => <Main {...{films, genres}} />;
+const app = ({genres}) => <Main {...{genres}} />;
 
 export default app;
 
