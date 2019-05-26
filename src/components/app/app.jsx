@@ -4,17 +4,9 @@ import PropTypes from 'prop-types';
 import Main from '../main/main';
 
 
-const app = ({genres}) => <Main {...{genres}} />;
+export const App = ({genres}) => <Main {...{genres}} />;
+export default App;
 
-export default app;
-
-app.propTypes = {
-  films: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        pageUrl: PropTypes.string.isRequired,
-        picUrl: PropTypes.string.isRequired
-      })
-  ),
+App.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.string).isRequired
 };
