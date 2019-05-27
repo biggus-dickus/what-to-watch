@@ -3,11 +3,12 @@
 exports[`<FilmCard /> should render correctly 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   tabIndex="0"
 >
   <button
     className="small-movie-card__play-btn"
-    onClick={[Function]}
     type="button"
   >
     Play
@@ -15,10 +16,11 @@ exports[`<FilmCard /> should render correctly 1`] = `
   <div
     className="small-movie-card__image"
   >
-    <img
-      alt="L'elephant vert"
+    <video
       height="175"
-      src="http://lurkmore.so/images/4/47/Slonik_macro.jpg"
+      muted={true}
+      poster="http://lurkmore.so/images/4/47/Slonik_macro.jpg"
+      src="https://storage.googleapis.com/coverr-main/mp4%2FCam-Man.mp4"
       width="280"
     />
   </div>

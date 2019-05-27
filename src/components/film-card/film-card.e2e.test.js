@@ -2,18 +2,28 @@ import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import FilmCard from './film-card';
 import {mockFilms} from '../../mocks/mock-schmock';
 
+import FilmCard from './film-card';
+import Video from '../video-player/video-player';
 
 configure({adapter: new Adapter()});
 
-it(`Clicking on film card button returns an object with film info`, () => {
-  const mockHandler = jest.fn(() => mockFilms[0]);
-  const movieCard = shallow(<FilmCard {...mockFilms[0]} onActive={mockHandler} />);
 
-  const button = movieCard.find(`button`);
-  button.simulate(`click`, mockHandler);
+const movieCard = shallow(<FilmCard {...mockFilms[0]} />);
 
-  expect(mockHandler).toHaveReturnedWith(mockFilms[0]);
+describe(`FilmCard test suite.`, () => {
+  it(`Hovering over FilmCard changes 'isHovered' status to true`, () => {
+    movieCard.simulate(`mouseenter`);
+
+    const video = movieCard.find(Video);
+    expect(video.props().isHovered).toBe(true);
+  });
+
+  it(`Moving the mouse away from FilmCard changes 'isHovered' status to false`, () => {
+    movieCard.simulate(`mouseleave`);
+
+    const video = movieCard.find(Video);
+    expect(video.props().isHovered).toBe(false);
+  });
 });
