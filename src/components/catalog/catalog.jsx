@@ -6,7 +6,7 @@ import FilmsList from '../films-list/films-list';
 import GenresList from '../genres-list/genres-list';
 
 
-const catalog = (props) => {
+export const Catalog = (props) => {
   const {filteredMovies, genres} = props;
 
   return (
@@ -23,7 +23,7 @@ const catalog = (props) => {
   );
 };
 
-catalog.propTypes = {
+Catalog.propTypes = {
   filteredMovies: PropTypes.arrayOf(PropTypes.object).isRequired,
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
@@ -32,4 +32,4 @@ const mapStateToProps = (state) => ({
   filteredMovies: state.movies
 });
 
-export default connect(mapStateToProps)(catalog);
+export default connect(mapStateToProps)(Catalog);

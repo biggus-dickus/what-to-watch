@@ -25,4 +25,8 @@ describe(`getMovies reducer test suite:`, () => {
     const filteredFilms = getByGenre(mockGenres[1], mockFilms);
     expect(newState.movies).toStrictEqual(filteredFilms);
   });
+
+  it(`should return original state in case the action is not passed or unknown`, () => {
+    expect(getMovies(originalState, undefined)).toEqual(originalState);
+  });
 });

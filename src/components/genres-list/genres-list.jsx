@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {changeGenre} from '../../store/actions';
 
 
-const genresList = ({genres, currentGenre, onGenreChange}) => {
+export const GenresList = ({genres, currentGenre, onGenreChange}) => {
   return (
     <ul className="catalog__genres-list">
       {genres.map((genre) => {
@@ -31,7 +31,7 @@ const genresList = ({genres, currentGenre, onGenreChange}) => {
   );
 };
 
-genresList.propTypes = {
+GenresList.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentGenre: PropTypes.string.isRequired,
   onGenreChange: PropTypes.func.isRequired
@@ -41,10 +41,8 @@ const mapStateToProps = (state) => ({
   currentGenre: state.currentGenre
 });
 
-const mapDispatchToProps = (dispatch) => (
-  {
-    onGenreChange: (newGenre) => dispatch(changeGenre(newGenre))
-  }
-);
+const mapDispatchToProps = (dispatch) => ({
+  onGenreChange: (newGenre) => dispatch(changeGenre(newGenre))
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(genresList);
+export default connect(mapStateToProps, mapDispatchToProps)(GenresList);

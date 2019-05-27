@@ -13,11 +13,11 @@ const initialState = {
  * Update genre and perform filtering based on new genre.
  * @param {Object} state
  * @param {Object} action
- * @param {Array} [allFilms]
+ * @param {Array} [allFilms] - optional
  * @return {Object}
  */
 const getMovies = (state = initialState, action, allFilms) => {
-  if (action.type === CHANGE_GENRE) {
+  if (action && action.type === CHANGE_GENRE) {
     return {
       currentGenre: action.genre,
       movies: (action.genre === Genre.ALL) ? initialState.movies : getByGenre(action.genre, allFilms)

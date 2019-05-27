@@ -72,5 +72,39 @@ exports[`renders correctly after relaunch 1`] = `
       </a>
     </h3>
   </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex="0"
+  >
+    <button
+      className="small-movie-card__play-btn"
+      type="button"
+    >
+      Play
+    </button>
+    <div
+      className="small-movie-card__image"
+    >
+      <video
+        height="175"
+        muted={true}
+        poster="https://m.media-amazon.com/images/M/MV5BMjZlY2RjM2ItZGEwOC00ODQwLWFhZDYtMjE3ODMyYWNiOWNlXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SY1000_CR0,0,706,1000_AL_.jpg"
+        src="etc/na-zdorovnya.mp4"
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="https://www.imdb.com/title/tt0020530/"
+      >
+        Un Chien Andalou
+      </a>
+    </h3>
+  </article>
 </div>
 `;
