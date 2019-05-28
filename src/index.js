@@ -5,8 +5,6 @@ import {Provider} from 'react-redux';
 
 import rootReducer from './store/reducer';
 
-import {Genre} from './mocks/genres';
-
 import App from './components/app/app';
 
 
@@ -14,7 +12,7 @@ const store = createStore(rootReducer);
 
 ReactDOM.render(
     <Provider {...{store}}>
-      <App genres={Object.values(Genre)} />
+      <App />
     </Provider>,
     document.getElementById(`root`)
 );

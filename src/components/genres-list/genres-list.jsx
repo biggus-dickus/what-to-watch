@@ -1,8 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-
-import {changeGenre} from '../../store/actions';
 
 
 export const GenresList = ({genres, currentGenre, onGenreChange}) => {
@@ -37,12 +34,4 @@ GenresList.propTypes = {
   onGenreChange: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  currentGenre: state.currentGenre
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onGenreChange: (newGenre) => dispatch(changeGenre(newGenre))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(GenresList);
+export default GenresList;

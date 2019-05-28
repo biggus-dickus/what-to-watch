@@ -6,8 +6,10 @@ import {Catalog} from './catalog';
 
 
 const props = {
+  currentGenre: mockGenres[0],
   genres: mockGenres,
-  filteredMovies: mockFilms.slice(-1)
+  movies: mockFilms.slice(-1),
+  onGenreChange: jest.fn()
 };
 
 const tree = renderer.create(<Catalog {...props} />).toJSON();

@@ -10,7 +10,9 @@ extends: ['htmlacademy/es6', 'plugin:react/recommended']
 parser: 'babel-eslint'
 
 rules: {
-  'no-invalid-this': 0
+  'no-invalid-this': 0,
+  'react-hooks/rules-of-hooks': 'error',
+  'react-hooks/exhaustive-deps': 'warn'
 }
 
 parserOptions:
@@ -19,7 +21,7 @@ parserOptions:
   ecmaVersion: 2019
   sourceType: module
 
-plugins: ['react']
+plugins: ['react', 'react-hooks']
 
 settings:
   react:

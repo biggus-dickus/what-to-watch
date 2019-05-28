@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Catalog from '../catalog/catalog';
 
@@ -8,7 +7,7 @@ import grandBudapest from '../../../public/img/the-grand-budapest-hotel-poster.j
 import grandBudapestBg from '../../../public/img/bg-the-grand-budapest-hotel.jpg';
 
 
-const main = ({genres}) => (
+const main = (props) => (
   <>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -66,7 +65,7 @@ const main = ({genres}) => (
     </section>
 
     <div className="page-content">
-      <Catalog genres={genres} />
+      <Catalog {...props} />
 
       <footer className="page-footer">
         <div className="logo">
@@ -86,7 +85,3 @@ const main = ({genres}) => (
 );
 
 export default main;
-
-main.propTypes = {
-  genres: PropTypes.array.isRequired
-};

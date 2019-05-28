@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Video from '../video-player/video-player';
 
 
-const filmCard = (props) => {
+const FilmCard = (props) => {
   const {name, picUrl, pageUrl, videoUrl} = props;
 
   const [isHovered, setIsHovered] = useState(false);
@@ -36,11 +36,11 @@ const filmCard = (props) => {
 };
 
 
-filmCard.propTypes = {
+FilmCard.propTypes = {
   name: PropTypes.string.isRequired,
   picUrl: PropTypes.string.isRequired,
   pageUrl: PropTypes.string.isRequired,
   videoUrl: PropTypes.string.isRequired
 };
 
-export default filmCard;
+export default FilmCard;

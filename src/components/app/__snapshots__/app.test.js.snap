@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly after relaunch 1`] = `
+exports[`App test suite: App correctly renders after relaunch 1`] = `
 Array [
   <section
     className="movie-card"
@@ -168,14 +168,14 @@ Array [
         className="catalog__genres-list"
       >
         <li
-          className="catalog__genres-item catalog__genres-item--active"
+          className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
-            href={null}
+            href="#All-genres"
             onClick={[Function]}
           >
-            All
+            All genres
           </a>
         </li>
         <li
@@ -190,11 +190,11 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item catalog__genres-item--active"
         >
           <a
             className="catalog__genres-link"
-            href="#Gay-gymnastics"
+            href={null}
             onClick={[Function]}
           >
             Gay gymnastics
