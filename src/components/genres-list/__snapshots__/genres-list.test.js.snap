@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GenresList /> should render correctly 1`] = `
+<ul
+  className="catalog__genres-list"
+>
+  <li
+    className="catalog__genres-item"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#All"
+      onClick={[Function]}
+    >
+      All
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item catalog__genres-item--active"
+  >
+    <a
+      className="catalog__genres-link"
+      href={null}
+      onClick={[Function]}
+    >
+      BDSM
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#Gay-gymnastics"
+      onClick={[Function]}
+    >
+      Gay gymnastics
+    </a>
+  </li>
+  <li
+    className="catalog__genres-item"
+  >
+    <a
+      className="catalog__genres-link"
+      href="#Psycho-dramas-for-aestheticizing-faggots"
+      onClick={[Function]}
+    >
+      Psycho-dramas for aestheticizing faggots
+    </a>
+  </li>
+</ul>
+`;

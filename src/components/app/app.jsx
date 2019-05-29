@@ -1,20 +1,54 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+
+import {changeGenre} from '../../store/actions';
+import {filterUnique} from '../../utilities/array-helpers';
 
 import Main from '../main/main';
 
 
-const app = ({films, genres}) => <Main {...{films, genres}} />;
+export class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default app;
+    const collectGenres = () => {
+      const allGenres = this.props.movies
+        .map((it) => it.genre)
+        .reduce((all, current) => all.concat(current));
 
-app.propTypes = {
-  films: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        pageUrl: PropTypes.string.isRequired,
-        picUrl: PropTypes.string.isRequired
-      })
-  ),
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired
+      return filterUnique(allGenres);
+    };
+
+    this.allGenres = [`All genres`].concat(collectGenres());
+  }
+
+  render() {
+    return <Main
+      genres={this.allGenres}
+      currentGenre={this.props.currentGenre}
+      movies={this.props.movies}
+      onGenreChange={this._handleGenreChange} />;
+  }
+
+  _handleGenreChange = (selectedGenre) => {
+    this.props.onGenreChange(selectedGenre);
+  }
+}
+
+App.propTypes = {
+  currentGenre: PropTypes.string.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onGenreChange: PropTypes.func.isRequired
 };
+
+const mapStateToProps = (state) => ({
+  currentGenre: state.currentGenre,
+  movies: state.movies
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onGenreChange: (newGenre) => dispatch(changeGenre(newGenre))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
