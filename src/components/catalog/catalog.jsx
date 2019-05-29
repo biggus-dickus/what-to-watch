@@ -5,7 +5,7 @@ import FilmsList from '../films-list/films-list';
 import GenresList from '../genres-list/genres-list';
 
 
-export const Catalog = (props) => {
+const Catalog = (props) => {
   const {currentGenre, genres, movies, onGenreChange} = props;
 
   return (

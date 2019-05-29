@@ -18,9 +18,11 @@ const initialState = {
  */
 const getMovies = (state = initialState, action, allFilms) => {
   if (action && action.type === CHANGE_GENRE) {
+    const genre = action.payload;
+
     return {
-      currentGenre: action.genre,
-      movies: (action.genre === Genre.ALL) ? initialState.movies : getByGenre(action.genre, allFilms)
+      currentGenre: genre,
+      movies: (genre === Genre.ALL) ? initialState.movies : getByGenre(genre, allFilms)
     };
   }
 

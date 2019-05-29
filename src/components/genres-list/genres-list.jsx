@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import GenresListItem from './list-item/genres-list-item';
 
 
-export const GenresList = ({genres, currentGenre, onGenreChange}) => {
+const GenresList = ({genres, currentGenre, onGenreChange}) => {
   return (
     <ul className="catalog__genres-list">
       {genres.map((genre) =>
