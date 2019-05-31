@@ -7,11 +7,10 @@ import GenresListItem from './list-item/genres-list-item';
 const GenresList = ({genres, currentGenre, onGenreChange}) => {
   return (
     <ul className="catalog__genres-list">
-      {genres.map((genre) =>
-        <GenresListItem
-          key={genre}
-          isActive={genre === currentGenre}
-          {...{genre, onGenreChange}} />)}
+      <GenresListItem
+        items={genres}
+        activeItemName={currentGenre}
+        {...{onGenreChange}} />
     </ul>
   );
 };
