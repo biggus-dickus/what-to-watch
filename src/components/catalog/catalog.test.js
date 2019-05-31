@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import {mockGenres, mockFilms} from '../../mocks/mock-schmock';
-import {Catalog} from './catalog';
+import Catalog from './catalog';
 
 
 const props = {

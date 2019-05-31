@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import {mockGenres} from '../../mocks/mock-schmock';
-import {GenresList} from './genres-list';
+import GenresList from './genres-list';
 
 
 const props = {

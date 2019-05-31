@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {changeGenre} from '../../store/actions';
-import {filterUnique} from '../../utilities/array-helpers';
 
 import Main from '../main/main';
 
@@ -17,7 +16,7 @@ export class App extends React.Component {
         .map((it) => it.genre)
         .reduce((all, current) => all.concat(current));
 
-      return filterUnique(allGenres);
+      return [...new Set(allGenres)];
     };
 
     this.allGenres = [`All genres`].concat(collectGenres());
