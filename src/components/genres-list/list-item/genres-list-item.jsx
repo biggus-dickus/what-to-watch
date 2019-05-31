@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import withActiveItem from '../../../hocs/with-active-item';
 
 
-const GenresListItem = (props) => {
+export const GenresListItem = (props) => {
   const {item, isActive, onGenreChange} = props;
 
   const classList = [`catalog__genres-item`];

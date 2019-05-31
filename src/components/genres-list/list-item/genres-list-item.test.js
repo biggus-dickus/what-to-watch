@@ -2,11 +2,11 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import {mockGenres} from '../../../mocks/mock-schmock';
-import GenresListItem from './genres-list-item';
+import {GenresListItem} from './genres-list-item';
 
 
 const props = {
-  genre: mockGenres[1],
+  item: mockGenres[1],
   isActive: false,
   onGenreChange: jest.fn()
 };
