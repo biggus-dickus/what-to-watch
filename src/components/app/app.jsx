@@ -3,19 +3,23 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import * as DataSelector from '../../store/reducers/data/selectors';
+import {getAuthState} from '../../store/reducers/user/selectors';
+
 import {ActionCreator} from '../../store/actions';
 
 import Main from '../main/main';
+import SignIn from '../sign-in/sign-in';
 
 
 export class App extends React.PureComponent {
   render() {
     const {currentGenre, filteredMovies, genres, movies} = this.props;
 
-    return <Main
-      {...{currentGenre, genres}}
-      movies={(filteredMovies.length) ? filteredMovies : movies}
-      onGenreChange={this._handleGenreChange} />;
+    return (`kurlyk`) ? <SignIn /> :
+      <Main
+        {...{currentGenre, genres}}
+        movies={(filteredMovies.length) ? filteredMovies : movies}
+        onGenreChange={this._handleGenreChange} />;
   }
 
   _handleGenreChange = (selectedGenre) => {
@@ -36,6 +40,7 @@ const mapStateToProps = (state) => ({
   currentGenre: DataSelector.getCurrentGenre(state),
   filteredMovies: DataSelector.getFilteredMovies(state),
   genres: DataSelector.getGenres(state),
+  isLoggedIn: getAuthState(state),
   movies: DataSelector.getMovies(state)
 });
 

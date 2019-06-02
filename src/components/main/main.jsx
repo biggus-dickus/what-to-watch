@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Catalog from '../catalog/catalog';
+import Footer from '../partials/footer/footer';
+import Logo from '../partials/logo/logo';
 
 import avatar from '../../../public/img/avatar.jpg';
 import grandBudapest from '../../../public/img/the-grand-budapest-hotel-poster.jpg';
@@ -17,13 +19,7 @@ const main = (props) => (
       <h1 className="visually-hidden">What to Watch</h1>
 
       <header className="page-header movie-card__head">
-        <div className="logo">
-          <a className="logo__link">
-            <span className="logo__letter logo__letter--1">W</span>
-            <span className="logo__letter logo__letter--2">T</span>
-            <span className="logo__letter logo__letter--3">W</span>
-          </a>
-        </div>
+        <Logo isHomePage={true} />
 
         <div className="user-block">
           <div className="user-block__avatar">
@@ -67,19 +63,7 @@ const main = (props) => (
     <div className="page-content">
       <Catalog {...props} />
 
-      <footer className="page-footer">
-        <div className="logo">
-          <a className="logo__link logo__link--light">
-            <span className="logo__letter logo__letter--1">W</span>
-            <span className="logo__letter logo__letter--2">T</span>
-            <span className="logo__letter logo__letter--3">W</span>
-          </a>
-        </div>
-
-        <div className="copyright">
-          <p>© {new Date().getFullYear()} What to watch Ltd.</p>
-        </div>
-      </footer>
+      <Footer isHomePage={true} />
     </div>
   </>
 );

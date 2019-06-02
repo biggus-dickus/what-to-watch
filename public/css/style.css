@@ -1094,6 +1094,7 @@ main {
   line-height: 44px;
   font-weight: 300;
   padding: 25px 20px;
+  outline: 0;
   transition: border-color 0.2s; }
 .sign-in__input:-ms-input-placeholder {
   opacity: 1;
