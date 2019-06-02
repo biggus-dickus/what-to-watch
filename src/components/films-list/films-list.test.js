@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import {mockFilms} from '../../mocks/mock-schmock';
+import {mockFilms} from '../../mocks/films';
 import FilmsList from '../films-list/films-list';
 
 

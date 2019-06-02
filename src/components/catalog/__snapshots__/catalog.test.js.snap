@@ -20,7 +20,7 @@ exports[`<Catalog /> should render correctly 1`] = `
         href={null}
         onClick={[Function]}
       >
-        All
+        All genres
       </a>
     </li>
     <li
@@ -28,10 +28,10 @@ exports[`<Catalog /> should render correctly 1`] = `
     >
       <a
         className="catalog__genres-link"
-        href="#BDSM"
+        href="#Comedies"
         onClick={[Function]}
       >
-        BDSM
+        Comedies
       </a>
     </li>
     <li
@@ -39,10 +39,10 @@ exports[`<Catalog /> should render correctly 1`] = `
     >
       <a
         className="catalog__genres-link"
-        href="#Gay-gymnastics"
+        href="#Crime"
         onClick={[Function]}
       >
-        Gay gymnastics
+        Crime
       </a>
     </li>
     <li
@@ -50,10 +50,76 @@ exports[`<Catalog /> should render correctly 1`] = `
     >
       <a
         className="catalog__genres-link"
-        href="#Psycho-dramas-for-aestheticizing-faggots"
+        href="#Documentary"
         onClick={[Function]}
       >
-        Psycho-dramas for aestheticizing faggots
+        Documentary
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item"
+    >
+      <a
+        className="catalog__genres-link"
+        href="#Dramas"
+        onClick={[Function]}
+      >
+        Dramas
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item"
+    >
+      <a
+        className="catalog__genres-link"
+        href="#Horror"
+        onClick={[Function]}
+      >
+        Horror
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item"
+    >
+      <a
+        className="catalog__genres-link"
+        href="#Kids-&-Family"
+        onClick={[Function]}
+      >
+        Kids & Family
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item"
+    >
+      <a
+        className="catalog__genres-link"
+        href="#Romance"
+        onClick={[Function]}
+      >
+        Romance
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item"
+    >
+      <a
+        className="catalog__genres-link"
+        href="#Sci-Fi"
+        onClick={[Function]}
+      >
+        Sci-Fi
+      </a>
+    </li>
+    <li
+      className="catalog__genres-item"
+    >
+      <a
+        className="catalog__genres-link"
+        href="#Thrillers"
+        onClick={[Function]}
+      >
+        Thrillers
       </a>
     </li>
   </ul>
@@ -78,8 +144,8 @@ exports[`<Catalog /> should render correctly 1`] = `
         <video
           height="175"
           muted={true}
-          poster="https://m.media-amazon.com/images/M/MV5BMjZlY2RjM2ItZGEwOC00ODQwLWFhZDYtMjE3ODMyYWNiOWNlXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SY1000_CR0,0,706,1000_AL_.jpg"
-          src="etc/na-zdorovnya.mp4"
+          poster="img/mindhunter.jpg"
+          src="https://storage.googleapis.com/coverr-main/mp4/California-Desert.mp4"
           width="280"
         />
       </div>
@@ -88,9 +154,9 @@ exports[`<Catalog /> should render correctly 1`] = `
       >
         <a
           className="small-movie-card__link"
-          href="https://www.imdb.com/title/tt0020530/"
+          href="https://thepiratebay.org"
         >
-          Un Chien Andalou
+          Mindhunter
         </a>
       </h3>
     </article>

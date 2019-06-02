@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 
-import {mockGenres, mockFilms} from '../../mocks/mock-schmock';
+import {mockFilms} from '../../mocks/films';
+import {mockGenres} from '../../mocks/genres';
 import {App} from './app';
 
 const props = {
   currentGenre: mockGenres[2],
+  filteredMovies: [],
+  genres: mockGenres,
   movies: mockFilms,
   onGenreChange: jest.fn()
 };
