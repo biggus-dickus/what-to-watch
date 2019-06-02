@@ -14,7 +14,7 @@ const FilmDataAdapter = (data) => {
     previewVideo: data.preview_video_link,
     rating: data.rating,
     released: data.released,
-    runTime: data.runTime,
+    runTime: data.run_time,
     scoresCount: data.scores_count,
     starring: data.starring,
     video: data.video_link,
