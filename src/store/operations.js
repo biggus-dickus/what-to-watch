@@ -13,8 +13,9 @@ export const Operation = {
         const {response} = res;
         const {data} = response;
 
-        const userData = (`error` in data) ? null : data;
-        dispatch(ActionCreator.getUserData(userData));
+        if (!data.error) {
+          dispatch(ActionCreator.getUserData(data));
+        }
       });
   },
 
