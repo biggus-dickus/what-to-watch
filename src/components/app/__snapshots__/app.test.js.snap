@@ -183,10 +183,10 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="#BDSM"
+            href="#Comedies"
             onClick={[Function]}
           >
-            BDSM
+            Comedies
           </a>
         </li>
         <li
@@ -197,7 +197,7 @@ Array [
             href={null}
             onClick={[Function]}
           >
-            Gay gymnastics
+            Crime
           </a>
         </li>
         <li
@@ -205,10 +205,76 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="#Psycho-dramas-for-aestheticizing-faggots"
+            href="#Documentary"
             onClick={[Function]}
           >
-            Psycho-dramas for aestheticizing faggots
+            Documentary
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+        >
+          <a
+            className="catalog__genres-link"
+            href="#Dramas"
+            onClick={[Function]}
+          >
+            Dramas
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+        >
+          <a
+            className="catalog__genres-link"
+            href="#Horror"
+            onClick={[Function]}
+          >
+            Horror
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+        >
+          <a
+            className="catalog__genres-link"
+            href="#Kids-&-Family"
+            onClick={[Function]}
+          >
+            Kids & Family
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+        >
+          <a
+            className="catalog__genres-link"
+            href="#Romance"
+            onClick={[Function]}
+          >
+            Romance
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+        >
+          <a
+            className="catalog__genres-link"
+            href="#Sci-Fi"
+            onClick={[Function]}
+          >
+            Sci-Fi
+          </a>
+        </li>
+        <li
+          className="catalog__genres-item"
+        >
+          <a
+            className="catalog__genres-link"
+            href="#Thrillers"
+            onClick={[Function]}
+          >
+            Thrillers
           </a>
         </li>
       </ul>
@@ -233,7 +299,75 @@ Array [
             <video
               height="175"
               muted={true}
-              poster="http://lurkmore.so/images/4/47/Slonik_macro.jpg"
+              poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Fantastic Beasts: The Crimes of Grindelwald
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/bohemian-rhapsody.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Bohemian Rhapsody
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/macbeth.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4%2FCam-Man.mp4"
               width="280"
             />
@@ -243,9 +377,9 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="https://www.imdb.com/title/tt1003080/"
+              href="https://thepiratebay.org"
             >
-              L'elephant vert
+              Macbeth
             </a>
           </h3>
         </article>
@@ -267,8 +401,8 @@ Array [
             <video
               height="175"
               muted={true}
-              poster="https://m.media-amazon.com/images/M/MV5BYjE0NTU3MTUtYjE0OC00ZGM1LWIwNzYtNDU2YWI2YWJjZjEwXkEyXkFqcGdeQXVyMTA2ODMzMDU@._V1_SY1000_CR0,0,764,1000_AL_.jpg"
-              src="etc/na-zdorovnya.mp4"
+              poster="img/aviator.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5b/Marnie_%281964%29_trailer.webm/Marnie_%281964%29_trailer.webm.360p.vp9.webm"
               width="280"
             />
           </div>
@@ -277,9 +411,9 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="https://www.imdb.com/title/tt0073650/"
+              href="https://thepiratebay.org"
             >
-              Salò o le 120 giornate di Sodoma
+              Aviator
             </a>
           </h3>
         </article>
@@ -301,7 +435,245 @@ Array [
             <video
               height="175"
               muted={true}
-              poster="https://m.media-amazon.com/images/M/MV5BMjZlY2RjM2ItZGEwOC00ODQwLWFhZDYtMjE3ODMyYWNiOWNlXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SY1000_CR0,0,706,1000_AL_.jpg"
+              poster="img/we-need-to-talk-about-kevin.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5b/Marnie_%281964%29_trailer.webm/Marnie_%281964%29_trailer.webm.360p.vp9.webm"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              We need to talk about Kevin
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/what-we-do-in-the-shadows.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/2/23/Dr_Strangelove_-_Official_Trailer.webm/Dr_Strangelove_-_Official_Trailer.webm.480p.vp9.webm"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              What We Do in the Shadows
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/revenant.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Harvesting%20Rice.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Revenant
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/johnny-english.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Lake%20Day.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Johny English
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/shutter-island.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Deserted%20Island.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Shutter Island
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/pulp-fiction.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Stunning%20Mountains.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Pulp Fiction
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/no-country-for-old-men.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Gubat%20Beach.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              No Country for Old Men
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/snatch.jpg"
               src="etc/na-zdorovnya.mp4"
               width="280"
             />
@@ -311,9 +683,247 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="https://www.imdb.com/title/tt0020530/"
+              href="https://thepiratebay.org"
             >
-              Un Chien Andalou
+              Snatch
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/moonrise-kingdom.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Caramoan%20Drone.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Moonrise Kingdom
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/seven-years-in-tibet.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Ants%20Walking.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Seven Years in Tibet
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/midnight-special.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Boat%20in%20Caramoan.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Midnight Special
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/war-of-the-worlds.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Blue%20Joy.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              War of the Worlds
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/dardjeeling-limited.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Stop-Sign.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Dardjeeling Limited
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/orlando.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Steaming-Yellowstone.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Orlando
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex="0"
+        >
+          <button
+            className="small-movie-card__play-btn"
+            type="button"
+          >
+            Play
+          </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <video
+              height="175"
+              muted={true}
+              poster="img/mindhunter.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/California-Desert.mp4"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="https://thepiratebay.org"
+            >
+              Mindhunter
             </a>
           </h3>
         </article>

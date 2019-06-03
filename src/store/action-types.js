@@ -1,1 +1,5 @@
-export const CHANGE_GENRE = `CHANGE_GENRE`;
+export const ActionType = Object.freeze({
+  AUTH_REQUIRED: `AUTHORIZATION_REQUIRED`,
+  CHANGE_GENRE: `CHANGE_GENRE`,
+  LOAD_MOVIES: `LOAD_MOVIES`
+});

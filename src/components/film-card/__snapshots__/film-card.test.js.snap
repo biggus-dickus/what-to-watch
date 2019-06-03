@@ -19,8 +19,8 @@ exports[`<FilmCard /> should render correctly 1`] = `
     <video
       height="175"
       muted={true}
-      poster="http://lurkmore.so/images/4/47/Slonik_macro.jpg"
-      src="https://storage.googleapis.com/coverr-main/mp4%2FCam-Man.mp4"
+      poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
       width="280"
     />
   </div>
@@ -29,9 +29,9 @@ exports[`<FilmCard /> should render correctly 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="https://www.imdb.com/title/tt1003080/"
+      href="https://thepiratebay.org"
     >
-      L'elephant vert
+      Fantastic Beasts: The Crimes of Grindelwald
     </a>
   </h3>
 </article>

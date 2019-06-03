@@ -2,31 +2,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {changeGenre} from '../../store/actions';
+import * as DataSelector from '../../store/reducers/data/selectors';
+import {ActionCreator} from '../../store/actions';
 
 import Main from '../main/main';
 
 
-export class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    const collectGenres = () => {
-      const allGenres = this.props.movies
-        .map((it) => it.genre)
-        .reduce((all, current) => all.concat(current));
-
-      return [...new Set(allGenres)];
-    };
-
-    this.allGenres = [`All genres`].concat(collectGenres());
-  }
-
+export class App extends React.PureComponent {
   render() {
+    const {currentGenre, filteredMovies, genres, movies} = this.props;
+
     return <Main
-      genres={this.allGenres}
-      currentGenre={this.props.currentGenre}
-      movies={this.props.movies}
+      {...{currentGenre, genres}}
+      movies={(filteredMovies.length) ? filteredMovies : movies}
       onGenreChange={this._handleGenreChange} />;
   }
 
@@ -35,19 +23,24 @@ export class App extends React.Component {
   }
 }
 
+
 App.propTypes = {
   currentGenre: PropTypes.string.isRequired,
+  filteredMovies: PropTypes.array,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
   onGenreChange: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  currentGenre: state.currentGenre,
-  movies: state.movies
+  currentGenre: DataSelector.getCurrentGenre(state),
+  filteredMovies: DataSelector.getFilteredMovies(state),
+  genres: DataSelector.getGenres(state),
+  movies: DataSelector.getMovies(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onGenreChange: (newGenre) => dispatch(changeGenre(newGenre))
+  onGenreChange: (newGenre) => dispatch(ActionCreator.changeGenre(newGenre))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

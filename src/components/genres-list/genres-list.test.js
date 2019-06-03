@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import {mockGenres} from '../../mocks/mock-schmock';
+import {mockGenres} from '../../mocks/genres';
 import GenresList from './genres-list';
 
 

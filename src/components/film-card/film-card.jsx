@@ -5,7 +5,7 @@ import Video from '../video-player/video-player';
 
 
 const FilmCard = (props) => {
-  const {name, picUrl, pageUrl, videoUrl} = props;
+  const {name, previewImage, pageUrl, previewVideo} = props;
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -20,8 +20,8 @@ const FilmCard = (props) => {
       <button className="small-movie-card__play-btn" type="button">Play</button>
 
       <div className="small-movie-card__image">
-        <Video src={videoUrl}
-          poster={picUrl}
+        <Video src={previewVideo}
+          poster={previewImage}
           width="280"
           height="175"
           isHovered={isHovered}
@@ -38,9 +38,9 @@ const FilmCard = (props) => {
 
 FilmCard.propTypes = {
   name: PropTypes.string.isRequired,
-  picUrl: PropTypes.string.isRequired,
+  previewImage: PropTypes.string.isRequired,
   pageUrl: PropTypes.string.isRequired,
-  videoUrl: PropTypes.string.isRequired
+  previewVideo: PropTypes.string.isRequired
 };
 
 export default FilmCard;

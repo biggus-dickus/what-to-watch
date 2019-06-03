@@ -2,7 +2,7 @@ import React from 'react';
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import {mockFilms} from '../../mocks/mock-schmock';
+import {mockFilms} from '../../mocks/films';
 
 import FilmCard from './film-card';
 import Video from '../video-player/video-player';

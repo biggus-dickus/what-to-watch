@@ -6,10 +6,10 @@ exports[`<GenresListItem /> should render correctly 1`] = `
 >
   <a
     className="catalog__genres-link"
-    href="#BDSM"
+    href="#Comedies"
     onClick={[Function]}
   >
-    BDSM
+    Comedies
   </a>
 </li>
 `;
