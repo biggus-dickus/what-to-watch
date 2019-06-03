@@ -6,6 +6,11 @@ export const ActionCreator = {
     payload: genre
   }),
 
+  getUserData: (data) => ({
+    type: ActionType.GET_USER_DATA,
+    payload: data
+  }),
+
   loadMovies: (movies) => ({
     type: ActionType.LOAD_MOVIES,
     payload: movies

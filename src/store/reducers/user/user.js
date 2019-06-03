@@ -1,13 +1,24 @@
 import {ActionType} from '../../action-types';
 
 const initialState = {
-  isAuthorizationRequired: false
+  isAuthorizationRequired: false,
+  userData: null
 };
 
 export const userReducer = (state = initialState, action = {}) => {
-  if (action.type === ActionType.AUTH_REQUIRED) {
-    return {...state, isAuthorizationRequired: action.payload};
-  }
+  switch (action.type) {
+    case ActionType.AUTH_REQUIRED:
+      return {
+        ...state,
+        isAuthorizationRequired: action.payload
+      };
 
-  return state;
+    case ActionType.GET_USER_DATA:
+      return {
+        ...state,
+        userData: action.payload
+      };
+
+    default: return state;
+  }
 };

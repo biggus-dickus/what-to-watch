@@ -15,7 +15,7 @@ export class App extends React.PureComponent {
   render() {
     const {currentGenre, filteredMovies, genres, movies} = this.props;
 
-    return (`kurlyk`) ? <SignIn /> :
+    return (this.props.isAuthRequired) ? <SignIn /> :
       <Main
         {...{currentGenre, genres}}
         movies={(filteredMovies.length) ? filteredMovies : movies}
@@ -32,6 +32,7 @@ App.propTypes = {
   currentGenre: PropTypes.string.isRequired,
   filteredMovies: PropTypes.array,
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isAuthRequired: PropTypes.bool.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
   onGenreChange: PropTypes.func.isRequired
 };
@@ -40,7 +41,7 @@ const mapStateToProps = (state) => ({
   currentGenre: DataSelector.getCurrentGenre(state),
   filteredMovies: DataSelector.getFilteredMovies(state),
   genres: DataSelector.getGenres(state),
-  isLoggedIn: getAuthState(state),
+  isAuthRequired: getAuthState(state),
   movies: DataSelector.getMovies(state)
 });
 

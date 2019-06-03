@@ -22,6 +22,7 @@ const store = createStore(
     )
 );
 
+store.dispatch(Operation.getUserData());
 store.dispatch(Operation.loadMovies());
 
 ReactDOM.render(
