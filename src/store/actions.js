@@ -16,10 +16,8 @@ export const ActionCreator = {
     payload: movies
   }),
 
-  requireAuthorization: (isRequired) => {
-    return {
-      type: ActionType.AUTH_REQUIRED,
-      payload: isRequired,
-    };
-  },
+  requireAuthorization: (isRequired) => ({
+    type: ActionType.AUTH_REQUIRED,
+    payload: isRequired,
+  })
 };
