@@ -23,13 +23,13 @@ export const Operation = {
     const onFail = (error) => dispatch(ActionCreator.getAuthError(error));
 
     return api.post(ApiEndpoint.LOGIN, {email, password})
-      .then((resp) => {
-        if (resp.response && resp.response.status === StatusCode.BAD_REQUEST) {
-          onFail(resp.response.data.error);
+      .then((res) => {
+        if (res.response && res.response.status === StatusCode.BAD_REQUEST) {
+          onFail(res.response.data.error);
           return;
         }
 
-        dispatch(ActionCreator.getUserData(resp.data));
+        dispatch(ActionCreator.getUserData(res.data));
       })
       .catch((err) => onFail(err));
   }

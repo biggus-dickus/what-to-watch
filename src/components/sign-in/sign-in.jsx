@@ -11,22 +11,27 @@ import {isEmpty, isValidEmail} from '../../utilities/validators';
 
 import Footer from '../partials/footer/footer';
 import Input from '../partials/form-input/form-input';
+import Loader from '../partials/loader/loader';
 import Logo from '../partials/logo/logo';
+
+
+const initialState = {
+  [EMAIL_NAME]: ``,
+  [PASSWORD_NAME]: ``,
+  validity: {
+    [EMAIL_NAME]: false,
+    [PASSWORD_NAME]: false
+  },
+  isLoading: false,
+  isSubmitted: false
+};
 
 
 class SignInView extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      [EMAIL_NAME]: ``,
-      [PASSWORD_NAME]: ``,
-      validity: {
-        [EMAIL_NAME]: false,
-        [PASSWORD_NAME]: false
-      },
-      isSubmitted: false
-    };
+    this.state = {...initialState};
   }
 
   _getError() {
@@ -50,12 +55,24 @@ class SignInView extends React.PureComponent {
     return null;
   }
 
+  _isFormValid() {
+    return this.state.validity[EMAIL_NAME] && this.state.validity[PASSWORD_NAME];
+  }
+
+  _setValidity(fieldName, fieldValue) {
+    const validity = {...this.state.validity};
+
+    validity[fieldName] = (fieldName === EMAIL_NAME) ? isValidEmail(fieldValue) : !isEmpty(fieldValue);
+
+    return validity;
+  }
+
   _handleInput = (e) => {
     const {name, value} = e.target;
 
     this.setState({
       [name]: value,
-      validity: this._checkValidity(name, value)
+      validity: this._setValidity(name, value)
     });
   };
 
@@ -67,25 +84,28 @@ class SignInView extends React.PureComponent {
     }
 
     if (this._isFormValid()) {
-      this.props.onLoginAttempt(this.state[EMAIL_NAME], this.state[PASSWORD_NAME]);
+      this.setState({isLoading: true});
+
+      this.props.onLoginAttempt(this.state[EMAIL_NAME], this.state[PASSWORD_NAME])
+        .then(this._resetState());
     }
   };
 
-  _checkValidity(fieldName, fieldValue) {
-    const validity = {...this.state.validity};
-
-    validity[fieldName] = (fieldName === EMAIL_NAME) ? isValidEmail(fieldValue) : !isEmpty(fieldValue);
-
-    return validity;
-  }
-
-  _isFormValid() {
-    return this.state.validity[EMAIL_NAME] && this.state.validity[PASSWORD_NAME];
+  _resetState() {
+    this.setState({...initialState});
   }
 
   render() {
     const {isSubmitted, validity} = this.state;
     const error = this._getError();
+
+    let buttonText = `Sign in`;
+    const formClassList = [`sign-in__form`];
+
+    if (this.state.isLoading) {
+      buttonText = `Signing in…`;
+      formClassList.push(`sign-in__form--loading`);
+    }
 
     return (
       <div className="user-page">
@@ -98,9 +118,11 @@ class SignInView extends React.PureComponent {
         <div className="sign-in user-page__content">
           <form action="?"
             method="post"
-            className="sign-in__form"
+            className={formClassList.join(` `)}
             noValidate
             onSubmit={this._handleSubmit}>
+
+            <Loader show={this.state.isLoading} />
 
             {error && <div className="sign-in__message"><p>{error}</p></div>}
 
@@ -129,7 +151,9 @@ class SignInView extends React.PureComponent {
             </div>
 
             <div className="sign-in__submit">
-              <button className="sign-in__btn" type="submit">Sign in</button>
+              <button className="sign-in__btn" type="submit" disabled={this.state.isLoading}>
+                {buttonText}
+              </button>
             </div>
           </form>
         </div>

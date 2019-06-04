@@ -7,24 +7,35 @@ import {getAuthState, getUserData} from '../../store/reducers/user/selectors';
 
 import {ActionCreator} from '../../store/actions';
 
+import Route from '../../config/routes';
+
 import Main from '../main/main';
 import SignIn from '../sign-in/sign-in';
 
 
 export class App extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    // This will be removed in the next task
+    this.state = {
+      currentView: Route.INDEX
+    };
+  }
+
   render() {
     const {currentGenre, filteredMovies, genres, movies} = this.props;
 
-    return (this.props.isAuthRequired) ? <SignIn /> :
+    return (this.state.currentView === Route.SIGN_IN) ? <SignIn /> :
       <Main
         {...{currentGenre, genres}}
         movies={(filteredMovies.length) ? filteredMovies : movies}
         onGenreChange={this._handleGenreChange} />;
   }
 
-  _handleGenreChange = (selectedGenre) => {
-    this.props.onGenreChange(selectedGenre);
-  }
+  _handleGenreChange = (selectedGenre) => this.props.onGenreChange(selectedGenre);
+
+  _handleViewChange = () => this.setState({currentView: Route.SIGN_IN})
 }
 
 
