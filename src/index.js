@@ -15,7 +15,7 @@ import App from './components/app/app';
 const api = createAPI((...args) => store.dispatch(...args));
 
 // https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+const composeEnhancers = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ?
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
 
 const enhancer = composeEnhancers(applyMiddleware(thunk.withExtraArgument(api)));

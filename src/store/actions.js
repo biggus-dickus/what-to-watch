@@ -11,6 +11,11 @@ export const ActionCreator = {
     payload: data
   }),
 
+  getAuthError: (error) => ({
+    type: ActionType.AUTH_FAIL,
+    payload: error
+  }),
+
   loadMovies: (movies) => ({
     type: ActionType.LOAD_MOVIES,
     payload: movies

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import * as DataSelector from '../../store/reducers/data/selectors';
-import {getAuthState} from '../../store/reducers/user/selectors';
+import {getAuthState, getUserData} from '../../store/reducers/user/selectors';
 
 import {ActionCreator} from '../../store/actions';
 
@@ -42,7 +42,8 @@ const mapStateToProps = (state) => ({
   filteredMovies: DataSelector.getFilteredMovies(state),
   genres: DataSelector.getGenres(state),
   isAuthRequired: getAuthState(state),
-  movies: DataSelector.getMovies(state)
+  movies: DataSelector.getMovies(state),
+  userData: getUserData(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

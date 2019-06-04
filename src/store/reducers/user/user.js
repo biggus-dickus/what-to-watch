@@ -1,6 +1,7 @@
 import {ActionType} from '../../action-types';
 
 const initialState = {
+  authError: null,
   isAuthorizationRequired: false,
   userData: null
 };
@@ -17,6 +18,12 @@ export const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         userData: action.payload
+      };
+
+    case ActionType.AUTH_FAIL:
+      return {
+        ...state,
+        authError: action.payload
       };
 
     default: return state;

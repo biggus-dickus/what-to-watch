@@ -1,16 +1,20 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+
+import {getAuthError} from '../../store/reducers/user/selectors';
+import {Operation} from '../../store/operations';
 
 import {EMAIL_NAME, PASSWORD_NAME} from './form-fields';
 import formFields from './form-fields';
-import {isValidEmail} from '../../utilities/validators';
+import {isEmpty, isValidEmail} from '../../utilities/validators';
 
 import Footer from '../partials/footer/footer';
 import Input from '../partials/form-input/form-input';
 import Logo from '../partials/logo/logo';
 
 
-export default class SignInView extends React.PureComponent {
+class SignInView extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -27,7 +31,7 @@ export default class SignInView extends React.PureComponent {
 
   _getError() {
     const {isSubmitted, validity} = this.state;
-    const {serverError = null} = this.props;
+    const {authError} = this.props;
 
     if (isSubmitted) {
       if (!validity[EMAIL_NAME]) {
@@ -38,8 +42,8 @@ export default class SignInView extends React.PureComponent {
         return `Password field cannot be empty`;
       }
 
-      if (serverError) {
-        return serverError;
+      if (authError) {
+        return authError;
       }
     }
 
@@ -63,15 +67,14 @@ export default class SignInView extends React.PureComponent {
     }
 
     if (this._isFormValid()) {
-      alert(`valid`);
+      this.props.onLoginAttempt(this.state[EMAIL_NAME], this.state[PASSWORD_NAME]);
     }
   };
 
   _checkValidity(fieldName, fieldValue) {
     const validity = {...this.state.validity};
 
-    validity[fieldName] = (fieldName === EMAIL_NAME) ?
-      isValidEmail(fieldValue) : !!fieldValue.length;
+    validity[fieldName] = (fieldName === EMAIL_NAME) ? isValidEmail(fieldValue) : !isEmpty(fieldValue);
 
     return validity;
   }
@@ -138,5 +141,16 @@ export default class SignInView extends React.PureComponent {
 }
 
 SignInView.propTypes = {
-  serverError: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  onLoginAttempt: PropTypes.func.isRequired,
+  authError: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
+
+const mapStateToProps = (state) => ({
+  authError: getAuthError(state)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onLoginAttempt: (email, password) => dispatch(Operation.tryLogin(email, password))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignInView);
