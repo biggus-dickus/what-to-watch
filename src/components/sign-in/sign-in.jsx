@@ -2,41 +2,36 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
+// Redux
 import {getAuthError} from '../../store/reducers/user/selectors';
 import {Operation} from '../../store/operations';
 
+// Config
 import {EMAIL_NAME, PASSWORD_NAME} from './form-fields';
-import formFields from './form-fields';
-import {isEmpty, isValidEmail} from '../../utilities/validators';
+import signInFields from './form-fields';
+import {withFormSharedPropTypes} from '../../hocs/with-form';
 
+// HOCs
+import withForm from '../../hocs/with-form';
+
+// Components
 import Footer from '../partials/footer/footer';
 import Input from '../partials/form-input/form-input';
 import Loader from '../partials/loader/loader';
 import Logo from '../partials/logo/logo';
 
 
-const initialState = {
-  [EMAIL_NAME]: ``,
-  [PASSWORD_NAME]: ``,
-  validity: {
-    [EMAIL_NAME]: false,
-    [PASSWORD_NAME]: false
-  },
-  isLoading: false,
-  isSubmitted: false
-};
-
-
 class SignInView extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {...initialState};
+    this.state = {
+      isLoading: false
+    };
   }
 
   _getError() {
-    const {isSubmitted, validity} = this.state;
-    const {authError} = this.props;
+    const {authError, isSubmitted, validity} = this.props;
 
     if (isSubmitted) {
       if (!validity[EMAIL_NAME]) {
@@ -55,48 +50,20 @@ class SignInView extends React.PureComponent {
     return null;
   }
 
-  _isFormValid() {
-    return this.state.validity[EMAIL_NAME] && this.state.validity[PASSWORD_NAME];
-  }
-
-  _setValidity(fieldName, fieldValue) {
-    const validity = {...this.state.validity};
-
-    validity[fieldName] = (fieldName === EMAIL_NAME) ? isValidEmail(fieldValue) : !isEmpty(fieldValue);
-
-    return validity;
-  }
-
-  _handleInput = (e) => {
-    const {name, value} = e.target;
-
-    this.setState({
-      [name]: value,
-      validity: this._setValidity(name, value)
-    });
-  };
-
-  _handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!this.state.isSubmitted) {
-      this.setState({isSubmitted: true});
-    }
-
-    if (this._isFormValid()) {
+  componentDidUpdate(prevProps) {
+    if (!prevProps.isFormValid && this.props.isFormValid) {
       this.setState({isLoading: true});
 
-      this.props.onLoginAttempt(this.state[EMAIL_NAME], this.state[PASSWORD_NAME])
-        .then(this._resetState());
+      this.props.onLoginAttempt(this.props[EMAIL_NAME], this.props[PASSWORD_NAME])
+        .then(() => {
+          this.setState({isLoading: false});
+          this.props.onStateReset();
+        });
     }
-  };
-
-  _resetState() {
-    this.setState({...initialState});
   }
 
   render() {
-    const {isSubmitted, validity} = this.state;
+    const {isSubmitted, validity, formFields} = this.props;
     const error = this._getError();
 
     let buttonText = `Sign in`;
@@ -120,7 +87,7 @@ class SignInView extends React.PureComponent {
             method="post"
             className={formClassList.join(` `)}
             noValidate
-            onSubmit={this._handleSubmit}>
+            onSubmit={this.props.onSubmit}>
 
             <Loader show={this.state.isLoading} />
 
@@ -138,8 +105,8 @@ class SignInView extends React.PureComponent {
                 return (
                   <div className={classList.join(` `)} key={field.id}>
                     <Input className="sign-in__input"
-                      value={this.state[field.name]}
-                      onChange={this._handleInput}
+                      value={this.props[field.name]}
+                      onChange={this.props.onInputChange}
                       {...rest} />
 
                     <label className="sign-in__label visually-hidden" htmlFor={field.id}>
@@ -166,7 +133,8 @@ class SignInView extends React.PureComponent {
 
 SignInView.propTypes = {
   onLoginAttempt: PropTypes.func.isRequired,
-  authError: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  authError: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  ...withFormSharedPropTypes
 };
 
 const mapStateToProps = (state) => ({
@@ -177,4 +145,4 @@ const mapDispatchToProps = (dispatch) => ({
   onLoginAttempt: (email, password) => dispatch(Operation.tryLogin(email, password))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInView);
+export default connect(mapStateToProps, mapDispatchToProps)(withForm(SignInView, signInFields));

@@ -26,7 +26,7 @@ export class App extends React.PureComponent {
   render() {
     const {currentGenre, filteredMovies, genres, movies} = this.props;
 
-    return (this.state.currentView === Route.SIGN_IN) ? <SignIn /> :
+    return (this.props.isAuthRequired) ? <SignIn /> :
       <Main
         {...{currentGenre, genres}}
         movies={(filteredMovies.length) ? filteredMovies : movies}

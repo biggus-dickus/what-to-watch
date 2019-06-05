@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const FormInput = (props) => {
   const {htmlFormTag, type = `text`, id, name, ...rest} = props;
 
-  switch (htmlFormTag) {
+  switch (htmlFormTag.toLowerCase()) {
     case `select`:
       return <select {...{id, name}} {...rest}>{props.children}</select>;
 

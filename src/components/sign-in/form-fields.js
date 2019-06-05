@@ -1,3 +1,5 @@
+import * as Validator from '../../utilities/validators';
+
 export const EMAIL_NAME = `email`;
 export const PASSWORD_NAME = `password`;
 
@@ -9,7 +11,9 @@ const formFields = [
     placeholder: `Email Address`,
     name: EMAIL_NAME,
     id: `user-email`,
-    required: true
+    required: true,
+    validate: Validator.isValidEmail,
+    validWhen: true
   },
   {
     htmlFormTag: `input`,
@@ -18,7 +22,9 @@ const formFields = [
     placeholder: `Password`,
     name: PASSWORD_NAME,
     id: `user-password`,
-    required: true
+    required: true,
+    validate: Validator.isEmpty,
+    validWhen: false
   }
 ];
 
