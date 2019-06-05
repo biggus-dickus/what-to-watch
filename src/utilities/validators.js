@@ -5,3 +5,8 @@ export const isValidEmail = (value) => {
 
   return re.test(value);
 };
+
+export const isLength = (value = ``, params = {}) => {
+  const {min = 0, max = value.length} = params;
+  return value.length >= min && value.length <= max;
+};
