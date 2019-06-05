@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserBlock /> should render correctly 1`] = `
+<div
+  className="user-block"
+>
+  <div
+    className="user-block__avatar"
+  >
+    <img
+      alt="Poehavshiy"
+      height="63"
+      src="https://es31-server.appspot.com/public/img/avatar.jpg"
+      width="63"
+    />
+  </div>
+</div>
+`;
+
+exports[`UserBlock test suite. <UserBlock /> should render correctly 1`] = `
+<div
+  className="user-block"
+>
+  <div
+    className="user-block__avatar"
+  >
+    <img
+      alt="Poehavshiy"
+      height="63"
+      src="https://es31-server.appspot.com/wtw/static/avatar/10.jpg"
+      width="63"
+    />
+  </div>
+</div>
+`;

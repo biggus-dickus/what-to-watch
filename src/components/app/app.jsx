@@ -17,25 +17,31 @@ export class App extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    // This will be removed in the next task
+    // This will be removed in the next assignment
     this.state = {
       currentView: Route.INDEX
     };
   }
 
   render() {
-    const {currentGenre, filteredMovies, genres, movies} = this.props;
+    const {currentGenre, filteredMovies, genres, movies, userData} = this.props;
 
-    return (this.props.isAuthRequired) ? <SignIn /> :
+    return (this.state.currentView === Route.SIGN_IN) ? <SignIn onSuccess={this._resetView} /> :
       <Main
-        {...{currentGenre, genres}}
+        {...{currentGenre, genres, userData}}
         movies={(filteredMovies.length) ? filteredMovies : movies}
-        onGenreChange={this._handleGenreChange} />;
+        onGenreChange={this._handleGenreChange}
+        onViewChange={this._handleViewChange} />;
   }
 
   _handleGenreChange = (selectedGenre) => this.props.onGenreChange(selectedGenre);
 
-  _handleViewChange = () => this.setState({currentView: Route.SIGN_IN})
+  _handleViewChange = (e) => {
+    e.preventDefault();
+    this.setState({currentView: Route.SIGN_IN});
+  };
+
+  _resetView = () => this.setState({currentView: Route.INDEX});
 }
 
 
@@ -45,7 +51,8 @@ App.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   isAuthRequired: PropTypes.bool.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onGenreChange: PropTypes.func.isRequired
+  onGenreChange: PropTypes.func.isRequired,
+  userData: PropTypes.object
 };
 
 const mapStateToProps = (state) => ({

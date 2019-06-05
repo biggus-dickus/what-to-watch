@@ -58,6 +58,7 @@ class SignInView extends React.PureComponent {
         .then(() => {
           this.setState({isLoading: false});
           this.props.onStateReset();
+          this.props.onSuccess();
         });
     }
   }
@@ -132,8 +133,9 @@ class SignInView extends React.PureComponent {
 }
 
 SignInView.propTypes = {
-  onLoginAttempt: PropTypes.func.isRequired,
   authError: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  onLoginAttempt: PropTypes.func.isRequired,
+  onSuccess: PropTypes.func.isRequired,
   ...withFormSharedPropTypes
 };
 

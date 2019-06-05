@@ -17,7 +17,7 @@ const FilmDataAdapter = (data) => {
     runTime: data.run_time,
     scoresCount: data.scores_count,
     starring: data.starring,
-    video: data.video_link,
+    video: data.video_link
   };
 };
 
