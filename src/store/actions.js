@@ -6,15 +6,23 @@ export const ActionCreator = {
     payload: genre
   }),
 
+  getUserData: (data) => ({
+    type: ActionType.GET_USER_DATA,
+    payload: data
+  }),
+
+  getAuthError: (error) => ({
+    type: ActionType.AUTH_FAIL,
+    payload: error
+  }),
+
   loadMovies: (movies) => ({
     type: ActionType.LOAD_MOVIES,
     payload: movies
   }),
 
-  requireAuthorization: (isRequired) => {
-    return {
-      type: ActionType.AUTH_REQUIRED,
-      payload: isRequired,
-    };
-  },
+  requireAuthorization: (isRequired) => ({
+    type: ActionType.AUTH_REQUIRED,
+    payload: isRequired,
+  })
 };

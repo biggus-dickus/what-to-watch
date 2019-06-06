@@ -4,14 +4,18 @@ import renderer from 'react-test-renderer';
 
 import {mockFilms} from '../../mocks/films';
 import {mockGenres} from '../../mocks/genres';
+import mockUser from '../../mocks/user';
+
 import {App} from './app';
 
 const props = {
   currentGenre: mockGenres[2],
   filteredMovies: [],
+  isAuthRequired: false,
   genres: mockGenres,
   movies: mockFilms,
-  onGenreChange: jest.fn()
+  onGenreChange: jest.fn(),
+  userData: mockUser
 };
 
 

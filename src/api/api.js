@@ -1,10 +1,13 @@
 import axios from 'axios';
+
+import {ApiEndpoint} from '../config/api-endpoints';
 import {ActionCreator} from '../store/actions';
+import {StatusCode} from '../config/status-codes';
 
 
 export const createAPI = (dispatch) => {
   const api = axios.create({
-    baseURL: `https://es31-server.appspot.com/wtw`,
+    baseURL: ApiEndpoint.BASE_URL,
     timeout: 1000 * 5,
     withCredentials: true,
   });
@@ -12,7 +15,7 @@ export const createAPI = (dispatch) => {
   const onSuccess = (response) => response;
 
   const onFail = (err) => {
-    if (err.response.status === 403) {
+    if (err.response.status === StatusCode.FORBIDDEN) {
       dispatch(ActionCreator.requireAuthorization(true));
     }
 

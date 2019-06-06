@@ -27,7 +27,7 @@ export const dataReducer = (state = initialState, action = {}) => {
         ...state,
         currentGenre: action.payload
       };
-  }
 
-  return state;
+    default: return state;
+  }
 };
