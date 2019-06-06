@@ -32,6 +32,7 @@ Array [
       >
         <a
           className="logo__link"
+          href={null}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -57,13 +58,9 @@ Array [
           className="user-block__avatar"
         >
           <img
-            alt="User avatar"
+            alt="Oliver.conner"
             height="63"
-            src={
-              Object {
-                "process": [Function],
-              }
-            }
+            src="https://es31-server.appspot.comimg/1.png"
             width="63"
           />
         </div>
@@ -947,6 +944,7 @@ Array [
       >
         <a
           className="logo__link logo__link--light"
+          href={null}
         >
           <span
             className="logo__letter logo__letter--1"
