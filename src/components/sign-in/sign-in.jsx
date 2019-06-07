@@ -34,16 +34,16 @@ class SignInView extends React.PureComponent {
     const {authError, isSubmitted, validity} = this.props;
 
     if (isSubmitted) {
+      if (authError) {
+        return authError;
+      }
+
       if (!validity[EMAIL_NAME]) {
         return `Please enter a valid email address`;
       }
 
       if (!validity[PASSWORD_NAME]) {
         return `Password field cannot be empty`;
-      }
-
-      if (authError) {
-        return authError;
       }
     }
 
@@ -57,8 +57,11 @@ class SignInView extends React.PureComponent {
       this.props.onLoginAttempt(this.props[EMAIL_NAME], this.props[PASSWORD_NAME])
         .then(() => {
           this.setState({isLoading: false});
-          this.props.onStateReset();
-          this.props.onSuccess();
+
+          if (!this.props.authError) {
+            this.props.onStateReset();
+            this.props.onSuccess();
+          }
         });
     }
   }

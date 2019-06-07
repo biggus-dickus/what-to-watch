@@ -37,15 +37,15 @@ describe(`User reducer test suite`, () => {
     const [email, password] = validCredentials;
     const {api, apiMock, dispatch, tryLogin} = mockApiSetup(email, password);
 
-    apiMock.onPost(ApiEndpoint.LOGIN, {params: {email, password}})
+    apiMock.onPost(ApiEndpoint.LOGIN, {email, password})
       .reply(200, mockUser);
 
     return tryLogin(dispatch, jest.fn(), api)
-      .then((data) => {
+      .then(() => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.GET_USER_DATA,
-          payload: data,
+          payload: mockUser,
         });
       });
   });
@@ -54,29 +54,19 @@ describe(`User reducer test suite`, () => {
     const [email, password] = invalidCredentials;
     const {api, apiMock, dispatch, tryLogin} = mockApiSetup(email, password);
 
-    apiMock.onPost(ApiEndpoint.LOGIN, {params: {email, password}})
-      .reply(400, {
-        response: {
-          status: 400,
-          data: {
-            response: {
-              status: 400,
-              data: {response: {error: `Invalid email`}}
-            }
-          }
-        }
-      });
+    const response = {
+      error: `Potomu chto ty loshara!!!`
+    };
 
-    api.post(ApiEndpoint.LOGIN, {params: {email, password}}).then((data) => {
-      console.log(`test-test`, data); // eslint-disable-line
-    });
+    apiMock.onPost(ApiEndpoint.LOGIN, {email, password})
+      .reply(400, response);
 
     return tryLogin(dispatch, jest.fn(), api)
-      .then((data) => {
+      .then(() => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.AUTH_FAIL,
-          payload: data,
+          payload: response.error,
         });
       });
   });
