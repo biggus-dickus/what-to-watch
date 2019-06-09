@@ -1,28 +1,34 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import {BASE_HOST} from '../../../config/api-endpoints';
 import Route from '../../../config/routes';
 
+import WrappingLink from '../../../hocs/wrapping-link';
 
-const UserBlock = ({user, onLinkClick}) => {
+
+const UserBlock = ({location, user}) => {
   return (
     <div className="user-block">
       {(user && user.name) ? (
-        <div className="user-block__avatar">
+        <WrappingLink
+          to={Route.MY_LIST}
+          isEqualCurrentPath={location.pathname === Route.MY_LIST}
+          className="user-block__avatar">
           <img src={`${BASE_HOST}${user.avatar_url}`} alt={user.name} width="63" height="63" />
-        </div>
+        </WrappingLink>
       ) : (
-        <a href={Route.SIGN_IN} className="user-block__link" onClick={onLinkClick}>
+        <Link to={Route.SIGN_IN} className="user-block__link">
           Sign in
-        </a>
+        </Link>
       )}
     </div>
   );
 };
 
 UserBlock.propTypes = {
-  onLinkClick: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired,
   user: PropTypes.shape({
     avatar_url: PropTypes.string, // eslint-disable-line
     email: PropTypes.string,

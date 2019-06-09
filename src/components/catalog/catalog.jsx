@@ -6,12 +6,12 @@ import GenresList from '../genres-list/genres-list';
 
 
 const Catalog = (props) => {
-  const {currentGenre, genres, movies, onGenreChange} = props;
+  const {currentGenre, genres = [], movies, onGenreChange} = props;
 
   return (
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
-      <GenresList {...{currentGenre, genres, onGenreChange}} />
+      {genres.length ? <GenresList {...{currentGenre, genres, onGenreChange}} /> : null}
 
       <FilmsList films={movies} />
 
@@ -23,10 +23,10 @@ const Catalog = (props) => {
 };
 
 Catalog.propTypes = {
-  currentGenre: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+  currentGenre: PropTypes.string,
+  genres: PropTypes.arrayOf(PropTypes.string),
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onGenreChange: PropTypes.func.isRequired
+  onGenreChange: PropTypes.func
 };
 
 export default Catalog;

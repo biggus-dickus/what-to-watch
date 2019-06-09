@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import {compose} from 'recompose';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
@@ -28,7 +29,9 @@ store.dispatch(Operation.loadMovies());
 
 ReactDOM.render(
     <Provider {...{store}}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </Provider>,
     document.getElementById(`root`)
 );

@@ -1,47 +1,50 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Route, Switch} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import RouteConfig from '../../config/routes';
+
 import * as DataSelector from '../../store/reducers/data/selectors';
+import {ActionCreator} from '../../store/actions';
 import {getAuthState, getUserData} from '../../store/reducers/user/selectors';
 
-import {ActionCreator} from '../../store/actions';
-
-import Route from '../../config/routes';
+import PropsRoute from '../../hocs/props-route';
 
 import Main from '../main/main';
+import MyList from '../my-list/my-list';
+import NoMatch from '../no-match/no-match';
 import SignIn from '../sign-in/sign-in';
 
 
 export class App extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    // This will be removed in the next assignment
-    this.state = {
-      currentView: Route.INDEX
-    };
-  }
-
   render() {
     const {currentGenre, filteredMovies, genres, movies, userData} = this.props;
 
-    return (this.state.currentView === Route.SIGN_IN) ? <SignIn onSuccess={this._resetView} /> :
-      <Main
-        {...{currentGenre, genres, userData}}
-        movies={(filteredMovies.length) ? filteredMovies : movies}
-        onGenreChange={this._handleGenreChange}
-        onViewChange={this._handleViewChange} />;
+    return (
+      <Switch>
+        <Route path={RouteConfig.SIGN_IN} exact component={SignIn} />
+
+        <PropsRoute
+          path={RouteConfig.INDEX}
+          exact
+          component={Main}
+          movies={(filteredMovies.length) ? filteredMovies : movies}
+          onGenreChange={this._handleGenreChange}
+          {...{currentGenre, genres, userData}} />
+
+        <PropsRoute
+          path={RouteConfig.MY_LIST}
+          exact
+          component={MyList}
+          {...{userData}} />
+
+        <NoMatch />
+      </Switch>
+    );
   }
 
   _handleGenreChange = (selectedGenre) => this.props.onGenreChange(selectedGenre);
-
-  _handleViewChange = (e) => {
-    e.preventDefault();
-    this.setState({currentView: Route.SIGN_IN});
-  };
-
-  _resetView = () => this.setState({currentView: Route.INDEX});
 }
 
 

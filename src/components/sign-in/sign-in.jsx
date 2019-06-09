@@ -60,7 +60,7 @@ class SignInView extends React.PureComponent {
 
           if (!this.props.authError) {
             this.props.onStateReset();
-            this.props.onSuccess();
+            // this.props.onSuccess();
           }
         });
     }
@@ -81,7 +81,7 @@ class SignInView extends React.PureComponent {
     return (
       <div className="user-page">
         <header className="page-header user-page__head">
-          <Logo isHomePage={false} />
+          <Logo pathname={this.props.location.pathname} />
 
           <h1 className="page-title user-page__title">Sign in</h1>
         </header>
@@ -129,7 +129,7 @@ class SignInView extends React.PureComponent {
           </form>
         </div>
 
-        <Footer isHomePage={false} />
+        <Footer pathname={this.props.location.pathname} />
       </div>
     );
   }
@@ -137,8 +137,8 @@ class SignInView extends React.PureComponent {
 
 SignInView.propTypes = {
   authError: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  location: PropTypes.object.isRequired,
   onLoginAttempt: PropTypes.func.isRequired,
-  onSuccess: PropTypes.func.isRequired,
   ...withFormSharedPropTypes
 };
 

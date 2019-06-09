@@ -1,3 +1,7 @@
+import Route from '../config/routes';
+
+const [film] = Route.FILM.split(`:`);
+
 const FilmDataAdapter = (data) => {
   return {
     bgColor: data.background_color,
@@ -8,7 +12,7 @@ const FilmDataAdapter = (data) => {
     id: data.id,
     isFavourite: data.is_favorite,
     name: data.name,
-    pageUrl: `/${data.name.toLowerCase().replace(/[. ,:-]+/g, `-`)}`,
+    pageUrl: `${film}${data.id}`,
     posterImage: data.poster_image,
     previewImage: data.preview_image,
     previewVideo: data.preview_video_link,

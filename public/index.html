@@ -20,7 +20,7 @@
         height: 100vh;
       }
 
-      .loader {
+      .main-loader {
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
         width: 100px;
@@ -28,14 +28,11 @@
         margin: auto;
       }
 
-      .loader-star {
+      .main-loader-star {
         position: absolute;
         width: 50px;
         height: 50px;
         top: calc(50% - 25px);
-      }
-
-      .loader-14 .loader-star {
         left: calc(50% - 25px);
       }
 
@@ -44,7 +41,7 @@
         animation: star-small-pulse 1s ease-in-out alternate infinite;
       }
 
-      .loader-14 .star-big {
+      .star-big {
         -webkit-animation: star-big-pulse 2s -0.2s ease-in-out infinite;
         animation: star-big-pulse 2s -0.2s ease-in-out infinite;
       }
@@ -97,11 +94,11 @@
         }
       }
     </style>
-    <div class="loader loader-14">
-      <svg class="loader-star star-small" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="23.172px" height="23.346px" viewBox="0 0 23.172 23.346" xml:space="preserve">
+    <div class="main-loader">
+      <svg class="main-loader-star star-small" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="23.172px" height="23.346px" viewBox="0 0 23.172 23.346" xml:space="preserve">
             <polygon fill="#f50057" points="11.586,0 8.864,8.9 0,8.9 7.193,14.447 4.471,23.346 11.586,17.84 18.739,23.346 16.77,14.985 23.172,8.9 14.306,8.9  "></polygon>
          </svg>
-      <svg class="loader-star star-big" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="23.172px" height="23.346px" viewBox="0 0 23.172 23.346" xml:space="preserve">
+      <svg class="main-loader-star star-big" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="23.172px" height="23.346px" viewBox="0 0 23.172 23.346" xml:space="preserve">
             <polygon fill="#f50057" points="11.586,0 8.864,8.9 0,8.9 7.193,14.447 4.471,23.346 11.586,17.84 18.739,23.346 16.77,14.985 23.172,8.9 14.306,8.9  "></polygon>
          </svg>
     </div>

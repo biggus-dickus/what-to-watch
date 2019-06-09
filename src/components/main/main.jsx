@@ -11,7 +11,7 @@ import grandBudapestBg from '../../../public/img/bg-the-grand-budapest-hotel.jpg
 
 
 const Main = (props) => {
-  const {userData, onViewChange} = props;
+  const {userData} = props;
 
   return (
     <>
@@ -23,9 +23,9 @@ const Main = (props) => {
         <h1 className="visually-hidden">What to Watch</h1>
 
         <header className="page-header movie-card__head">
-          <Logo isHomePage={true} />
+          <Logo pathname={props.location.pathname} />
 
-          <UserBlock user={userData} onLinkClick={onViewChange} />
+          <UserBlock location={props.location} user={userData} />
         </header>
 
         <div className="movie-card__wrap">
@@ -63,14 +63,14 @@ const Main = (props) => {
       <div className="page-content">
         <Catalog {...props} />
 
-        <Footer isHomePage={true} />
+        <Footer pathname={props.location.pathname} />
       </div>
     </>
   );
 };
 
 Main.propTypes = {
-  onViewChange: PropTypes.func.isRequired,
+  location: PropTypes.object,
   userData: PropTypes.object
 };
 
