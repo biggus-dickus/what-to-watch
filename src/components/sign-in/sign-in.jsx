@@ -26,6 +26,8 @@ class SignInView extends React.PureComponent {
   constructor(props) {
     super(props);
 
+    this._isMounted = false;
+
     this.state = {
       isLoading: false
     };
@@ -56,23 +58,33 @@ class SignInView extends React.PureComponent {
 
     this.props.onLoginAttempt(this.props[EMAIL_NAME], this.props[PASSWORD_NAME])
       .then(() => {
-        this.setState({isLoading: false});
+        if (this._isMounted) {
+          this.setState({isLoading: false});
 
-        if (!this.props.authError) {
-          const {from} = this.props.location.state || {
-            from: {pathname: RouteConfig.INDEX}
-          };
+          if (!this.props.authError) {
+            const {from} = this.props.location.state || {
+              from: {pathname: RouteConfig.INDEX}
+            };
 
-          this.props.onStateReset();
-          this.props.history.push(from);
+            this.props.onStateReset();
+            this.props.history.push(from);
+          }
         }
       });
+  }
+
+  componentDidMount() {
+    this._isMounted = true;
   }
 
   componentDidUpdate(prevProps) {
     if (!prevProps.isFormValid && this.props.isFormValid) {
       this._signIn();
     }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {

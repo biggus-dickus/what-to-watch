@@ -49,7 +49,7 @@ export class App extends React.PureComponent {
           path={RouteConfig.MY_LIST}
           exact
           component={MyList}
-          isLoggedIn={!!userData}
+          isPrivate={!userData}
           {...{userData}} />
 
         <NoMatch />

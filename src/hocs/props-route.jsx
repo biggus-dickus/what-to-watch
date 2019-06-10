@@ -13,7 +13,7 @@ const PropsRoute = (props) => {
 
 PropsRoute.propTypes = {
   children: PropTypes.func,
-  component: PropTypes.func.isRequired,
+  component: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
   path: PropTypes.string.isRequired
 };
 

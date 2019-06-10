@@ -7,28 +7,28 @@ import RouteConfig from '../config/routes';
 import PropsRoute from './props-route';
 
 
-const PrivateRoute = ({isLoggedIn, path, component, ...rest}) => {
-  if (isLoggedIn) {
-    return <PropsRoute {...{path, component}} {...rest} />;
+const PrivateRoute = ({isPrivate, path, component, ...rest}) => {
+  if (isPrivate) {
+    return (
+      <Route
+        {...rest}
+        render={(props) =>
+          <Redirect
+            to={{
+              pathname: RouteConfig.SIGN_IN,
+              state: {from: props.location}
+            }}
+          />
+        }
+      />
+    );
   }
 
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        <Redirect
-          to={{
-            pathname: RouteConfig.SIGN_IN,
-            state: {from: props.location}
-          }}
-        />
-      }
-    />
-  );
+  return <PropsRoute {...{path, component}} {...rest} />;
 };
 
 PrivateRoute.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
+  isPrivate: PropTypes.bool.isRequired,
   component: PropTypes.func.isRequired,
   location: PropTypes.object,
   path: PropTypes.string.isRequired
