@@ -12,7 +12,6 @@ import {App} from './app';
 const props = {
   currentGenre: mockGenres[2],
   filteredMovies: [],
-  isAuthRequired: false,
   genres: mockGenres,
   movies: mockFilms,
   onGenreChange: jest.fn(),
