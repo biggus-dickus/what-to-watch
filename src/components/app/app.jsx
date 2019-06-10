@@ -10,6 +10,7 @@ import {ActionCreator} from '../../store/actions';
 import {getAuthState, getUserData} from '../../store/reducers/user/selectors';
 
 import PropsRoute from '../../hocs/props-route';
+import PrivateRoute from '../../hocs/private-route';
 
 import Main from '../main/main';
 import MyList from '../my-list/my-list';
@@ -33,10 +34,11 @@ export class App extends React.PureComponent {
           onGenreChange={this._handleGenreChange}
           {...{currentGenre, genres, userData}} />
 
-        <PropsRoute
+        <PrivateRoute
           path={RouteConfig.MY_LIST}
           exact
           component={MyList}
+          isLoggedIn={!!userData}
           {...{userData}} />
 
         <NoMatch />

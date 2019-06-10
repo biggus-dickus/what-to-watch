@@ -24,14 +24,16 @@ const enhancer = composeEnhancers(applyMiddleware(thunk.withExtraArgument(api)))
 const store = createStore(rootReducer, enhancer);
 
 
-store.dispatch(Operation.getUserData());
 store.dispatch(Operation.loadMovies());
+store.dispatch(Operation.getUserData()).then(() => init());
 
-ReactDOM.render(
-    <Provider {...{store}}>
-      <Router>
-        <App />
-      </Router>
-    </Provider>,
-    document.getElementById(`root`)
-);
+function init() {
+  ReactDOM.render(
+      <Provider {...{store}}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>,
+      document.getElementById(`root`)
+  );
+}

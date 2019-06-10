@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import WithPrivateRoute from '../../hocs/private-route';
+
 import Catalog from '../catalog/catalog';
 import Footer from '../partials/footer/footer';
 import Logo from '../partials/logo/logo';

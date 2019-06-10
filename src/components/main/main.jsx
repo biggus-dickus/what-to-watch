@@ -70,7 +70,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  location: PropTypes.object,
+  location: PropTypes.object.isRequired,
   userData: PropTypes.object
 };
 

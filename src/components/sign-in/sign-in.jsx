@@ -8,6 +8,7 @@ import {Operation} from '../../store/operations';
 
 // Config
 import {EMAIL_NAME, PASSWORD_NAME} from './form-fields';
+import RouteConfig from '../../config/routes';
 import signInFields from './form-fields';
 import {withFormSharedPropTypes} from '../../hocs/with-form';
 
@@ -50,19 +51,27 @@ class SignInView extends React.PureComponent {
     return null;
   }
 
+  _signIn() {
+    this.setState({isLoading: true});
+
+    this.props.onLoginAttempt(this.props[EMAIL_NAME], this.props[PASSWORD_NAME])
+      .then(() => {
+        this.setState({isLoading: false});
+
+        if (!this.props.authError) {
+          const {from} = this.props.location.state || {
+            from: {pathname: RouteConfig.INDEX}
+          };
+
+          this.props.onStateReset();
+          this.props.history.push(from);
+        }
+      });
+  }
+
   componentDidUpdate(prevProps) {
     if (!prevProps.isFormValid && this.props.isFormValid) {
-      this.setState({isLoading: true});
-
-      this.props.onLoginAttempt(this.props[EMAIL_NAME], this.props[PASSWORD_NAME])
-        .then(() => {
-          this.setState({isLoading: false});
-
-          if (!this.props.authError) {
-            this.props.onStateReset();
-            // this.props.onSuccess();
-          }
-        });
+      this._signIn();
     }
   }
 
