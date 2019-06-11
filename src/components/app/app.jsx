@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, Redirect, Switch} from 'react-router-dom';
+import {Switch} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import RouteConfig from '../../config/routes';
@@ -9,8 +9,8 @@ import * as DataSelector from '../../store/reducers/data/selectors';
 import {ActionCreator} from '../../store/actions';
 import {getUserData} from '../../store/reducers/user/selectors';
 
-import PropsRoute from '../../hocs/props-route';
 import PrivateRoute from '../../hocs/private-route';
+import PropsRoute from '../../hocs/props-route';
 
 import Main from '../main/main';
 import MyList from '../my-list/my-list';
@@ -24,18 +24,13 @@ export class App extends React.PureComponent {
 
     return (
       <Switch>
-        <Route
+        <PrivateRoute
           path={RouteConfig.SIGN_IN}
+          redirectTo={RouteConfig.MY_LIST}
           exact
-          render={(props) =>
-            (userData) ?
-              <Redirect
-                to={{
-                  pathname: RouteConfig.MY_LIST,
-                  state: {from: props.location}
-                }} /> :
-              <SignIn {...props} />
-          } />
+          component={SignIn}
+          isPrivate={!!userData}
+          {...{userData}} />
 
         <PropsRoute
           path={RouteConfig.INDEX}
@@ -47,6 +42,7 @@ export class App extends React.PureComponent {
 
         <PrivateRoute
           path={RouteConfig.MY_LIST}
+          redirectTo={RouteConfig.SIGN_IN}
           exact
           component={MyList}
           isPrivate={!userData}

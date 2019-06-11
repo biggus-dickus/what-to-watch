@@ -8,7 +8,6 @@ import {Operation} from '../../store/operations';
 
 // Config
 import {EMAIL_NAME, PASSWORD_NAME} from './form-fields';
-import RouteConfig from '../../config/routes';
 import signInFields from './form-fields';
 import {withFormSharedPropTypes} from '../../hocs/with-form';
 
@@ -62,12 +61,7 @@ class SignInView extends React.PureComponent {
           this.setState({isLoading: false});
 
           if (!this.props.authError) {
-            const {from} = this.props.location.state || {
-              from: {pathname: RouteConfig.INDEX}
-            };
-
             this.props.onStateReset();
-            this.props.history.push(from);
           }
         }
       });

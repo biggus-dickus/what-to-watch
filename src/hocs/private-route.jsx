@@ -2,12 +2,10 @@ import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import RouteConfig from '../config/routes';
-
 import PropsRoute from './props-route';
 
 
-const PrivateRoute = ({isPrivate, path, component, ...rest}) => {
+const PrivateRoute = ({isPrivate, redirectTo, component, ...rest}) => {
   if (isPrivate) {
     return (
       <Route
@@ -15,7 +13,7 @@ const PrivateRoute = ({isPrivate, path, component, ...rest}) => {
         render={(props) =>
           <Redirect
             to={{
-              pathname: RouteConfig.SIGN_IN,
+              pathname: redirectTo,
               state: {from: props.location}
             }}
           />
@@ -24,14 +22,14 @@ const PrivateRoute = ({isPrivate, path, component, ...rest}) => {
     );
   }
 
-  return <PropsRoute {...{path, component}} {...rest} />;
+  return <PropsRoute {...{component}} {...rest} />;
 };
 
 PrivateRoute.propTypes = {
   isPrivate: PropTypes.bool.isRequired,
-  component: PropTypes.func.isRequired,
+  component: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
   location: PropTypes.object,
-  path: PropTypes.string.isRequired
+  redirectTo: PropTypes.string.isRequired
 };
 
 export default PrivateRoute;
