@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import {compose} from 'recompose';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
@@ -23,12 +24,16 @@ const enhancer = composeEnhancers(applyMiddleware(thunk.withExtraArgument(api)))
 const store = createStore(rootReducer, enhancer);
 
 
-store.dispatch(Operation.getUserData());
 store.dispatch(Operation.loadMovies());
+store.dispatch(Operation.getUserData()).then(() => init());
 
-ReactDOM.render(
-    <Provider {...{store}}>
-      <App />
-    </Provider>,
-    document.getElementById(`root`)
-);
+function init() {
+  ReactDOM.render(
+      <Provider {...{store}}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>,
+      document.getElementById(`root`)
+  );
+}

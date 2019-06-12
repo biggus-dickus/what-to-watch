@@ -25,6 +25,8 @@ class SignInView extends React.PureComponent {
   constructor(props) {
     super(props);
 
+    this._isMounted = false;
+
     this.state = {
       isLoading: false
     };
@@ -34,6 +36,10 @@ class SignInView extends React.PureComponent {
     const {authError, isSubmitted, validity} = this.props;
 
     if (isSubmitted) {
+      if (authError) {
+        return authError;
+      }
+
       if (!validity[EMAIL_NAME]) {
         return `Please enter a valid email address`;
       }
@@ -41,26 +47,38 @@ class SignInView extends React.PureComponent {
       if (!validity[PASSWORD_NAME]) {
         return `Password field cannot be empty`;
       }
-
-      if (authError) {
-        return authError;
-      }
     }
 
     return null;
   }
 
+  _signIn() {
+    this.setState({isLoading: true});
+
+    this.props.onLoginAttempt(this.props[EMAIL_NAME], this.props[PASSWORD_NAME])
+      .then(() => {
+        if (this._isMounted) {
+          this.setState({isLoading: false});
+
+          if (!this.props.authError) {
+            this.props.onStateReset();
+          }
+        }
+      });
+  }
+
+  componentDidMount() {
+    this._isMounted = true;
+  }
+
   componentDidUpdate(prevProps) {
     if (!prevProps.isFormValid && this.props.isFormValid) {
-      this.setState({isLoading: true});
-
-      this.props.onLoginAttempt(this.props[EMAIL_NAME], this.props[PASSWORD_NAME])
-        .then(() => {
-          this.setState({isLoading: false});
-          this.props.onStateReset();
-          this.props.onSuccess();
-        });
+      this._signIn();
     }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {
@@ -78,7 +96,7 @@ class SignInView extends React.PureComponent {
     return (
       <div className="user-page">
         <header className="page-header user-page__head">
-          <Logo isHomePage={false} />
+          <Logo pathname={this.props.location.pathname} />
 
           <h1 className="page-title user-page__title">Sign in</h1>
         </header>
@@ -126,7 +144,7 @@ class SignInView extends React.PureComponent {
           </form>
         </div>
 
-        <Footer isHomePage={false} />
+        <Footer pathname={this.props.location.pathname} />
       </div>
     );
   }
@@ -134,8 +152,8 @@ class SignInView extends React.PureComponent {
 
 SignInView.propTypes = {
   authError: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  location: PropTypes.object.isRequired,
   onLoginAttempt: PropTypes.func.isRequired,
-  onSuccess: PropTypes.func.isRequired,
   ...withFormSharedPropTypes
 };
 

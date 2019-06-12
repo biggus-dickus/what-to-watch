@@ -30,9 +30,8 @@ Array [
       <div
         className="logo"
       >
-        <a
+        <span
           className="logo__link"
-          href={null}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -49,13 +48,15 @@ Array [
           >
             W
           </span>
-        </a>
+        </span>
       </div>
       <div
         className="user-block"
       >
-        <div
+        <a
           className="user-block__avatar"
+          href="/mylist"
+          onClick={[Function]}
         >
           <img
             alt="Oliver.conner"
@@ -63,7 +64,7 @@ Array [
             src="https://es31-server.appspot.comimg/1.png"
             width="63"
           />
-        </div>
+        </a>
       </div>
     </header>
     <div
@@ -942,9 +943,8 @@ Array [
       <div
         className="logo"
       >
-        <a
+        <span
           className="logo__link logo__link--light"
-          href={null}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -961,7 +961,7 @@ Array [
           >
             W
           </span>
-        </a>
+        </span>
       </div>
       <div
         className="copyright"

@@ -1,20 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import RouteConfig from '../../../config/routes';
+import WrappingLink from '../../../hocs/wrapping-link';
 
-export const Logo = ({isHomePage, bemModifier = ``}) => (
+
+export const Logo = ({pathname, bemModifier = ``}) => (
   <div className="logo">
-    <a className={`logo__link ${bemModifier}`.trim()} href={(isHomePage) ? null : `/`}>
+    <WrappingLink
+      to={RouteConfig.INDEX}
+      isEqualCurrentPath={pathname === RouteConfig.INDEX}
+      className={`logo__link ${bemModifier}`.trim()}>
       <span className="logo__letter logo__letter--1">W</span>
       <span className="logo__letter logo__letter--2">T</span>
       <span className="logo__letter logo__letter--3">W</span>
-    </a>
+    </WrappingLink>
   </div>
 );
 
 Logo.propTypes = {
   bemModifier: PropTypes.string,
-  isHomePage: PropTypes.bool.isRequired
+  pathname: PropTypes.string.isRequired
 };
 
 export default Logo;

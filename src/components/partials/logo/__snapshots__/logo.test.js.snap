@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Logo /> should render correctly 1`] = `
+exports[`Logo test suite <Logo /> should render correctly 1`] = `
 <div
   className="logo"
 >
   <a
     className="logo__link"
     href="/"
+    onClick={[Function]}
   >
     <span
       className="logo__letter logo__letter--1"

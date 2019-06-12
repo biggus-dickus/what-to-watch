@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 
 const FormInput = (props) => {
-  const {htmlFormTag, type = `text`, id, name, ...rest} = props;
+  const {htmlFormTag, type = `text`, id, name, children, ...rest} = props;
 
   switch (htmlFormTag.toLowerCase()) {
     case `select`:
-      return <select {...{id, name}} {...rest}>{props.children}</select>;
+      return <select {...{id, name}} {...rest}>{children}</select>;
 
     case `textarea`:
       return <textarea {...{id, name}} {...rest} />;
@@ -22,7 +22,7 @@ FormInput.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
-  children: PropTypes.object
+  children: PropTypes.array
 };
 
 export default FormInput;

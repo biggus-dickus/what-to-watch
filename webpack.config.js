@@ -9,7 +9,8 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, `public`),
     compress: false,
-    port: 1488
+    port: 1488,
+    historyApiFallback: true
   },
   resolve: {
     extensions: [`.js`, `.jsx`]

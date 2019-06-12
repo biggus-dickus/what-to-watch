@@ -4,15 +4,17 @@ exports[`UserBlock test suite. <UserBlock /> should render correctly 1`] = `
 <div
   className="user-block"
 >
-  <div
+  <a
     className="user-block__avatar"
+    href="/mylist"
+    onClick={[Function]}
   >
     <img
-      alt="Poehavshiy"
+      alt="Nastasha Romanenko"
       height="63"
       src="https://es31-server.appspot.com/wtw/static/avatar/10.jpg"
       width="63"
     />
-  </div>
+  </a>
 </div>
 `;
