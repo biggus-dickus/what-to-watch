@@ -1,10 +1,11 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
+import {Genre} from '../../types/types'; // eslint-disable-line
 
 import GenresListItem from './list-item/genres-list-item';
 
 
-const GenresList = ({genres, currentGenre, onGenreChange}) => {
+const GenresList = ({genres, currentGenre, onGenreChange}: Genre) => {
   return (
     <ul className="catalog__genres-list">
       <GenresListItem
@@ -13,12 +14,6 @@ const GenresList = ({genres, currentGenre, onGenreChange}) => {
         {...{onGenreChange}} />
     </ul>
   );
-};
-
-GenresList.propTypes = {
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-  currentGenre: PropTypes.string.isRequired,
-  onGenreChange: PropTypes.func.isRequired
 };
 
 export default GenresList;

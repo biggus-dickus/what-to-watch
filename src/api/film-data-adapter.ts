@@ -2,7 +2,7 @@ import Route from '../config/routes';
 
 const [film] = Route.FILM.split(`:`);
 
-const FilmDataAdapter = (data) => {
+const FilmDataAdapter = (data: any): object => {
   return {
     bgColor: data.background_color,
     bgImage: data.background_image,

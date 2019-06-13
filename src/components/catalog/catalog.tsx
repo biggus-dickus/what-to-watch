@@ -1,11 +1,17 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
+import {Film, Genre} from '../../types/types'; // eslint-disable-line
 
 import FilmsList from '../films-list/films-list';
 import GenresList from '../genres-list/genres-list';
 
 
-const Catalog = (props) => {
+interface Props extends Genre {
+  movies: Array<Film>
+}
+
+
+const Catalog = (props: Props) => {
   const {currentGenre, genres = [], movies, onGenreChange} = props;
 
   return (
@@ -20,13 +26,6 @@ const Catalog = (props) => {
       </div>
     </section>
   );
-};
-
-Catalog.propTypes = {
-  currentGenre: PropTypes.string,
-  genres: PropTypes.arrayOf(PropTypes.string),
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onGenreChange: PropTypes.func
 };
 
 export default Catalog;

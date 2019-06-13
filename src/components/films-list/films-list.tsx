@@ -1,10 +1,14 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
+import {Film} from '../../types/types'; // eslint-disable-line
 import FilmCard from '../film-card/film-card';
 
 
-const filmsList = ({films}) => (
+interface Props {
+  films: Film[]
+}
+
+const FilmsList = ({films}: Props) => (
   films.length ? (
     <div className="catalog__movies-list">
       {films.map((film) => <FilmCard key={film.id} {...film} />)}
@@ -12,8 +16,4 @@ const filmsList = ({films}) => (
   ) : null
 );
 
-filmsList.propTypes = {
-  films: PropTypes.array.isRequired
-};
-
-export default filmsList;
+export default FilmsList;

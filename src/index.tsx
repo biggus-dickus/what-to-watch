@@ -15,7 +15,7 @@ import App from './components/app/app';
 declare const __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: (params: object) => any;
 
 
-const api = createAPI((...args) => store.dispatch(...args));
+const api = createAPI((dispatchFunc) => store.dispatch(dispatchFunc));
 
 // https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
 const composeEnhancers = (__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ?

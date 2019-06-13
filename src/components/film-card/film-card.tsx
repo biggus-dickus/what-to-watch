@@ -1,20 +1,26 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
 import Video from '../video-player/video-player';
 
+interface Props {
+  name: string,
+  previewImage: string,
+  pageUrl: string,
+  previewVideo: string
+}
 
-const FilmCard = (props) => {
+
+const FilmCard = (props: Props) => {
   const {name, previewImage, pageUrl, previewVideo} = props;
 
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = React.useState(false);
 
   const onCardHover = () => setIsHovered(true);
   const onCardDismiss = () => setIsHovered(false);
 
   return (
     <article className="small-movie-card catalog__movies-card"
-      tabIndex="0"
+      tabIndex={0}
       onMouseEnter={onCardHover}
       onMouseLeave={onCardDismiss}>
       <button className="small-movie-card__play-btn" type="button">Play</button>
@@ -33,14 +39,6 @@ const FilmCard = (props) => {
       </h3>
     </article>
   );
-};
-
-
-FilmCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  previewImage: PropTypes.string.isRequired,
-  pageUrl: PropTypes.string.isRequired,
-  previewVideo: PropTypes.string.isRequired
 };
 
 export default FilmCard;

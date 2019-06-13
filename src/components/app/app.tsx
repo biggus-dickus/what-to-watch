@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {Switch} from 'react-router-dom';
-import PropTypes from 'prop-types';
+
+import {Film, Genre} from '../../types/types'; // eslint-disable-line
 
 import RouteConfig from '../../config/routes';
 
@@ -18,7 +19,14 @@ import NoMatch from '../no-match/no-match';
 import SignIn from '../sign-in/sign-in';
 
 
-export class App extends React.PureComponent {
+interface Props extends Genre {
+  filteredMovies?: Array<string>,
+  movies: Array<Film>,
+  userData: object
+}
+
+
+export class App extends React.PureComponent<Props, {}> {
   render() {
     const {currentGenre, filteredMovies, genres, movies, userData} = this.props;
 
@@ -55,16 +63,6 @@ export class App extends React.PureComponent {
 
   _handleGenreChange = (selectedGenre) => this.props.onGenreChange(selectedGenre);
 }
-
-
-App.propTypes = {
-  currentGenre: PropTypes.string.isRequired,
-  filteredMovies: PropTypes.array,
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onGenreChange: PropTypes.func.isRequired,
-  userData: PropTypes.object
-};
 
 const mapStateToProps = (state) => ({
   currentGenre: DataSelector.getCurrentGenre(state),

@@ -5,7 +5,7 @@ import {ActionCreator} from '../store/actions';
 import {StatusCode} from '../config/status-codes';
 
 
-export const createAPI = (dispatch) => {
+export const createAPI = (dispatch): object => {
   const api = axios.create({
     baseURL: ApiEndpoint.BASE_URL,
     timeout: 1000 * 5,
