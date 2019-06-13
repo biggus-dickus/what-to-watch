@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {compose} from 'recompose';
 import {createStore, applyMiddleware} from 'redux';
@@ -12,13 +12,16 @@ import rootReducer from './store/reducers/index';
 
 import App from './components/app/app';
 
+declare const __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: (params: object) => any;
+
 
 const api = createAPI((...args) => store.dispatch(...args));
 
 // https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
-const composeEnhancers = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ?
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
+const composeEnhancers = (__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ?
+  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
 
+// const enhancer = composeEnhancers(applyMiddleware(thunk.withExtraArgument(api)));
 const enhancer = composeEnhancers(applyMiddleware(thunk.withExtraArgument(api)));
 
 const store = createStore(rootReducer, enhancer);

@@ -1,7 +1,7 @@
 const path = require(`path`);
 
 module.exports = {
-  entry: `./src/index.js`,
+  entry: `./src/index.tsx`,
   output: {
     filename: `bundle.js`,
     path: path.join(__dirname, `public`)
@@ -13,7 +13,7 @@ module.exports = {
     historyApiFallback: true
   },
   resolve: {
-    extensions: [`.js`, `.jsx`]
+    extensions: [`.js`, `.jsx`, `.ts`, `.tsx`, `json`]
   },
   module: {
     rules: [
@@ -23,6 +23,10 @@ module.exports = {
         use: {
           loader: `babel-loader`
         }
+      },
+      {
+        test: /\.(tsx|ts)?$/,
+        loader: `ts-loader`
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
