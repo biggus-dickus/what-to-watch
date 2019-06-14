@@ -20,7 +20,21 @@ export interface Film {
 }
 
 export interface Genre {
-  currentGenre: string,
-  genres: Array<string>,
-  onGenreChange: (newGenre: string) => object
+  currentGenre?: string,
+  genres?: Array<string>,
+  onGenreChange?: (newGenre: string) => object
+}
+
+export interface Location {
+  hash: string,
+  key: string,
+  pathname: string,
+  search: string
+}
+
+export interface User {
+  avatar_url: string, // eslint-disable-line
+  email: string,
+  id: number,
+  name: string
 }

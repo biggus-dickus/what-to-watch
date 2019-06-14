@@ -1,17 +1,15 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
+interface Props {
+  show: boolean
+}
 
-const Loader = ({show}) => (
+const Loader = ({show}: Props) => (
   show ? (
     <div className="loader">
       <p className="visually-hidden">Loading&hellip;</p>
     </div>
   ) : null
 );
-
-Loader.propTypes = {
-  show: PropTypes.bool.isRequired
-};
 
 export default Loader;

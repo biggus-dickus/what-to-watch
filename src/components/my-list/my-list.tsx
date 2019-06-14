@@ -1,15 +1,20 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-
-import WithPrivateRoute from '../../hocs/private-route';
 
 import Catalog from '../catalog/catalog';
 import Footer from '../partials/footer/footer';
 import Logo from '../partials/logo/logo';
 import UserBlock from '../partials/user-block/user-block';
 
+import {Film, Location, User} from '../../types/types'; // eslint-disable-line
 
-const MyList = (props) => {
+interface Props {
+  location: Location,
+  userData: User,
+  selectedMovies?: Array<Film>
+}
+
+
+const MyList = (props: Props) => {
   const {location, userData, selectedMovies = []} = props;
 
   return (
@@ -27,12 +32,6 @@ const MyList = (props) => {
       <Footer pathname={location.pathname} />
     </div>
   );
-};
-
-MyList.propTypes = {
-  location: PropTypes.object.isRequired,
-  userData: PropTypes.object,
-  selectedMovies: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default MyList;

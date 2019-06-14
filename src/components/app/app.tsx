@@ -2,7 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Switch} from 'react-router-dom';
 
-import {Film, Genre} from '../../types/types'; // eslint-disable-line
+import {Film, Genre, User} from '../../types/types'; // eslint-disable-line
 
 import RouteConfig from '../../config/routes';
 
@@ -20,9 +20,9 @@ import SignIn from '../sign-in/sign-in';
 
 
 interface Props extends Genre {
-  filteredMovies?: Array<string>,
+  filteredMovies?: Array<Film>,
   movies: Array<Film>,
-  userData: object
+  userData: User
 }
 
 

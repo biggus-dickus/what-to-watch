@@ -1,14 +1,20 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
+
+import {Location, User} from '../../../types/types'; // eslint-disable-line
 
 import {BASE_HOST} from '../../../config/api-endpoints';
 import Route from '../../../config/routes';
 
 import WrappingLink from '../../../hocs/wrapping-link';
 
+interface Props {
+  location: Location,
+  user: User
+}
 
-const UserBlock = ({location, user}) => {
+
+const UserBlock = ({location, user}: Props) => {
   return (
     <div className="user-block">
       {(user && user.name) ? (
@@ -25,16 +31,6 @@ const UserBlock = ({location, user}) => {
       )}
     </div>
   );
-};
-
-UserBlock.propTypes = {
-  location: PropTypes.object.isRequired,
-  user: PropTypes.shape({
-    avatar_url: PropTypes.string, // eslint-disable-line
-    email: PropTypes.string,
-    id: PropTypes.number,
-    name: PropTypes.string,
-  })
 };
 
 export default UserBlock;

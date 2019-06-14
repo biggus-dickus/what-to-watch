@@ -1,16 +1,24 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 import Catalog from '../catalog/catalog';
 import Footer from '../partials/footer/footer';
 import Logo from '../partials/logo/logo';
 import UserBlock from '../partials/user-block/user-block';
 
-import grandBudapest from '../../../public/img/the-grand-budapest-hotel-poster.jpg';
-import grandBudapestBg from '../../../public/img/bg-the-grand-budapest-hotel.jpg';
+import * as Interface from '../../types/types'; // eslint-disable-line
+
+const grandBudapest = require(`../../../public/img/the-grand-budapest-hotel-poster.jpg`);
+const grandBudapestBg = require(`../../../public/img/bg-the-grand-budapest-hotel.jpg`);
 
 
-const Main = (props) => {
+interface Props extends Interface.Genre {
+  location: Interface.Location,
+  userData: Interface.User,
+  movies: Array<Interface.Film>
+}
+
+
+const Main = (props: Props) => {
   const {userData} = props;
 
   return (
@@ -67,11 +75,6 @@ const Main = (props) => {
       </div>
     </>
   );
-};
-
-Main.propTypes = {
-  location: PropTypes.object.isRequired,
-  userData: PropTypes.object
 };
 
 export default Main;

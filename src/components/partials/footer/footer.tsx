@@ -1,10 +1,11 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 import Logo from '../logo/logo';
 
+interface Props {pathname: string}
 
-const Footer = ({pathname}) => (
+
+const Footer = ({pathname}: Props) => (
   <footer className="page-footer">
     <Logo bemModifier="logo__link--light" {...{pathname}} />
 
@@ -13,9 +14,5 @@ const Footer = ({pathname}) => (
     </div>
   </footer>
 );
-
-Footer.propTypes = {
-  pathname: PropTypes.string.isRequired
-};
 
 export default Footer;

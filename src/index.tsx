@@ -21,7 +21,6 @@ const api = createAPI((dispatchFunc) => store.dispatch(dispatchFunc));
 const composeEnhancers = (__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ?
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
 
-// const enhancer = composeEnhancers(applyMiddleware(thunk.withExtraArgument(api)));
 const enhancer = composeEnhancers(applyMiddleware(thunk.withExtraArgument(api)));
 
 const store = createStore(rootReducer, enhancer);
