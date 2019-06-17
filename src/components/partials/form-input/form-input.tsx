@@ -9,7 +9,7 @@ interface Props extends FormField {
 }
 
 
-const FormInput = (props: Props) => {
+const FormInput = (props: Props): React.ReactElement => {
   const {htmlFormTag, type = `text`, id, name, children, ...rest} = props;
 
   switch (htmlFormTag.toLowerCase()) {

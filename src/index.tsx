@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 
 import {createAPI} from './api/api';
 import {Operation} from './store/operations';
-import rootReducer from './store/reducers/index';
+import rootReducer from './store/reducers';
 
 import App from './components/app/app';
 
@@ -29,13 +29,13 @@ const store = createStore(rootReducer, enhancer);
 store.dispatch(Operation.loadMovies());
 store.dispatch(Operation.getUserData()).then(() => init());
 
-function init() {
+function init(): void {
   ReactDOM.render(
       <Provider {...{store}}>
         <Router>
           <App />
         </Router>
       </Provider>,
-      document.getElementById(`root`)
+      document.getElementById(`root`) as HTMLElement
   );
 }

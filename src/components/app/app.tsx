@@ -27,7 +27,7 @@ interface Props extends Genre {
 
 
 export class App extends React.PureComponent<Props, null> {
-  render() {
+  render(): React.ReactElement {
     const {currentGenre, filteredMovies, genres, movies, userData} = this.props;
 
     return (
@@ -61,7 +61,7 @@ export class App extends React.PureComponent<Props, null> {
     );
   }
 
-  _handleGenreChange = (selectedGenre) => this.props.onGenreChange(selectedGenre);
+  _handleGenreChange = (selectedGenre: string): void => this.props.onGenreChange(selectedGenre);
 }
 
 const mapStateToProps = (state) => ({

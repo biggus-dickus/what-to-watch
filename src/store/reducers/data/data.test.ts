@@ -62,6 +62,6 @@ describe(`Data reducer test suite`, () => {
   });
 
   it(`should return original state in case the action is not passed or unknown`, () => {
-    expect(dataReducer(originalState, undefined)).toEqual(originalState);
+    expect(dataReducer(originalState, {type: `hz`})).toEqual(originalState);
   });
 });

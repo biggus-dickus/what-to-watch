@@ -3,7 +3,7 @@ import * as React from 'react';
 import {Genre} from '../../types'; // eslint-disable-line
 
 
-const GenresList = ({genres, currentGenre, onGenreChange}: Genre) => {
+const GenresList = ({genres, currentGenre, onGenreChange}: Genre): React.ReactElement => {
   return (
     <ul className="catalog__genres-list">
       {genres.map((genre) => {

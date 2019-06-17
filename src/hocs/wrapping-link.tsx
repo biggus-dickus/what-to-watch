@@ -11,7 +11,7 @@ interface Props {
 
 
 // Prevent active html navigation links from linking on themselves
-const WrappingLink = (props: Props) => {
+const WrappingLink = (props: Props): React.ReactElement => {
   const {isEqualCurrentPath, to, children, ...rest} = props;
 
   return (isEqualCurrentPath) ?

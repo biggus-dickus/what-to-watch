@@ -8,7 +8,7 @@ interface Props {
   films: Film[]
 }
 
-const FilmsList = ({films}: Props) => (
+const FilmsList = ({films}: Props): React.ReactElement => (
   films.length ? (
     <div className="catalog__movies-list">
       {films.map((film) => <FilmCard key={film.id} {...film} />)}

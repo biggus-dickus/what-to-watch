@@ -14,7 +14,7 @@ interface Props {
 }
 
 
-const UserBlock = ({location, user}: Props) => {
+const UserBlock = ({location, user}: Props): React.ReactElement => {
   return (
     <div className="user-block">
       {(user && user.name) ? (

@@ -14,7 +14,7 @@ interface Props {
 }
 
 
-const MyList = (props: Props) => {
+const MyList = (props: Props): React.ReactElement => {
   const {location, userData, selectedMovies = []} = props;
 
   return (

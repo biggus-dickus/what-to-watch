@@ -42,7 +42,7 @@ class SignInView extends React.PureComponent<Props, State> {
     };
   }
 
-  _getError() {
+  _getError(): string {
     const {authError, isSubmitted, validity} = this.props;
 
     if (isSubmitted) {
@@ -62,7 +62,7 @@ class SignInView extends React.PureComponent<Props, State> {
     return null;
   }
 
-  _signIn() {
+  _signIn(): void {
     this.setState({isLoading: true});
 
     this.props.onLoginAttempt(this.props[EMAIL_NAME], this.props[PASSWORD_NAME])
@@ -77,21 +77,21 @@ class SignInView extends React.PureComponent<Props, State> {
       });
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     this._isMounted = true;
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: Props): void {
     if (!prevProps.isFormValid && this.props.isFormValid) {
       this._signIn();
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     this._isMounted = false;
   }
 
-  render() {
+  render(): React.ReactElement {
     const {isSubmitted, validity, formFields, location} = this.props;
     const error = this._getError();
 

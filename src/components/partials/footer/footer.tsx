@@ -5,7 +5,7 @@ import Logo from '../logo/logo';
 interface Props {pathname: string}
 
 
-const Footer = ({pathname}: Props) => (
+const Footer = ({pathname}: Props): React.ReactElement => (
   <footer className="page-footer">
     <Logo bemModifier="logo__link--light" {...{pathname}} />
 

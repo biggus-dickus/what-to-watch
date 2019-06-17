@@ -18,7 +18,7 @@ interface Props extends Interface.Genre {
 }
 
 
-const Main = (props: Props) => {
+const Main = (props: Props): React.ReactElement => {
   const {userData} = props;
 
   return (

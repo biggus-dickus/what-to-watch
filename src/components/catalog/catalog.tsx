@@ -11,7 +11,7 @@ interface Props extends Genre {
 }
 
 
-const Catalog = (props: Props) => {
+const Catalog = (props: Props): React.ReactElement => {
   const {currentGenre, genres = [], movies, onGenreChange} = props;
 
   return (

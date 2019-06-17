@@ -4,7 +4,7 @@ interface Props {
   show: boolean
 }
 
-const Loader = ({show}: Props) => (
+const Loader = ({show}: Props): React.ReactElement => (
   show ? (
     <div className="loader">
       <p className="visually-hidden">Loading&hellip;</p>

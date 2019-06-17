@@ -10,7 +10,7 @@ interface Props {
 }
 
 
-const FilmCard = (props: Props) => {
+const FilmCard = (props: Props): React.ReactElement => {
   const {name, previewImage, pageUrl, previewVideo} = props;
 
   const [isHovered, setIsHovered] = React.useState(false);

@@ -17,7 +17,7 @@ const originalState = {
 
 const stateCopy = {...originalState};
 
-const mockApiSetup = (mockEmail, mockPassword) => {
+const mockApiSetup = (mockEmail?: string, mockPassword?: string) => {
   const dispatch = jest.fn();
   const api = createAPI(dispatch);
   const apiMock = new MockAdapter(api);
@@ -28,8 +28,8 @@ const mockApiSetup = (mockEmail, mockPassword) => {
   return {api, apiMock, dispatch, getUserData, tryLogin};
 };
 
-const validCredentials = [`test@test.com`, 2128506];
-const invalidCredentials = [`trololo`, 666];
+const validCredentials = [`test@test.com`, `2128506`];
+const invalidCredentials = [`trololo`, `666`];
 
 
 describe(`User reducer test suite`, () => {
@@ -129,7 +129,7 @@ describe(`User reducer test suite`, () => {
   });
 
   it(`should return original state in case the action is not passed or unknown`, () => {
-    expect(userReducer(originalState, undefined)).toEqual(originalState);
+    expect(userReducer(originalState, {type: `hz`})).toEqual(originalState);
   });
 
   it(`should not mutate the original state object`, () => {

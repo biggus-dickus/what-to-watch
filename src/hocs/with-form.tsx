@@ -6,9 +6,13 @@ import {copyRelevantProps} from '../utilities/helpers';
 import getDisplayName from '../utilities/get-display-name';
 
 
+interface Validity {
+  [x: string]: boolean
+}
+
 interface State {
   [x: string]: any,
-  validity: {[x: string]: boolean},
+  validity: Validity,
   isFormValid: boolean,
   isSubmitted: boolean
 }
@@ -16,20 +20,18 @@ interface State {
 
 const withForm = (WrappedComponent: React.ElementType, formFields: FormFieldWithValidation[]) => {
   class WithForm extends React.Component<any, State> {
-    private _fieldNames: string[];
-    private _initialState: State;
+    private _fieldNames: string[] = formFields.map((field) => field.name);
+    readonly _initialState: State;
 
-    public passThroughFields: FormField[];
+    public passThroughFields: FormField[] = formFields.map((field) => copyRelevantProps(field, [`validate`, `validWhen`]));
     public displayName: string;
 
     constructor(props) {
       super(props);
 
-      this._fieldNames = formFields.map((field) => field.name);
-      this.passThroughFields = formFields.map((field) => copyRelevantProps(field, [`validate`, `validWhen`]));
-
       const formData = collectFormData(formFields);
       const validationData = {...formData};
+
       for (let key in validationData) {
         if (validationData.hasOwnProperty(key)) {
           validationData[key] = false;
@@ -46,7 +48,7 @@ const withForm = (WrappedComponent: React.ElementType, formFields: FormFieldWith
       this.state = {...this._initialState};
     }
 
-    _setValidity(fieldName, fieldValue) {
+    _setValidity(fieldName: string, fieldValue: string): Validity {
       const validity = {...this.state.validity};
       const currentField = formFields.find((field) => field.name === fieldName);
 
@@ -55,12 +57,12 @@ const withForm = (WrappedComponent: React.ElementType, formFields: FormFieldWith
       return validity;
     }
 
-    _isFormValid = () => {
+    _isFormValid = (): boolean => {
       return this._fieldNames.every((name) => !!this.state.validity[name]);
     };
 
-    handleInput = (e) => {
-      const {name, value} = e.target;
+    handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
+      const {name, value} = e.target as HTMLInputElement;
 
       this.setState({
         [name]: value,
@@ -73,7 +75,7 @@ const withForm = (WrappedComponent: React.ElementType, formFields: FormFieldWith
      * Data submission logic per se must be handled by the concerned component.
      * @param {Event} e
      */
-    handleSubmit = (e) => {
+    handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
       e.preventDefault();
 
       if (!this.state.isSubmitted) {
@@ -85,9 +87,9 @@ const withForm = (WrappedComponent: React.ElementType, formFields: FormFieldWith
       });
     };
 
-    resetState = () => this.setState({...this._initialState});
+    resetState = (): void => this.setState({...this._initialState});
 
-    render() {
+    render(): React.ReactComponentElement<any, State> {
       return (
         <WrappedComponent
           {...this.state}

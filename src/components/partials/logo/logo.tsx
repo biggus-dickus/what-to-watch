@@ -9,7 +9,7 @@ interface Props {
 }
 
 
-export const Logo = ({pathname, bemModifier = ``}: Props) => (
+export const Logo = ({pathname, bemModifier = ``}: Props): React.ReactElement => (
   <div className="logo">
     <WrappingLink
       to={RouteConfig.INDEX}

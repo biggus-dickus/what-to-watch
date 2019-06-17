@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios, {AxiosInstance} from 'axios'; // eslint-disable-line
 
 import {ApiEndpoint} from '../config/api-endpoints';
 import {ActionCreator} from '../store/actions';
 import {StatusCode} from '../config/status-codes';
 
 
-export const createAPI = (dispatch): object => {
+export const createAPI = (dispatch): AxiosInstance => {
   const api = axios.create({
     baseURL: ApiEndpoint.BASE_URL,
     timeout: 1000 * 5,
