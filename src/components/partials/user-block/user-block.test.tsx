@@ -1,26 +1,18 @@
 import * as React from 'react';
 import {StaticRouter as Router} from 'react-router-dom';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 import {configure, shallow} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import * as Adapter from 'enzyme-adapter-react-16';
 
 import {BASE_HOST} from '../../../config/api-endpoints';
 import Route from '../../../config/routes';
 
+import {mockLocation as location} from '../../../mocks/user';
+import mockUser from '../../../mocks/user';
+
 import UserBlock from './user-block';
 
 configure({adapter: new Adapter()});
-
-const mockUser = {
-  avatar_url: '/wtw/static/avatar/10.jpg', // eslint-disable-line
-  id: 777,
-  email: `test@test.com`,
-  name: `Nastasha Romanenko`,
-};
-
-const location = {
-  pathname: Route.INDEX
-};
 
 
 describe(`UserBlock test suite.`, () => {

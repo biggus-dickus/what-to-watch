@@ -1,3 +1,5 @@
+import {Genre as GenreType} from '../types'; // eslint-disable-line
+
 export const Genre = {
   ALL: `All genres`,
   COMEDIES: `Comedies`,
@@ -12,3 +14,9 @@ export const Genre = {
 };
 
 export const mockGenres = Object.values(Genre);
+
+export const mockGenreEntity: GenreType = {
+  currentGenre: Genre.CRIME,
+  genres: [...mockGenres],
+  onGenreChange: jest.fn()
+};

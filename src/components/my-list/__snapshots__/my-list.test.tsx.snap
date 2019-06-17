@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MyList /> should render correctly 1`] = `
+<div
+  className="user-page"
+>
+  <header
+    className="page-header user-page__head"
+  >
+    <div
+      className="logo"
+    >
+      <span
+        className="logo__link"
+      >
+        <span
+          className="logo__letter logo__letter--1"
+        >
+          W
+        </span>
+        <span
+          className="logo__letter logo__letter--2"
+        >
+          T
+        </span>
+        <span
+          className="logo__letter logo__letter--3"
+        >
+          W
+        </span>
+      </span>
+    </div>
+    <h1
+      className="page-title user-page__title"
+    >
+      My list
+    </h1>
+    <div
+      className="user-block"
+    >
+      <a
+        className="user-block__avatar"
+        href="/mylist"
+        onClick={[Function]}
+      >
+        <img
+          alt="Nastasha Romanenko"
+          height="63"
+          src="https://es31-server.appspot.com/wtw/static/avatar/10.jpg"
+          width="63"
+        />
+      </a>
+    </div>
+  </header>
+  <section
+    className="catalog"
+  >
+    <h2
+      className="catalog__title visually-hidden"
+    >
+      Catalog
+    </h2>
+    <div
+      className="catalog__movies-list"
+    >
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        tabIndex={0}
+      >
+        <button
+          className="small-movie-card__play-btn"
+          type="button"
+        >
+          Play
+        </button>
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height={175}
+            muted={true}
+            poster="img/johnny-english.jpg"
+            src="https://storage.googleapis.com/coverr-main/mp4/Lake%20Day.mp4"
+            width={280}
+          />
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="https://thepiratebay.org"
+          >
+            Johny English
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        tabIndex={0}
+      >
+        <button
+          className="small-movie-card__play-btn"
+          type="button"
+        >
+          Play
+        </button>
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height={175}
+            muted={true}
+            poster="img/pulp-fiction.jpg"
+            src="https://storage.googleapis.com/coverr-main/mp4/Stunning%20Mountains.mp4"
+            width={280}
+          />
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="https://thepiratebay.org"
+          >
+            Pulp Fiction
+          </a>
+        </h3>
+      </article>
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        tabIndex={0}
+      >
+        <button
+          className="small-movie-card__play-btn"
+          type="button"
+        >
+          Play
+        </button>
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height={175}
+            muted={true}
+            poster="img/snatch.jpg"
+            src="etc/na-zdorovnya.mp4"
+            width={280}
+          />
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <a
+            className="small-movie-card__link"
+            href="https://thepiratebay.org"
+          >
+            Snatch
+          </a>
+        </h3>
+      </article>
+    </div>
+    <div
+      className="catalog__more"
+    >
+      <button
+        className="catalog__button"
+        type="button"
+      >
+        Show more
+      </button>
+    </div>
+  </section>
+  <footer
+    className="page-footer"
+  >
+    <div
+      className="logo"
+    >
+      <span
+        className="logo__link logo__link--light"
+      >
+        <span
+          className="logo__letter logo__letter--1"
+        >
+          W
+        </span>
+        <span
+          className="logo__letter logo__letter--2"
+        >
+          T
+        </span>
+        <span
+          className="logo__letter logo__letter--3"
+        >
+          W
+        </span>
+      </span>
+    </div>
+    <div
+      className="copyright"
+    >
+      <p>
+        © 
+        2019
+         What to watch Ltd.
+      </p>
+    </div>
+  </footer>
+</div>
+`;

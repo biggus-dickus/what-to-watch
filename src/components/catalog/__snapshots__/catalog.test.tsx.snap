@@ -130,7 +130,7 @@ exports[`<Catalog /> should render correctly 1`] = `
       className="small-movie-card catalog__movies-card"
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      tabIndex="0"
+      tabIndex={0}
     >
       <button
         className="small-movie-card__play-btn"
@@ -142,11 +142,11 @@ exports[`<Catalog /> should render correctly 1`] = `
         className="small-movie-card__image"
       >
         <video
-          height="175"
+          height={175}
           muted={true}
           poster="img/mindhunter.jpg"
           src="https://storage.googleapis.com/coverr-main/mp4/California-Desert.mp4"
-          width="280"
+          width={280}
         />
       </div>
       <h3

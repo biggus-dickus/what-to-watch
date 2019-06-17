@@ -1,5 +1,5 @@
 import * as React from 'react';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 
 import {mockGenres} from '../../mocks/genres';
 import GenresList from './genres-list';

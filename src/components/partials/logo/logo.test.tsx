@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {StaticRouter as Router} from 'react-router-dom';
 
+import * as renderer from 'react-test-renderer';
+import * as Adapter from 'enzyme-adapter-react-16';
 import {configure, mount} from 'enzyme';
-import renderer from 'react-test-renderer';
 
 import RouteConfig from '../../../config/routes';
 import Logo from './logo';
-import Adapter from "enzyme-adapter-react-16/build";
 
 
 configure({adapter: new Adapter()});

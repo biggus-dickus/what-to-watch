@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly after relaunch 1`] = `
+exports[`App test suite: App correctly renders after relaunch 1`] = `
 Array [
   <section
     className="movie-card"
@@ -59,9 +59,9 @@ Array [
           onClick={[Function]}
         >
           <img
-            alt="Oliver.conner"
+            alt="Nastasha Romanenko"
             height="63"
-            src="https://es31-server.appspot.comimg/1.png"
+            src="https://es31-server.appspot.com/wtw/static/avatar/10.jpg"
             width="63"
           />
         </a>
@@ -166,11 +166,11 @@ Array [
         className="catalog__genres-list"
       >
         <li
-          className="catalog__genres-item catalog__genres-item--active"
+          className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
-            href={null}
+            href="#All-genres"
             onClick={[Function]}
           >
             All genres
@@ -188,11 +188,11 @@ Array [
           </a>
         </li>
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item catalog__genres-item--active"
         >
           <a
             className="catalog__genres-link"
-            href="#Crime"
+            href={null}
             onClick={[Function]}
           >
             Crime
@@ -283,7 +283,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -295,11 +295,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
               src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -317,7 +317,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -329,11 +329,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/bohemian-rhapsody.jpg"
               src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -351,7 +351,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -363,11 +363,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/macbeth.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4%2FCam-Man.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -385,7 +385,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -397,11 +397,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/aviator.jpg"
               src="https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5b/Marnie_%281964%29_trailer.webm/Marnie_%281964%29_trailer.webm.360p.vp9.webm"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -419,7 +419,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -431,11 +431,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/we-need-to-talk-about-kevin.jpg"
               src="https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5b/Marnie_%281964%29_trailer.webm/Marnie_%281964%29_trailer.webm.360p.vp9.webm"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -453,7 +453,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -465,11 +465,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/what-we-do-in-the-shadows.jpg"
               src="https://upload.wikimedia.org/wikipedia/commons/transcoded/2/23/Dr_Strangelove_-_Official_Trailer.webm/Dr_Strangelove_-_Official_Trailer.webm.480p.vp9.webm"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -487,7 +487,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -499,11 +499,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/revenant.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/Harvesting%20Rice.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -521,7 +521,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -533,11 +533,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/johnny-english.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/Lake%20Day.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -555,7 +555,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -567,11 +567,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/shutter-island.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/Deserted%20Island.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -589,7 +589,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -601,11 +601,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/pulp-fiction.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/Stunning%20Mountains.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -623,7 +623,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -635,11 +635,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/no-country-for-old-men.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/Gubat%20Beach.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -657,7 +657,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -669,11 +669,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/snatch.jpg"
               src="etc/na-zdorovnya.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -691,7 +691,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -703,11 +703,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/moonrise-kingdom.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/Caramoan%20Drone.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -725,7 +725,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -737,11 +737,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/seven-years-in-tibet.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/Ants%20Walking.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -759,7 +759,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -771,11 +771,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/midnight-special.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/Boat%20in%20Caramoan.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -793,7 +793,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -805,11 +805,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/war-of-the-worlds.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/Blue%20Joy.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -827,7 +827,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -839,11 +839,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/dardjeeling-limited.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/Stop-Sign.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -861,7 +861,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -873,11 +873,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/orlando.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/Steaming-Yellowstone.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3
@@ -895,7 +895,7 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex="0"
+          tabIndex={0}
         >
           <button
             className="small-movie-card__play-btn"
@@ -907,11 +907,11 @@ Array [
             className="small-movie-card__image"
           >
             <video
-              height="175"
+              height={175}
               muted={true}
               poster="img/mindhunter.jpg"
               src="https://storage.googleapis.com/coverr-main/mp4/California-Desert.mp4"
-              width="280"
+              width={280}
             />
           </div>
           <h3

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 import {configure, shallow} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import * as Adapter from 'enzyme-adapter-react-16';
 
 import FormInput from './form-input';
 
@@ -15,7 +15,8 @@ describe(`FormInput test suite`, () => {
       label: `Remember me`,
       type: `checkbox`,
       name: `remember-the-fallen`,
-      id: `some-checkbox`
+      id: `some-checkbox`,
+      onChange: jest.fn()
     };
 
     const tree = renderer.create(<FormInput {...mockField} />).toJSON();
@@ -26,7 +27,8 @@ describe(`FormInput test suite`, () => {
     const mockField = {
       htmlFormTag: `textarea`,
       name: `feedback`,
-      id: `impressions`
+      id: `impressions`,
+      onChange: jest.fn()
     };
 
     const wrapper = shallow(<FormInput {...mockField} />);
@@ -37,7 +39,8 @@ describe(`FormInput test suite`, () => {
     const mockField = {
       htmlFormTag: `select`,
       name: `payment-type`,
-      id: `payment-type`
+      id: `payment-type`,
+      onChange: jest.fn()
     };
 
     const options = [`visa`, `mastercard`, `amex`];

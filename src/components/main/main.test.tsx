@@ -1,24 +1,18 @@
 import * as React from 'react';
 import {StaticRouter as Router} from 'react-router-dom';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 
 import {mockFilms} from '../../mocks/films';
-import {mockGenres} from '../../mocks/genres';
+import {mockGenreEntity} from '../../mocks/genres';
+import {mockLocation} from '../../mocks/user';
 import mockUser from '../../mocks/user';
 
 import Main from './main';
 
 const props = {
-  genres: mockGenres,
-  currentGenre: mockGenres[0],
-  location: {
-    hash: ``,
-    key: `lxok4h`,
-    pathname: `/`,
-    search: ``
-  },
+  ...mockGenreEntity,
+  location: {...mockLocation},
   movies: mockFilms,
-  onGenreChange: jest.fn(),
   onViewChange: jest.fn(),
   userData: mockUser
 };

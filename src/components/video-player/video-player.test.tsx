@@ -1,5 +1,5 @@
 import * as React from 'react';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 
 import VideoPlayer from './video-player';
 
@@ -9,8 +9,8 @@ const props = {
   src: `/etc/na-zdorovnya.mp4`,
   isHovered: false,
   muted: true,
-  width: `640`,
-  height: `480`
+  width: 640,
+  height: 480
 };
 
 const tree = renderer.create(<VideoPlayer {...props} />).toJSON();

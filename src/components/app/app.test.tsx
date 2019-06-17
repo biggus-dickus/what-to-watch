@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {StaticRouter as Router} from 'react-router-dom';
-import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
+import * as ReactDOM from 'react-dom';
+import * as renderer from 'react-test-renderer';
 
 import {mockFilms} from '../../mocks/films';
 import {mockGenres} from '../../mocks/genres';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 
 import {mockFilms} from '../../mocks/films';
 import FilmsList from './films-list';
