@@ -1,9 +1,11 @@
 import * as Validator from '../../utilities/validators';
+import {FormFieldWithValidation} from '../../types'; // eslint-disable-line
+
 
 export const EMAIL_NAME = `email`;
 export const PASSWORD_NAME = `password`;
 
-const formFields = [
+const formFields: FormFieldWithValidation[] = [
   {
     htmlFormTag: `input`,
     label: `Email address`,

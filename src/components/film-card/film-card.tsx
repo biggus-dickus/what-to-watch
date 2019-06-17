@@ -28,8 +28,8 @@ const FilmCard = (props: Props) => {
       <div className="small-movie-card__image">
         <Video src={previewVideo}
           poster={previewImage}
-          width="280"
-          height="175"
+          width={280}
+          height={175}
           isHovered={isHovered}
           muted />
       </div>

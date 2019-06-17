@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 
-import {Location, User} from '../../../types/types'; // eslint-disable-line
+import {Location, User} from '../../../types'; // eslint-disable-line
 
 import {BASE_HOST} from '../../../config/api-endpoints';
 import Route from '../../../config/routes';

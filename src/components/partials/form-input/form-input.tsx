@@ -1,8 +1,15 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import {FormField} from '../../../types'; // eslint-disable-line
 
 
-const FormInput = (props) => {
+interface Props extends FormField {
+  className?: string,
+  children?: any[],
+  onChange(): void
+}
+
+
+const FormInput = (props: Props) => {
   const {htmlFormTag, type = `text`, id, name, children, ...rest} = props;
 
   switch (htmlFormTag.toLowerCase()) {
@@ -15,14 +22,6 @@ const FormInput = (props) => {
     default:
       return <input {...{id, name, type}} {...rest} />;
   }
-};
-
-FormInput.propTypes = {
-  htmlFormTag: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  children: PropTypes.array
 };
 
 export default FormInput;

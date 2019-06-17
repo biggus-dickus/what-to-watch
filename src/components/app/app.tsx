@@ -2,7 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Switch} from 'react-router-dom';
 
-import {Film, Genre, User} from '../../types/types'; // eslint-disable-line
+import {Film, Genre, User} from '../../types'; // eslint-disable-line
 
 import RouteConfig from '../../config/routes';
 
@@ -26,7 +26,7 @@ interface Props extends Genre {
 }
 
 
-export class App extends React.PureComponent<Props, {}> {
+export class App extends React.PureComponent<Props, null> {
   render() {
     const {currentGenre, filteredMovies, genres, movies, userData} = this.props;
 

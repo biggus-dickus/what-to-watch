@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Film, Genre} from '../../types/types'; // eslint-disable-line
+import {Film, Genre} from '../../types'; // eslint-disable-line
 
 import FilmsList from '../films-list/films-list';
 import GenresList from '../genres-list/genres-list';

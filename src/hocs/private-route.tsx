@@ -1,11 +1,19 @@
 import * as React from 'react';
+import {Location} from 'history'; // eslint-disable-line
 import {Redirect, Route} from 'react-router-dom';
-import PropTypes from 'prop-types';
+
+import {RouteWithProps} from '../types'; // eslint-disable-line
 
 import PropsRoute from './props-route';
 
+interface Props extends RouteWithProps {
+  isPrivate: boolean,
+  location?: Location,
+  redirectTo: string
+}
 
-const PrivateRoute = ({isPrivate, redirectTo, component, ...rest}) => {
+
+const PrivateRoute = ({isPrivate, redirectTo, component, ...rest}: Props) => {
   if (isPrivate) {
     return (
       <Route
@@ -23,13 +31,6 @@ const PrivateRoute = ({isPrivate, redirectTo, component, ...rest}) => {
   }
 
   return <PropsRoute {...{component}} {...rest} />;
-};
-
-PrivateRoute.propTypes = {
-  isPrivate: PropTypes.bool.isRequired,
-  component: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
-  location: PropTypes.object,
-  redirectTo: PropTypes.string.isRequired
 };
 
 export default PrivateRoute;

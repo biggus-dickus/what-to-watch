@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
 
 // Redux
 import {getAuthError} from '../../store/reducers/user/selectors';
@@ -9,7 +8,6 @@ import {Operation} from '../../store/operations';
 // Config
 import {EMAIL_NAME, PASSWORD_NAME} from './form-fields';
 import signInFields from './form-fields';
-import {withFormSharedPropTypes} from '../../hocs/with-form';
 
 // HOCs
 import withForm from '../../hocs/with-form';
@@ -20,12 +18,24 @@ import Input from '../partials/form-input/form-input';
 import Loader from '../partials/loader/loader';
 import Logo from '../partials/logo/logo';
 
+// Types
+import {GenericFormProps, FormField, Location} from '../../types'; // eslint-disable-line
 
-class SignInView extends React.PureComponent {
+
+interface Props extends GenericFormProps {
+  authError?: string,
+  location: Location,
+  onLoginAttempt(email: string, password: string): Promise<void>,
+}
+
+interface State {isLoading: boolean}
+
+
+class SignInView extends React.PureComponent<Props, State> {
+  private _isMounted: boolean = false;
+
   constructor(props) {
     super(props);
-
-    this._isMounted = false;
 
     this.state = {
       isLoading: false
@@ -82,7 +92,7 @@ class SignInView extends React.PureComponent {
   }
 
   render() {
-    const {isSubmitted, validity, formFields} = this.props;
+    const {isSubmitted, validity, formFields, location} = this.props;
     const error = this._getError();
 
     let buttonText = `Sign in`;
@@ -96,7 +106,7 @@ class SignInView extends React.PureComponent {
     return (
       <div className="user-page">
         <header className="page-header user-page__head">
-          <Logo pathname={this.props.location.pathname} />
+          <Logo pathname={location.pathname} />
 
           <h1 className="page-title user-page__title">Sign in</h1>
         </header>
@@ -113,7 +123,7 @@ class SignInView extends React.PureComponent {
             {error && <div className="sign-in__message"><p>{error}</p></div>}
 
             <div className="sign-in__fields">
-              {formFields.map((field) => {
+              {formFields.map((field: FormField) => {
                 const {label, ...rest} = field;
 
                 const classList = [`sign-in__field`];
@@ -123,7 +133,8 @@ class SignInView extends React.PureComponent {
 
                 return (
                   <div className={classList.join(` `)} key={field.id}>
-                    <Input className="sign-in__input"
+                    <Input
+                      className="sign-in__input"
                       value={this.props[field.name]}
                       onChange={this.props.onInputChange}
                       {...rest} />
@@ -144,18 +155,11 @@ class SignInView extends React.PureComponent {
           </form>
         </div>
 
-        <Footer pathname={this.props.location.pathname} />
+        <Footer pathname={location.pathname} />
       </div>
     );
   }
 }
-
-SignInView.propTypes = {
-  authError: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  location: PropTypes.object.isRequired,
-  onLoginAttempt: PropTypes.func.isRequired,
-  ...withFormSharedPropTypes
-};
 
 const mapStateToProps = (state) => ({
   authError: getAuthError(state)

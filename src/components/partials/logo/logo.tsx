@@ -1,11 +1,15 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 import RouteConfig from '../../../config/routes';
 import WrappingLink from '../../../hocs/wrapping-link';
 
+interface Props {
+  bemModifier?: string,
+  pathname: string
+}
 
-export const Logo = ({pathname, bemModifier = ``}) => (
+
+export const Logo = ({pathname, bemModifier = ``}: Props) => (
   <div className="logo">
     <WrappingLink
       to={RouteConfig.INDEX}
@@ -17,10 +21,5 @@ export const Logo = ({pathname, bemModifier = ``}) => (
     </WrappingLink>
   </div>
 );
-
-Logo.propTypes = {
-  bemModifier: PropTypes.string,
-  pathname: PropTypes.string.isRequired
-};
 
 export default Logo;

@@ -5,7 +5,7 @@ import Footer from '../partials/footer/footer';
 import Logo from '../partials/logo/logo';
 import UserBlock from '../partials/user-block/user-block';
 
-import * as Interface from '../../types/types'; // eslint-disable-line
+import * as Interface from '../../types'; // eslint-disable-line
 
 const grandBudapest = require(`../../../public/img/the-grand-budapest-hotel-poster.jpg`);
 const grandBudapestBg = require(`../../../public/img/bg-the-grand-budapest-hotel.jpg`);

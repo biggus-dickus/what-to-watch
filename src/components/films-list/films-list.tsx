@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Film} from '../../types/types'; // eslint-disable-line
+import {Film} from '../../types'; // eslint-disable-line
 import FilmCard from '../film-card/film-card';
 
 

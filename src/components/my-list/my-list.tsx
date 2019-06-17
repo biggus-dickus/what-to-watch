@@ -5,7 +5,7 @@ import Footer from '../partials/footer/footer';
 import Logo from '../partials/logo/logo';
 import UserBlock from '../partials/user-block/user-block';
 
-import {Film, Location, User} from '../../types/types'; // eslint-disable-line
+import {Film, Location, User} from '../../types'; // eslint-disable-line
 
 interface Props {
   location: Location,

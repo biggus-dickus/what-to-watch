@@ -1,4 +1,4 @@
-export const isPrimitive = (val) => val !== Object(val);
+export const isPrimitive = (val: any): boolean => val !== Object(val);
 
 /**
  * Strip an object of unwanted props immutably.
@@ -6,7 +6,7 @@ export const isPrimitive = (val) => val !== Object(val);
  * @param {Array} excludedProps
  * @return {Object}
  */
-export const copyRelevantProps = (objToCopy, excludedProps) => {
+export const copyRelevantProps = (objToCopy: any, excludedProps: string[]): any => {
   const newObj = {};
 
   for (let key in objToCopy) {

@@ -1,29 +1,27 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import {FormField, FormFieldWithValidation} from '../types'; // eslint-disable-line
 
 import collectFormData from '../utilities/collect-form-data';
 import {copyRelevantProps} from '../utilities/helpers';
 import getDisplayName from '../utilities/get-display-name';
 
 
-/**
- * Handle the repetitive form routine: creating a controlled component,
- * adding a validator, processing user input, etc.
- * @param {Function} WrappedComponent — a React component (class or function or HOC)
- * @param {Array} formFields — an array of objects
- * @param {Object} [params] — optional
- * @return {*}
- */
-const withForm = (WrappedComponent, formFields, params = {}) => {
-  const requiredTypes = {
-    WrappedComponent: PropTypes.func.isRequired,
-    formFields: PropTypes.array.isRequired,
-    params: PropTypes.object
-  };
+interface State {
+  [x: string]: any,
+  validity: {[x: string]: boolean},
+  isFormValid: boolean,
+  isSubmitted: boolean
+}
 
-  PropTypes.checkPropTypes(requiredTypes, {WrappedComponent, formFields, params});
 
-  class WithForm extends React.Component {
+const withForm = (WrappedComponent: React.ElementType, formFields: FormFieldWithValidation[]) => {
+  class WithForm extends React.Component<any, State> {
+    private _fieldNames: string[];
+    private _initialState: State;
+
+    public passThroughFields: FormField[];
+    public displayName: string;
+
     constructor(props) {
       super(props);
 
@@ -102,20 +100,8 @@ const withForm = (WrappedComponent, formFields, params = {}) => {
     }
   }
 
-  WithForm.displayName = `WithForm${getDisplayName(WrappedComponent)}`;
+  (WithForm as React.ComponentClass).displayName = `WithForm${getDisplayName(WrappedComponent)}`;
   return WithForm;
 };
 
 export default withForm;
-
-
-// These propTypes are shared between all components implemented by withForm HOC.
-// Import this object to avoid copy-pasting.
-export const withFormSharedPropTypes = {
-  formFields: PropTypes.arrayOf(PropTypes.object).isRequired,
-  isSubmitted: PropTypes.bool.isRequired,
-  onInputChange: PropTypes.func.isRequired,
-  onStateReset: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  validity: PropTypes.object.isRequired,
-};

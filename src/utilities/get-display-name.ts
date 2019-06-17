@@ -4,4 +4,4 @@
  * @param {Class|Function} WrappedCmp
  * @return {Class|Function}
  */
-export default (WrappedCmp) => WrappedCmp.displayName || WrappedCmp.name || `Component`;
+export default (WrappedCmp: any): any => WrappedCmp.displayName || WrappedCmp.name || `Component`;
