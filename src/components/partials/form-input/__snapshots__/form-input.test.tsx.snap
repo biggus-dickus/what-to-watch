@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInput test suite <FormInput /> should render correctly 1`] = `
+<input
+  id="some-checkbox"
+  label="Remember me"
+  name="remember-the-fallen"
+  onChange={[MockFunction]}
+  type="checkbox"
+/>
+`;

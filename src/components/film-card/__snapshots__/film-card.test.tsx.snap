@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FilmCard /> should render correctly 1`] = `
+<article
+  className="small-movie-card catalog__movies-card"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  tabIndex={0}
+>
+  <button
+    className="small-movie-card__play-btn"
+    type="button"
+  >
+    Play
+  </button>
+  <div
+    className="small-movie-card__image"
+  >
+    <video
+      height={175}
+      muted={true}
+      poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+      width={280}
+    />
+  </div>
+  <h3
+    className="small-movie-card__title"
+  >
+    <a
+      className="small-movie-card__link"
+      href="https://thepiratebay.org"
+    >
+      Fantastic Beasts: The Crimes of Grindelwald
+    </a>
+  </h3>
+</article>
+`;
