@@ -1,8 +1,9 @@
+import {Action} from 'redux'; // eslint-disable-line
+
 import {ActionType} from './action-types';
 import {User} from '../types'; // eslint-disable-line
 
-export interface GenericAction {
-  type: string,
+export interface GenericAction extends Action<string> {
   payload?: any
 }
 

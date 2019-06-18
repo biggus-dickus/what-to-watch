@@ -1,3 +1,4 @@
+// Vendor
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
@@ -6,10 +7,15 @@ import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 
+// Types
+import {Store} from 'redux'; // eslint-disable-line
+
+// Store & Api
 import {createAPI} from './api/api';
 import {Operation} from './store/operations';
 import rootReducer from './store/reducers';
 
+// Components
 import App from './components/app/app';
 
 declare const __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: (params: object) => any;
@@ -23,7 +29,7 @@ const composeEnhancers = (__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ?
 
 const enhancer = composeEnhancers(applyMiddleware(thunk.withExtraArgument(api)));
 
-const store = createStore(rootReducer, enhancer);
+const store: Store = createStore(rootReducer, enhancer);
 
 
 store.dispatch(Operation.loadMovies());

@@ -5,9 +5,9 @@ import {Film} from '../../../types'; // eslint-disable-line
 import {GenericAction} from '../../actions'; // eslint-disable-line
 
 interface DataState {
-  currentGenre: string,
-  genres: string[],
-  movies: any[]
+  readonly currentGenre: string,
+  readonly genres: string[],
+  readonly movies: any[]
 }
 
 

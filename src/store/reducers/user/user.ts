@@ -3,19 +3,19 @@ import {ActionType} from '../../action-types';
 import {GenericAction} from '../../actions'; // eslint-disable-line
 import {User} from '../../../types'; // eslint-disable-line
 
-interface State {
-  authError?: null | string,
-  isAuthorizationRequired: boolean,
-  userData?: User | null
+interface AuthState {
+  readonly authError?: null | string,
+  readonly isAuthorizationRequired: boolean,
+  readonly userData?: User | null
 }
 
-const initialState = {
+const initialState: AuthState = {
   authError: null,
   isAuthorizationRequired: false,
   userData: null
 };
 
-export const userReducer = (state: State = initialState, action: GenericAction) => {
+export const userReducer = (state: AuthState = initialState, action: GenericAction) => {
   switch (action.type) {
     case ActionType.AUTH_REQUIRED:
       return {
