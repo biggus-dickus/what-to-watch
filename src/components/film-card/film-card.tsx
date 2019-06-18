@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Link} from 'react-router-dom';
 
 import Video from '../video-player/video-player';
 
@@ -23,20 +24,22 @@ const FilmCard = (props: Props): React.ReactElement => {
       tabIndex={0}
       onMouseEnter={onCardHover}
       onMouseLeave={onCardDismiss}>
-      <button className="small-movie-card__play-btn" type="button">Play</button>
 
-      <div className="small-movie-card__image">
-        <Video src={previewVideo}
-          poster={previewImage}
-          width={280}
-          height={175}
-          isHovered={isHovered}
-          muted />
-      </div>
+      <Link className="small-movie-card__wrapping-link" to={pageUrl}>
+        <i className="small-movie-card__play-btn" aria-hidden />
+        <div className="small-movie-card__image">
+          <Video src={previewVideo}
+            poster={previewImage}
+            width={280}
+            height={175}
+            isHovered={isHovered}
+            muted />
+        </div>
 
-      <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href={pageUrl}>{name}</a>
-      </h3>
+        <h3 className="small-movie-card__title">
+          <span className="small-movie-card__link">{name}</span>
+        </h3>
+      </Link>
     </article>
   );
 };

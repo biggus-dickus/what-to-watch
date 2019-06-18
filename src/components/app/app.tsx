@@ -13,6 +13,7 @@ import {getUserData} from '../../store/reducers/user/selectors';
 import PrivateRoute from '../../hocs/private-route';
 import PropsRoute from '../../hocs/props-route';
 
+import FilmDetails from '../film-details/film-details';
 import Main from '../main/main';
 import MyList from '../my-list/my-list';
 import NoMatch from '../no-match/no-match';
@@ -32,14 +33,6 @@ export class App extends React.PureComponent<Props, null> {
 
     return (
       <Switch>
-        <PrivateRoute
-          path={RouteConfig.SIGN_IN}
-          redirectTo={RouteConfig.MY_LIST}
-          exact
-          component={SignIn}
-          isPrivate={!!userData}
-          {...{userData}} />
-
         <PropsRoute
           path={RouteConfig.INDEX}
           exact
@@ -49,6 +42,14 @@ export class App extends React.PureComponent<Props, null> {
           {...{currentGenre, genres, userData}} />
 
         <PrivateRoute
+          path={RouteConfig.SIGN_IN}
+          redirectTo={RouteConfig.MY_LIST}
+          exact
+          component={SignIn}
+          isPrivate={!!userData}
+          {...{userData}} />
+
+        <PrivateRoute
           path={RouteConfig.MY_LIST}
           redirectTo={RouteConfig.SIGN_IN}
           exact
@@ -56,7 +57,13 @@ export class App extends React.PureComponent<Props, null> {
           isPrivate={!userData}
           {...{userData}} />
 
-        <NoMatch />
+        <PropsRoute
+          path={RouteConfig.FILM}
+          exact
+          component={FilmDetails}
+          availableMovies={movies} />
+
+        <NoMatch/>
       </Switch>
     );
   }

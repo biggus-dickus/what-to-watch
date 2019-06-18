@@ -55,7 +55,7 @@ export interface Genre {
 
 export interface Location {
   hash: string,
-  key: string,
+  key?: string,
   pathname: string,
   search: string
 }

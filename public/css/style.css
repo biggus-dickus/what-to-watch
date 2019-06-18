@@ -1239,6 +1239,11 @@ main {
   opacity: 1;
 }
 
+.small-movie-card__wrapping-link {
+  display: block;
+  color: inherit;
+}
+
 .small-movie-card__link {
   display: inline-block;
   vertical-align: top;
