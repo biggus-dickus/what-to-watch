@@ -69,33 +69,36 @@ exports[`<MyList /> should render correctly 1`] = `
         onMouseLeave={[Function]}
         tabIndex={0}
       >
-        <button
-          className="small-movie-card__play-btn"
-          type="button"
+        <a
+          className="small-movie-card__wrapping-link"
+          href="/https://thepiratebay.org"
+          onClick={[Function]}
         >
-          Play
-        </button>
-        <div
-          className="small-movie-card__image"
-        >
-          <video
-            height={175}
-            muted={true}
-            poster="img/johnny-english.jpg"
-            src="https://storage.googleapis.com/coverr-main/mp4/Lake%20Day.mp4"
-            width={280}
+          <i
+            aria-hidden={true}
+            className="small-movie-card__play-btn"
           />
-        </div>
-        <h3
-          className="small-movie-card__title"
-        >
-          <a
-            className="small-movie-card__link"
-            href="https://thepiratebay.org"
+          <div
+            className="small-movie-card__image"
           >
-            Johny English
-          </a>
-        </h3>
+            <video
+              height={175}
+              muted={true}
+              poster="img/johnny-english.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Lake%20Day.mp4"
+              width={280}
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <span
+              className="small-movie-card__link"
+            >
+              Johny English
+            </span>
+          </h3>
+        </a>
       </article>
       <article
         className="small-movie-card catalog__movies-card"
@@ -103,33 +106,36 @@ exports[`<MyList /> should render correctly 1`] = `
         onMouseLeave={[Function]}
         tabIndex={0}
       >
-        <button
-          className="small-movie-card__play-btn"
-          type="button"
+        <a
+          className="small-movie-card__wrapping-link"
+          href="/https://thepiratebay.org"
+          onClick={[Function]}
         >
-          Play
-        </button>
-        <div
-          className="small-movie-card__image"
-        >
-          <video
-            height={175}
-            muted={true}
-            poster="img/pulp-fiction.jpg"
-            src="https://storage.googleapis.com/coverr-main/mp4/Stunning%20Mountains.mp4"
-            width={280}
+          <i
+            aria-hidden={true}
+            className="small-movie-card__play-btn"
           />
-        </div>
-        <h3
-          className="small-movie-card__title"
-        >
-          <a
-            className="small-movie-card__link"
-            href="https://thepiratebay.org"
+          <div
+            className="small-movie-card__image"
           >
-            Pulp Fiction
-          </a>
-        </h3>
+            <video
+              height={175}
+              muted={true}
+              poster="img/pulp-fiction.jpg"
+              src="https://storage.googleapis.com/coverr-main/mp4/Stunning%20Mountains.mp4"
+              width={280}
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <span
+              className="small-movie-card__link"
+            >
+              Pulp Fiction
+            </span>
+          </h3>
+        </a>
       </article>
       <article
         className="small-movie-card catalog__movies-card"
@@ -137,33 +143,36 @@ exports[`<MyList /> should render correctly 1`] = `
         onMouseLeave={[Function]}
         tabIndex={0}
       >
-        <button
-          className="small-movie-card__play-btn"
-          type="button"
+        <a
+          className="small-movie-card__wrapping-link"
+          href="/https://thepiratebay.org"
+          onClick={[Function]}
         >
-          Play
-        </button>
-        <div
-          className="small-movie-card__image"
-        >
-          <video
-            height={175}
-            muted={true}
-            poster="img/snatch.jpg"
-            src="etc/na-zdorovnya.mp4"
-            width={280}
+          <i
+            aria-hidden={true}
+            className="small-movie-card__play-btn"
           />
-        </div>
-        <h3
-          className="small-movie-card__title"
-        >
-          <a
-            className="small-movie-card__link"
-            href="https://thepiratebay.org"
+          <div
+            className="small-movie-card__image"
           >
-            Snatch
-          </a>
-        </h3>
+            <video
+              height={175}
+              muted={true}
+              poster="img/snatch.jpg"
+              src="etc/na-zdorovnya.mp4"
+              width={280}
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <span
+              className="small-movie-card__link"
+            >
+              Snatch
+            </span>
+          </h3>
+        </a>
       </article>
     </div>
     <div

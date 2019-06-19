@@ -285,33 +285,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Fantastic Beasts: The Crimes of Grindelwald
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+                src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Fantastic Beasts: The Crimes of Grindelwald
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -319,33 +322,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/bohemian-rhapsody.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Bohemian Rhapsody
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/bohemian-rhapsody.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Bohemian Rhapsody
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -353,33 +359,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/macbeth.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4%2FCam-Man.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Macbeth
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/macbeth.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4%2FCam-Man.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Macbeth
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -387,33 +396,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/aviator.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5b/Marnie_%281964%29_trailer.webm/Marnie_%281964%29_trailer.webm.360p.vp9.webm"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Aviator
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/aviator.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5b/Marnie_%281964%29_trailer.webm/Marnie_%281964%29_trailer.webm.360p.vp9.webm"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Aviator
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -421,33 +433,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/we-need-to-talk-about-kevin.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5b/Marnie_%281964%29_trailer.webm/Marnie_%281964%29_trailer.webm.360p.vp9.webm"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              We need to talk about Kevin
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/we-need-to-talk-about-kevin.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5b/Marnie_%281964%29_trailer.webm/Marnie_%281964%29_trailer.webm.360p.vp9.webm"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                We need to talk about Kevin
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -455,33 +470,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/what-we-do-in-the-shadows.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/2/23/Dr_Strangelove_-_Official_Trailer.webm/Dr_Strangelove_-_Official_Trailer.webm.480p.vp9.webm"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              What We Do in the Shadows
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/what-we-do-in-the-shadows.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/2/23/Dr_Strangelove_-_Official_Trailer.webm/Dr_Strangelove_-_Official_Trailer.webm.480p.vp9.webm"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                What We Do in the Shadows
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -489,33 +507,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/revenant.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Harvesting%20Rice.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Revenant
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/revenant.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Harvesting%20Rice.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Revenant
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -523,33 +544,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/johnny-english.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Lake%20Day.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Johny English
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/johnny-english.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Lake%20Day.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Johny English
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -557,33 +581,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/shutter-island.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Deserted%20Island.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Shutter Island
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/shutter-island.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Deserted%20Island.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Shutter Island
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -591,33 +618,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/pulp-fiction.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Stunning%20Mountains.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Pulp Fiction
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/pulp-fiction.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Stunning%20Mountains.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Pulp Fiction
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -625,33 +655,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/no-country-for-old-men.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Gubat%20Beach.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              No Country for Old Men
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/no-country-for-old-men.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Gubat%20Beach.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                No Country for Old Men
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -659,33 +692,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/snatch.jpg"
-              src="etc/na-zdorovnya.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Snatch
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/snatch.jpg"
+                src="etc/na-zdorovnya.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Snatch
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -693,33 +729,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/moonrise-kingdom.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Caramoan%20Drone.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Moonrise Kingdom
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/moonrise-kingdom.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Caramoan%20Drone.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Moonrise Kingdom
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -727,33 +766,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/seven-years-in-tibet.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Ants%20Walking.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Seven Years in Tibet
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/seven-years-in-tibet.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Ants%20Walking.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Seven Years in Tibet
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -761,33 +803,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/midnight-special.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Boat%20in%20Caramoan.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Midnight Special
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/midnight-special.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Boat%20in%20Caramoan.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Midnight Special
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -795,33 +840,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/war-of-the-worlds.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Blue%20Joy.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              War of the Worlds
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/war-of-the-worlds.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Blue%20Joy.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                War of the Worlds
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -829,33 +877,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/dardjeeling-limited.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Stop-Sign.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Dardjeeling Limited
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/dardjeeling-limited.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Stop-Sign.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Dardjeeling Limited
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -863,33 +914,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/orlando.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Steaming-Yellowstone.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Orlando
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/orlando.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Steaming-Yellowstone.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Orlando
+              </span>
+            </h3>
+          </a>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
@@ -897,33 +951,36 @@ Array [
           onMouseLeave={[Function]}
           tabIndex={0}
         >
-          <button
-            className="small-movie-card__play-btn"
-            type="button"
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
           >
-            Play
-          </button>
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/mindhunter.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/California-Desert.mp4"
-              width={280}
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
             />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="https://thepiratebay.org"
+            <div
+              className="small-movie-card__image"
             >
-              Mindhunter
-            </a>
-          </h3>
+              <video
+                height={175}
+                muted={true}
+                poster="img/mindhunter.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/California-Desert.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Mindhunter
+              </span>
+            </h3>
+          </a>
         </article>
       </div>
       <div

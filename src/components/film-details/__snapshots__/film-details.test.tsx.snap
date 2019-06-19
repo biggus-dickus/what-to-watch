@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmDetails test suite <FilmDetails /> should render correctly 1`] = `
+<mark>
+  Das ist Film yopta
+</mark>
+`;

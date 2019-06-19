@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
+import {StaticRouter as Router} from 'react-router-dom';
 
 import {mockFilms} from '../../mocks/films';
 import {mockGenres} from '../../mocks/genres';
@@ -13,6 +14,6 @@ const props = {
   onGenreChange: jest.fn()
 };
 
-const tree = renderer.create(<Catalog {...props} />).toJSON();
+const tree = renderer.create(<Router><Catalog {...props} /></Router>).toJSON();
 
 it(`<Catalog /> should render correctly`, () => expect(tree).toMatchSnapshot());

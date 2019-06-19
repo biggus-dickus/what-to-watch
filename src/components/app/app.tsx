@@ -61,7 +61,8 @@ export class App extends React.PureComponent<Props, null> {
           path={RouteConfig.FILM}
           exact
           component={FilmDetails}
-          availableMovies={movies} />
+          availableMovies={movies}
+          {...{userData}} />
 
         <NoMatch/>
       </Switch>

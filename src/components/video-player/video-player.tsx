@@ -32,6 +32,10 @@ export default class VideoPlayer extends React.PureComponent<Props, null> {
     }
   }
 
+  componentWillUnmount(): void {
+    this._handleVideoStop();
+  }
+
   _handleVideoPlayback(): void {
     this._delay = setTimeout(() => this._ref.current.play(), HOVER_DELAY);
   }
