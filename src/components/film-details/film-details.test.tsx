@@ -4,15 +4,17 @@ import * as Adapter from 'enzyme-adapter-react-16';
 import {configure, shallow} from 'enzyme';
 
 import {mockFilms} from '../../mocks/films';
+import {mockLocation} from '../../mocks/user';
 
 import FilmDetails from './film-details';
 
-
 configure({adapter: new Adapter()});
+
 
 const props = {
   availableMovies: mockFilms,
-  computedMatch: {params: {id: 1}}
+  computedMatch: {params: {id: 1}},
+  location: {...mockLocation, pathname: `/film/2`}
 };
 
 describe(`FilmDetails test suite`, () => {

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmRating test suite <FilmRating /> should render correctly 1`] = `
+<div
+  className="movie-rating"
+>
+  <div
+    className="movie-rating__score"
+    data-test="at-film-rating"
+  >
+    4.3
+  </div>
+  <p
+    className="movie-rating__meta"
+  >
+    <span
+      className="movie-rating__level"
+      data-test="at-film-rating-word"
+    >
+      Very good
+    </span>
+    <span
+      className="movie-rating__count"
+    >
+      100500
+       ratings
+    </span>
+  </p>
+</div>
+`;

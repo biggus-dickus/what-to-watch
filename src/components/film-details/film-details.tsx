@@ -2,7 +2,8 @@ import * as React from 'react';
 
 import {Film, Location, User} from '../../types'; // eslint-disable-line
 
-import FilmButtons from './film-buttons/film-buttons'
+import FilmButtons from './film-buttons/film-buttons';
+import FilmRating from './film-rating/film-rating';
 import FilmTitle from './film-title/film-title';
 import NoMatch from '../no-match/no-match';
 import Logo from "../partials/logo/logo";
@@ -66,20 +67,14 @@ const FilmDetails = (props: Props): React.ReactElement => {
               </ul>
             </nav>
 
-            <div className="movie-rating">
-              <div className="movie-rating__score">{film.rating}</div>
-              <p className="movie-rating__meta">
-                <span className="movie-rating__level">Very good</span>
-                <span className="movie-rating__count">
-                  {film.scoresCount} ratings
-                </span>
-              </p>
-            </div>
+            <FilmRating rating={film.rating} scoresCount={film.scoresCount} />
 
             <div className="movie-card__text">
               {film.description}
 
-              <p className="movie-card__director"><strong>Director: {film.director}</strong></p>
+              <p className="movie-card__director">
+                <strong>Director: {film.director}</strong>
+              </p>
 
               <p className="movie-card__starring">
                 <strong>Starring: {film.starring.join(`, `)}</strong>
