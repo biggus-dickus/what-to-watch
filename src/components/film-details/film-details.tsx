@@ -7,6 +7,7 @@ import {getFilmById, getMoreLikeThis} from './helpers';
 import FilmButtons from './film-buttons/film-buttons';
 import FilmsList from '../films-list/films-list';
 import FilmRating from './film-rating/film-rating';
+import FilmNav from './film-nav/film-nav';
 import FilmTitle from './film-title/film-title';
 import Footer from '../partials/footer/footer';
 import NoMatch from '../no-match/no-match';
@@ -20,8 +21,13 @@ interface Props {
   userData?: User
 }
 
+const filmTabs = [`Overview`, `Details`, `Reviews`];
+
 
 const FilmDetails = (props: Props): React.ReactElement => {
+  const [activeTab, setActiveTab] = React.useState(filmTabs[0]);
+  const handleTabChange = (newTab: string): void => setActiveTab(newTab);
+
   const {availableMovies, computedMatch, location, userData} = props;
 
   const film = getFilmById(availableMovies, +computedMatch.params.id);
@@ -59,19 +65,10 @@ const FilmDetails = (props: Props): React.ReactElement => {
               </div>
 
               <div className="movie-card__desc">
-                <nav className="movie-nav movie-card__nav">
-                  <ul className="movie-nav__list">
-                    <li className="movie-nav__item movie-nav__item--active">
-                      <a href="#" className="movie-nav__link">Overview</a>
-                    </li>
-                    <li className="movie-nav__item">
-                      <a href="#" className="movie-nav__link">Details</a>
-                    </li>
-                    <li className="movie-nav__item">
-                      <a href="#" className="movie-nav__link">Reviews</a>
-                    </li>
-                  </ul>
-                </nav>
+                <FilmNav
+                  tabs={filmTabs}
+                  activeTab={activeTab}
+                  onTabClick={handleTabChange} />
 
                 <FilmRating rating={film.rating} scoresCount={film.scoresCount} />
 

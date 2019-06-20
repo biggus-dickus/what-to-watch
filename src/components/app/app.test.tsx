@@ -21,6 +21,12 @@ const props = {
 
 describe(`App test suite:`, () => {
   it(`renders in its entirety without crashing`, () => {
+    // https://github.com/jsdom/jsdom/issues/2155#issuecomment-366703395
+    // Sad but true
+    window[`HTMLMediaElement`].prototype.load = () => { /* do nothing */ };
+    window[`HTMLMediaElement`].prototype.play = () => { /* do nothing */ };
+    window[`HTMLMediaElement`].prototype.pause = () => { /* do nothing */ };
+
     const div = document.createElement(`div`);
     ReactDOM.render(<Router><App {...props} /></Router>, div);
     ReactDOM.unmountComponentAtNode(div);

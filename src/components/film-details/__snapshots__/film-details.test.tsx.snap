@@ -245,7 +245,6 @@ Array [
       </h2>
       <div
         className="catalog__movies-list"
-        data-test="at-catalog-list"
       >
         <article
           className="small-movie-card catalog__movies-card"
