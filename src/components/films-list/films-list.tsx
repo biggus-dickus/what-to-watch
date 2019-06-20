@@ -10,7 +10,7 @@ interface Props {
 
 const FilmsList = ({films}: Props): React.ReactElement => (
   films.length ? (
-    <div className="catalog__movies-list">
+    <div className="catalog__movies-list" data-test="at-catalog-list">
       {films.map((film) => <FilmCard key={film.id} {...film} />)}
     </div>
   ) : null

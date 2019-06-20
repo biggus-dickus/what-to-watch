@@ -50,7 +50,7 @@ const Main = (props: Props): React.ReactElement => {
                 genre="Drama"
                 released={2014} />
 
-              <FilmButtons showAddReview={false} />
+              <FilmButtons />
             </div>
           </div>
         </div>

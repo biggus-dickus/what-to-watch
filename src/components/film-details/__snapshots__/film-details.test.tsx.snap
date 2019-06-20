@@ -1,7 +1,366 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FilmDetails test suite <FilmDetails /> should render correctly 1`] = `
-<mark>
-  Das ist Film yopta
-</mark>
+Array [
+  <section
+    className="movie-card movie-card--full"
+  >
+    <div
+      className="movie-card__hero"
+    >
+      <div
+        className="movie-card__bg"
+      >
+        <img
+          alt="Bohemian Rhapsody"
+          src="pic.png"
+        />
+      </div>
+      <header
+        className="page-header movie-card__head"
+      >
+        <div
+          className="logo"
+        >
+          <a
+            className="logo__link"
+            href="/"
+            onClick={[Function]}
+          >
+            <span
+              className="logo__letter logo__letter--1"
+            >
+              W
+            </span>
+            <span
+              className="logo__letter logo__letter--2"
+            >
+              T
+            </span>
+            <span
+              className="logo__letter logo__letter--3"
+            >
+              W
+            </span>
+          </a>
+        </div>
+        <div
+          className="user-block"
+        >
+          <a
+            className="user-block__link"
+            href="/login"
+            onClick={[Function]}
+          >
+            Sign in
+          </a>
+        </div>
+      </header>
+      <div
+        className="movie-card__wrap"
+      >
+        <div
+          className="movie-card__desc"
+        >
+          <h1
+            className="movie-card__title"
+          >
+            Bohemian Rhapsody
+          </h1>
+          <p
+            className="movie-card__meta"
+          >
+            <span
+              className="movie-card__genre"
+            >
+              Documentary
+            </span>
+            <span
+              className="movie-card__year"
+            >
+              2019
+            </span>
+          </p>
+          <div
+            className="movie-card__buttons"
+          >
+            <button
+              className="btn btn--play movie-card__button"
+              type="button"
+            >
+              <svg
+                height="19"
+                viewBox="0 0 19 19"
+                width="19"
+              >
+                <use
+                  xlinkHref="img/sprite/sprite.svg#play-s"
+                />
+              </svg>
+              <span>
+                Play
+              </span>
+            </button>
+            <button
+              className="btn btn--list movie-card__button"
+              type="button"
+            >
+              <svg
+                height="20"
+                viewBox="0 0 19 20"
+                width="19"
+              >
+                <use
+                  xlinkHref="img/sprite/sprite.svg#add"
+                />
+              </svg>
+              <span>
+                My list
+              </span>
+            </button>
+            <a
+              className="btn movie-card__button"
+              href="add-review.html"
+            >
+              Add review
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="movie-card__wrap movie-card__translate-top"
+    >
+      <div
+        className="movie-card__info"
+      >
+        <div
+          className="movie-card__poster movie-card__poster--big"
+        >
+          <img
+            alt="Bohemian Rhapsody poster"
+            src="poster.jpg"
+          />
+        </div>
+        <div
+          className="movie-card__desc"
+        >
+          <nav
+            className="movie-nav movie-card__nav"
+          >
+            <ul
+              className="movie-nav__list"
+            >
+              <li
+                className="movie-nav__item movie-nav__item--active"
+              >
+                <a
+                  className="movie-nav__link"
+                  href="#"
+                >
+                  Overview
+                </a>
+              </li>
+              <li
+                className="movie-nav__item"
+              >
+                <a
+                  className="movie-nav__link"
+                  href="#"
+                >
+                  Details
+                </a>
+              </li>
+              <li
+                className="movie-nav__item"
+              >
+                <a
+                  className="movie-nav__link"
+                  href="#"
+                >
+                  Reviews
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div
+            className="movie-rating"
+          >
+            <div
+              className="movie-rating__score"
+              data-test="at-film-rating"
+            >
+              7.8
+            </div>
+            <p
+              className="movie-rating__meta"
+            >
+              <span
+                className="movie-rating__level"
+                data-test="at-film-rating-word"
+              />
+              <span
+                className="movie-rating__count"
+              >
+                100500
+                 ratings
+              </span>
+            </p>
+          </div>
+          <div
+            className="movie-card__text"
+          >
+            Come Tatyana with a duck, we will eat and we will fuck
+            <p
+              className="movie-card__director"
+            >
+              <strong>
+                Director: 
+                Alan Smithie
+              </strong>
+            </p>
+            <p
+              className="movie-card__starring"
+            >
+              <strong>
+                Starring: 
+                Ben Dover, Major Woodie, Private Parts, I. C. Wiener
+              </strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>,
+  <div
+    className="page-content"
+  >
+    <section
+      className="catalog catalog--like-this"
+    >
+      <h2
+        className="catalog__title"
+      >
+        More like this
+      </h2>
+      <div
+        className="catalog__movies-list"
+        data-test="at-catalog-list"
+      >
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex={0}
+        >
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
+          >
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
+            />
+            <div
+              className="small-movie-card__image"
+            >
+              <video
+                height={175}
+                muted={true}
+                poster="img/what-we-do-in-the-shadows.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/2/23/Dr_Strangelove_-_Official_Trailer.webm/Dr_Strangelove_-_Official_Trailer.webm.480p.vp9.webm"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                What We Do in the Shadows
+              </span>
+            </h3>
+          </a>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          tabIndex={0}
+        >
+          <a
+            className="small-movie-card__wrapping-link"
+            href="/https://thepiratebay.org"
+            onClick={[Function]}
+          >
+            <i
+              aria-hidden={true}
+              className="small-movie-card__play-btn"
+            />
+            <div
+              className="small-movie-card__image"
+            >
+              <video
+                height={175}
+                muted={true}
+                poster="img/seven-years-in-tibet.jpg"
+                src="https://storage.googleapis.com/coverr-main/mp4/Ants%20Walking.mp4"
+                width={280}
+              />
+            </div>
+            <h3
+              className="small-movie-card__title"
+            >
+              <span
+                className="small-movie-card__link"
+              >
+                Seven Years in Tibet
+              </span>
+            </h3>
+          </a>
+        </article>
+      </div>
+    </section>
+    <footer
+      className="page-footer"
+    >
+      <div
+        className="logo"
+      >
+        <a
+          className="logo__link logo__link--light"
+          href="/"
+          onClick={[Function]}
+        >
+          <span
+            className="logo__letter logo__letter--1"
+          >
+            W
+          </span>
+          <span
+            className="logo__letter logo__letter--2"
+          >
+            T
+          </span>
+          <span
+            className="logo__letter logo__letter--3"
+          >
+            W
+          </span>
+        </a>
+      </div>
+      <div
+        className="copyright"
+      >
+        <p>
+          © 
+          2019
+           What to watch Ltd.
+        </p>
+      </div>
+    </footer>
+  </div>,
+]
 `;

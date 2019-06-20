@@ -1,10 +1,6 @@
 import * as React from 'react';
 
-interface Props {
-  showAddReview: boolean
-}
-
-const FilmButtons = ({showAddReview}: Props): React.ReactElement => (
+const FilmButtons = (): React.ReactElement => (
   <div className="movie-card__buttons">
     <button className="btn btn--play movie-card__button" type="button">
       <svg viewBox="0 0 19 19" width="19" height="19">
@@ -20,7 +16,7 @@ const FilmButtons = ({showAddReview}: Props): React.ReactElement => (
       <span>My list</span>
     </button>
 
-    {showAddReview && <a href="add-review.html" className="btn movie-card__button">Add review</a>}
+    <a href="add-review.html" className="btn movie-card__button">Add review</a>
   </div>
 );
 

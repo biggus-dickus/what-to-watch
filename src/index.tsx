@@ -17,6 +17,7 @@ import rootReducer from './store/reducers';
 
 // Components
 import App from './components/app/app';
+import ScrollToTop from './hocs/scroll-to-top';
 
 declare const __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: (params: object) => any;
 
@@ -39,7 +40,7 @@ function init(): void {
   ReactDOM.render(
       <Provider {...{store}}>
         <Router>
-          <App />
+          <ScrollToTop><App /></ScrollToTop>
         </Router>
       </Provider>,
       document.getElementById(`root`) as HTMLElement

@@ -1,6 +1,5 @@
 import * as React from 'react';
-
-const HOVER_DELAY = 1000;
+import {HOVER_DELAY} from '../../config/config';
 
 interface Props {
   poster: string,
