@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import Catalog from '../catalog/catalog';
-import FilmButtons from '../film-details/film-buttons/film-buttons';
-import FilmTitle from '../film-details/film-title/film-title';
+import FilmButtons from '../film-page/film-buttons/film-buttons';
+import FilmTitle from '../film-page/film-title/film-title';
 import Footer from '../partials/footer/footer';
 import Logo from '../partials/logo/logo';
 import UserBlock from '../partials/user-block/user-block';

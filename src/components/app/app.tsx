@@ -13,7 +13,7 @@ import {getUserData} from '../../store/reducers/user/selectors';
 import PrivateRoute from '../../hocs/private-route';
 import PropsRoute from '../../hocs/props-route';
 
-import FilmDetails from '../film-details/film-details';
+import FilmPage from '../film-page/film-page';
 import Main from '../main/main';
 import MyList from '../my-list/my-list';
 import NoMatch from '../no-match/no-match';
@@ -60,7 +60,7 @@ export class App extends React.PureComponent<Props, null> {
         <PropsRoute
           path={RouteConfig.FILM}
           exact
-          component={FilmDetails}
+          component={FilmPage}
           availableMovies={movies}
           {...{userData}} />
 

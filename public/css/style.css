@@ -732,7 +732,11 @@ main {
   font-weight: bold; }
 
 .movie-card__details-value {
-  color: #131313; }
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #131313;
+}
 
 .movie-card__reviews {
   padding-top: 20px; }

@@ -9,7 +9,7 @@ import {mockFilms} from '../../mocks/films';
 import {mockLocation} from '../../mocks/user';
 
 import {getFilmById, getMoreLikeThis} from './helpers';
-import FilmDetails from './film-details';
+import FilmPage from './film-page';
 
 configure({adapter: new Adapter()});
 
@@ -24,21 +24,21 @@ const film = getFilmById(mockFilms, props.computedMatch.params.id);
 const similarFilms = getMoreLikeThis(mockFilms, film.genre, film.id);
 
 
-describe(`FilmDetails test suite`, () => {
-  it(`<FilmDetails /> should render correctly`, () => {
-    const tree = renderer.create(<Router><FilmDetails {...props} /></Router>).toJSON();
+describe(`FilmPage test suite`, () => {
+  it(`<FilmPage /> should render correctly`, () => {
+    const tree = renderer.create(<Router><FilmPage {...props} /></Router>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it(`should render a 404 page if the passed id is not within the range of available film IDs`, () => {
     const newProps = {...props, computedMatch: {params: {id: 666}}};
 
-    const wrapper = shallow(<FilmDetails {...newProps} />);
+    const wrapper = shallow(<FilmPage {...newProps} />);
     expect(wrapper.find(`NoMatch`)).toHaveLength(1);
   });
 
   it(`should render "More like this" (films of the same genre) correctly`, () => {
-    const wrapper = shallow(<FilmDetails {...props} />);
+    const wrapper = shallow(<FilmPage {...props} />);
     const filmsList = wrapper.find(`FilmsList`);
 
     expect(filmsList.prop(`films`)).toHaveLength(similarFilms.length);
@@ -56,7 +56,7 @@ describe(`FilmDetails test suite`, () => {
       location: {...props.location, pathname: `/film/1`}
     };
 
-    const wrapper = shallow(<FilmDetails {...newProps} />);
+    const wrapper = shallow(<FilmPage {...newProps} />);
     const filmsList = wrapper.find(`FilmsList`);
 
     expect(filmsList).toHaveLength(0);
@@ -69,7 +69,7 @@ describe(`FilmDetails test suite`, () => {
       location: {...props.location, pathname: `/film/3`}
     };
 
-    const wrapper = shallow(<FilmDetails {...newProps} />);
+    const wrapper = shallow(<FilmPage {...newProps} />);
     const filmsList = wrapper.find(`FilmsList`);
 
     expect(filmsList.props()[`films`].length).toBeLessThanOrEqual(4);

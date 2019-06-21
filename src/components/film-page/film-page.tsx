@@ -1,13 +1,15 @@
 import * as React from 'react';
 
 import {Film, Location, User} from '../../types'; // eslint-disable-line
+import {NAV_OVERVIEW_ID, NAV_DETAILS_ID, NAV_REVIEWS_ID, filmTabs} from '../../config/config';
 
 import {getFilmById, getMoreLikeThis} from './helpers';
 
 import FilmButtons from './film-buttons/film-buttons';
+import FilmDetails from './film-details/film-details';
 import FilmsList from '../films-list/films-list';
-import FilmRating from './film-rating/film-rating';
 import FilmNav from './film-nav/film-nav';
+import FilmOverview from './film-overview/film-overview';
 import FilmTitle from './film-title/film-title';
 import Footer from '../partials/footer/footer';
 import NoMatch from '../no-match/no-match';
@@ -21,14 +23,22 @@ interface Props {
   userData?: User
 }
 
-const filmTabs = [`Overview`, `Details`, `Reviews`];
 
-
-const FilmDetails = (props: Props): React.ReactElement => {
-  const [activeTab, setActiveTab] = React.useState(filmTabs[0]);
-  const handleTabChange = (newTab: string): void => setActiveTab(newTab);
-
+const FilmPage = (props: Props): React.ReactElement => {
   const {availableMovies, computedMatch, location, userData} = props;
+  const {hash, key} = location;
+
+  const [activeTabId, setActiveTabId] = React.useState(hash.split(`#`)[1] || NAV_OVERVIEW_ID);
+
+  // React.useEffect(() => {
+  //   setActiveTabId(NAV_OVERVIEW_ID);
+  // }, [key]);
+
+  const handleTabChange = (newTabId: string): void => {
+    if (activeTabId !== newTabId) {
+      setActiveTabId(newTabId);
+    }
+  };
 
   const film = getFilmById(availableMovies, +computedMatch.params.id);
 
@@ -67,22 +77,26 @@ const FilmDetails = (props: Props): React.ReactElement => {
               <div className="movie-card__desc">
                 <FilmNav
                   tabs={filmTabs}
-                  activeTab={activeTab}
+                  activeTabId={activeTabId}
                   onTabClick={handleTabChange} />
 
-                <FilmRating rating={film.rating} scoresCount={film.scoresCount} />
+                {activeTabId === NAV_OVERVIEW_ID && (
+                  <FilmOverview
+                    description={film.description}
+                    director={film.director}
+                    rating={film.rating}
+                    scoresCount={film.scoresCount}
+                    starring={film.starring} />
+                )}
 
-                <div className="movie-card__text">
-                  {film.description}
-
-                  <p className="movie-card__director">
-                    <strong>Director: {film.director}</strong>
-                  </p>
-
-                  <p className="movie-card__starring">
-                    <strong>Starring: {film.starring.join(`, `)}</strong>
-                  </p>
-                </div>
+                {activeTabId === NAV_DETAILS_ID && (
+                  <FilmDetails
+                    director={film.director}
+                    genre={film.genre}
+                    released={film.released}
+                    runTime={film.runTime}
+                    starring={film.starring} />
+                )}
               </div>
             </div>
           </div>
@@ -105,4 +119,4 @@ const FilmDetails = (props: Props): React.ReactElement => {
   return <NoMatch />;
 };
 
-export default FilmDetails;
+export default FilmPage;

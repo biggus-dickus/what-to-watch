@@ -1,14 +1,17 @@
 import * as React from 'react';
+import {Link} from 'react-router-dom';
+
+interface NavTab {id: string, text: string}
 
 interface Props {
-  activeTab: string,
-  tabs: string[],
+  activeTabId: string,
+  tabs: NavTab[],
   onTabClick: (newTab: string) => void
 }
 
-const FilmNav = ({tabs, activeTab, onTabClick}: Props): React.ReactElement => {
+const FilmNav = ({tabs, activeTabId, onTabClick}: Props): React.ReactElement => {
   if (new Set(tabs).size !== tabs.length) {
-    throw new Error(`tabs must contain unique strings`);
+    throw new Error(`tabs must contain unique elements`);
   }
 
   return (
@@ -17,17 +20,17 @@ const FilmNav = ({tabs, activeTab, onTabClick}: Props): React.ReactElement => {
         {tabs.map((tab) => {
           const classList = [`movie-nav__item`];
 
-          if (tab === activeTab) {
+          if (tab.id === activeTabId) {
             classList.push(`movie-nav__item--active`);
           }
 
           return (
-            <li key={tab} className={classList.join(` `)}>
-              <a href="{`#${tab.toLowerCase().replace(/ /g, `-`)}`}"
+            <li key={tab.id} className={classList.join(` `)}>
+              <Link to={`#${tab.id}`}
                 className="movie-nav__link"
-                onClick={onTabClick.bind(null, tab)}>
-                {tab}
-              </a>
+                onClick={onTabClick.bind(null, tab.id)}>
+                {tab.text}
+              </Link>
             </li>
           );
         })}
