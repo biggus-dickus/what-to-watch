@@ -1,7 +1,7 @@
 import {Action} from 'redux'; // eslint-disable-line
 
 import {ActionType} from './action-types';
-import {User} from '../types'; // eslint-disable-line
+import {Review, User} from '../types'; // eslint-disable-line
 
 export interface GenericAction extends Action<string> {
   payload?: any
@@ -13,6 +13,11 @@ export const ActionCreator = {
     payload: genre
   }),
 
+  getReviews: (data: Review) => ({
+    type: ActionType.GET_REVIEWS,
+    payload: data
+  }),
+
   getUserData: (data: User) => ({
     type: ActionType.GET_USER_DATA,
     payload: data
@@ -20,6 +25,11 @@ export const ActionCreator = {
 
   getAuthError: (error: string) => ({
     type: ActionType.AUTH_FAIL,
+    payload: error
+  }),
+
+  getNetworkError: (error: string) => ({
+    type: ActionType.GET_NETWORK_ERROR,
     payload: error
   }),
 

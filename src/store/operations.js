@@ -32,5 +32,16 @@ export const Operation = {
         dispatch(ActionCreator.getUserData(res.data));
       })
       .catch((err) => onFail(err));
+  },
+
+  fetchReviews: (filmId) => (dispatch, _getState, api) => {
+    return api.get(`${ApiEndpoint.REVIEWS}/${filmId}`)
+      .then((res) => {
+        if (res.response && res.response.data.error) {
+          dispatch(ActionCreator.getNetworkError(res.response.data.error));
+        }
+
+        dispatch(ActionCreator.getReviews(res.data));
+      });
   }
 };

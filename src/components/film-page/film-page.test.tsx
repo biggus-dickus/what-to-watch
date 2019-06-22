@@ -7,9 +7,10 @@ import {configure, shallow} from 'enzyme';
 
 import {mockFilms} from '../../mocks/films';
 import {mockLocation} from '../../mocks/user';
+import {NAV_DETAILS_ID} from '../../config/config';
 
 import {getFilmById, getMoreLikeThis} from './helpers';
-import FilmPage from './film-page';
+import {FilmPage} from './film-page';
 
 configure({adapter: new Adapter()});
 
@@ -17,7 +18,8 @@ configure({adapter: new Adapter()});
 const props = {
   availableMovies: mockFilms,
   computedMatch: {params: {id: 2}},
-  location: {...mockLocation, pathname: `/film/2`}
+  location: {...mockLocation, pathname: `/film/2`},
+  loadReviews: jest.fn()
 };
 
 const film = getFilmById(mockFilms, props.computedMatch.params.id);
@@ -73,5 +75,30 @@ describe(`FilmPage test suite`, () => {
     const filmsList = wrapper.find(`FilmsList`);
 
     expect(filmsList.props()[`films`].length).toBeLessThanOrEqual(4);
+  });
+
+  it(`should render tab content according to the currently selected tab`, () => {
+    const newProps = {
+      ...props,
+      location: {...props.location, hash: `#${NAV_DETAILS_ID}`}
+    };
+
+    const wrapper = shallow(<FilmPage {...newProps} />);
+    expect(wrapper.find(`FilmDetails`)).toHaveLength(1);
+  });
+
+  it(`should render the first tab ("Overview") when the present location hash is not among the range of acceptable values`, () => {
+    const wrapper = shallow(<FilmPage {...props} />);
+    expect(wrapper.find(`FilmOverview`)).toHaveLength(1);
+  });
+
+  it(`should render the first tab ("Overview") when there's no location hash in address bar`, () => {
+    const newProps = {
+      ...props,
+      location: {...props.location, hash: ``}
+    };
+
+    const wrapper = shallow(<FilmPage {...newProps} />);
+    expect(wrapper.find(`FilmOverview`)).toHaveLength(1);
   });
 });

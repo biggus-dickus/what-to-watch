@@ -52,140 +52,121 @@ exports[`<MyList /> should render correctly 1`] = `
       </a>
     </div>
   </header>
-  <section
-    className="catalog"
+  <div
+    className="catalog__movies-list"
   >
-    <h2
-      className="catalog__title visually-hidden"
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      tabIndex={0}
     >
-      Catalog
-    </h2>
-    <div
-      className="catalog__movies-list"
+      <a
+        className="small-movie-card__wrapping-link"
+        href="/https://thepiratebay.org"
+        onClick={[Function]}
+      >
+        <i
+          aria-hidden={true}
+          className="small-movie-card__play-btn"
+        />
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height={175}
+            muted={true}
+            poster="img/johnny-english.jpg"
+            src="https://storage.googleapis.com/coverr-main/mp4/Lake%20Day.mp4"
+            width={280}
+          />
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <span
+            className="small-movie-card__link"
+          >
+            Johny English
+          </span>
+        </h3>
+      </a>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      tabIndex={0}
     >
-      <article
-        className="small-movie-card catalog__movies-card"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        tabIndex={0}
+      <a
+        className="small-movie-card__wrapping-link"
+        href="/https://thepiratebay.org"
+        onClick={[Function]}
       >
-        <a
-          className="small-movie-card__wrapping-link"
-          href="/https://thepiratebay.org"
-          onClick={[Function]}
+        <i
+          aria-hidden={true}
+          className="small-movie-card__play-btn"
+        />
+        <div
+          className="small-movie-card__image"
         >
-          <i
-            aria-hidden={true}
-            className="small-movie-card__play-btn"
+          <video
+            height={175}
+            muted={true}
+            poster="img/pulp-fiction.jpg"
+            src="https://storage.googleapis.com/coverr-main/mp4/Stunning%20Mountains.mp4"
+            width={280}
           />
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/johnny-english.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Lake%20Day.mp4"
-              width={280}
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <span
-              className="small-movie-card__link"
-            >
-              Johny English
-            </span>
-          </h3>
-        </a>
-      </article>
-      <article
-        className="small-movie-card catalog__movies-card"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        tabIndex={0}
-      >
-        <a
-          className="small-movie-card__wrapping-link"
-          href="/https://thepiratebay.org"
-          onClick={[Function]}
+        </div>
+        <h3
+          className="small-movie-card__title"
         >
-          <i
-            aria-hidden={true}
-            className="small-movie-card__play-btn"
-          />
-          <div
-            className="small-movie-card__image"
+          <span
+            className="small-movie-card__link"
           >
-            <video
-              height={175}
-              muted={true}
-              poster="img/pulp-fiction.jpg"
-              src="https://storage.googleapis.com/coverr-main/mp4/Stunning%20Mountains.mp4"
-              width={280}
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <span
-              className="small-movie-card__link"
-            >
-              Pulp Fiction
-            </span>
-          </h3>
-        </a>
-      </article>
-      <article
-        className="small-movie-card catalog__movies-card"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        tabIndex={0}
-      >
-        <a
-          className="small-movie-card__wrapping-link"
-          href="/https://thepiratebay.org"
-          onClick={[Function]}
-        >
-          <i
-            aria-hidden={true}
-            className="small-movie-card__play-btn"
-          />
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height={175}
-              muted={true}
-              poster="img/snatch.jpg"
-              src="etc/na-zdorovnya.mp4"
-              width={280}
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <span
-              className="small-movie-card__link"
-            >
-              Snatch
-            </span>
-          </h3>
-        </a>
-      </article>
-    </div>
-    <div
-      className="catalog__more"
+            Pulp Fiction
+          </span>
+        </h3>
+      </a>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      tabIndex={0}
     >
-      <button
-        className="catalog__button"
-        type="button"
+      <a
+        className="small-movie-card__wrapping-link"
+        href="/https://thepiratebay.org"
+        onClick={[Function]}
       >
-        Show more
-      </button>
-    </div>
-  </section>
+        <i
+          aria-hidden={true}
+          className="small-movie-card__play-btn"
+        />
+        <div
+          className="small-movie-card__image"
+        >
+          <video
+            height={175}
+            muted={true}
+            poster="img/snatch.jpg"
+            src="etc/na-zdorovnya.mp4"
+            width={280}
+          />
+        </div>
+        <h3
+          className="small-movie-card__title"
+        >
+          <span
+            className="small-movie-card__link"
+          >
+            Snatch
+          </span>
+        </h3>
+      </a>
+    </article>
+  </div>
   <footer
     className="page-footer"
   >

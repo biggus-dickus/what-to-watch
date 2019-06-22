@@ -48,9 +48,9 @@ export interface GenericFormProps {
 export type onGenreChangeType = (newGenre: string) => void;
 
 export interface Genre {
-  currentGenre?: string,
-  genres?: Array<string>,
-  onGenreChange?: onGenreChangeType
+  currentGenre: string,
+  genres: Array<string>,
+  onGenreChange: onGenreChangeType
 }
 
 export interface Location {
@@ -58,6 +58,17 @@ export interface Location {
   key?: string,
   pathname: string,
   search: string
+}
+
+export interface Review {
+  id: number,
+  user: {
+    id: number,
+    name: string
+  },
+  rating: number,
+  comment: string,
+  date: string
 }
 
 export interface RouteWithProps {

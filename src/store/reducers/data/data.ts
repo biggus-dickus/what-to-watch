@@ -1,13 +1,15 @@
 import {ActionType} from '../../action-types';
 import Adapter from '../../../api/film-data-adapter';
 
-import {Film} from '../../../types'; // eslint-disable-line
+import {Film, Review} from '../../../types'; // eslint-disable-line
 import {GenericAction} from '../../actions'; // eslint-disable-line
 
 interface DataState {
   readonly currentGenre: string,
+  readonly error: string,
   readonly genres: string[],
-  readonly movies: any[]
+  readonly movies: any[],
+  readonly reviews: Review[]
 }
 
 
@@ -18,8 +20,10 @@ const collectGenres = (films: Film[]) => [ALL]
 
 const initialState: DataState = {
   currentGenre: ALL,
+  error: ``,
   genres: [],
-  movies: []
+  movies: [],
+  reviews: []
 };
 
 export const dataReducer = (state: DataState = initialState, action: GenericAction | undefined) => {
@@ -35,6 +39,18 @@ export const dataReducer = (state: DataState = initialState, action: GenericActi
       return {
         ...state,
         currentGenre: action.payload
+      };
+
+    case ActionType.GET_REVIEWS:
+      return {
+        ...state,
+        reviews: action.payload
+      };
+
+    case ActionType.GET_NETWORK_ERROR:
+      return {
+        ...state,
+        error: action.payload
       };
 
     default: return state;

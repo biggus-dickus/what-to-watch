@@ -1,8 +1,8 @@
 import {Location, User} from '../types'; // eslint-disable-line
 
 export const mockLocation: Location = {
-  hash: `p1t00h`,
-  key: `/`,
+  hash: `#p1t00h`,
+  key: `0mfg666`,
   pathname: `/`,
   search: ``
 };
