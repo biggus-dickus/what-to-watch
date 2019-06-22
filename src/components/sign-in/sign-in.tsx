@@ -31,7 +31,7 @@ interface Props extends GenericFormProps {
 interface State {isLoading: boolean}
 
 
-class SignInView extends React.PureComponent<Props, State> {
+export class SignInView extends React.PureComponent<Props, State> {
   private _isMounted: boolean = false;
 
   constructor(props) {
