@@ -64,7 +64,7 @@ export class App extends React.PureComponent<Props, null> {
           availableMovies={movies}
           {...{userData}} />
 
-        <NoMatch/>
+        <NoMatch />
       </Switch>
     );
   }
