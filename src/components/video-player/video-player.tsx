@@ -1,6 +1,5 @@
 import * as React from 'react';
-
-const HOVER_DELAY = 1000;
+import {HOVER_DELAY} from '../../config/config';
 
 interface Props {
   poster: string,
@@ -30,6 +29,10 @@ export default class VideoPlayer extends React.PureComponent<Props, null> {
     if (prevProps.isHovered && !this.props.isHovered) {
       this._handleVideoStop();
     }
+  }
+
+  componentWillUnmount(): void {
+    this._handleVideoStop();
   }
 
   _handleVideoPlayback(): void {

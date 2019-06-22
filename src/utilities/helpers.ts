@@ -17,3 +17,29 @@ export const copyRelevantProps = (objToCopy: any, excludedProps: string[]): any 
 
   return newObj;
 };
+
+/**
+ * Format date string to human readable or local format.
+ * @param {string} dateToFormat
+ * @param {string} locale
+ * @return {Object}
+ */
+export const formatDate = (dateToFormat: string, locale: string = `en-UK`): {
+  comprehensible: string,
+  local: string
+} => {
+  const date = new Date(dateToFormat);
+
+  const formatterWithOptions = new Intl.DateTimeFormat(locale, {
+    year: `numeric`,
+    month: `long`,
+    day: `numeric`
+  });
+
+  const formatter = new Intl.DateTimeFormat(locale);
+
+  return {
+    comprehensible: formatterWithOptions.format(date),
+    local: formatter.format(date)
+  };
+};

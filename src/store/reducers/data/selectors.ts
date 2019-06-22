@@ -6,6 +6,8 @@ const DATA = Namespace.DATA;
 export const getMovies = (state) => state[DATA].movies;
 export const getGenres = (state) => state[DATA].genres;
 export const getCurrentGenre = (state) => state[DATA].currentGenre;
+export const getReviews = (state) => state[DATA].reviews;
+export const getError = (state) => state[DATA].error;
 
 export const getFilteredMovies = createSelector(
     getMovies,

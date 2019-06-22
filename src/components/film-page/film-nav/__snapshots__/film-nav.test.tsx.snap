@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FilmNav /> should render correctly 1`] = `
+<nav
+  className="movie-nav movie-card__nav"
+>
+  <ul
+    className="movie-nav__list"
+  >
+    <li
+      className="movie-nav__item movie-nav__item--active"
+    >
+      <a
+        className="movie-nav__link"
+        href="/#overview"
+        onClick={[Function]}
+      >
+        Overview
+      </a>
+    </li>
+    <li
+      className="movie-nav__item"
+    >
+      <a
+        className="movie-nav__link"
+        href="/#details"
+        onClick={[Function]}
+      >
+        Details
+      </a>
+    </li>
+    <li
+      className="movie-nav__item"
+    >
+      <a
+        className="movie-nav__link"
+        href="/#reviews"
+        onClick={[Function]}
+      >
+        Reviews
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

@@ -6,13 +6,16 @@ import {ActionType} from '../../action-types';
 import {Operation} from '../../operations';
 import {mockGenres} from '../../../mocks/genres';
 import {mockFilms} from '../../../mocks/films';
+import {mockReviews} from '../../../mocks/reviews';
 
 import {dataReducer} from './data';
 
 const originalState = {
   currentGenre: mockGenres[0],
+  error: ``,
   genres: [],
-  movies: []
+  movies: [],
+  reviews: []
 };
 
 const newState = dataReducer(originalState, {
@@ -37,7 +40,50 @@ describe(`Data reducer test suite`, () => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.LOAD_MOVIES,
-          payload: [{fake: true}],
+          payload: [{fake: true}]
+        });
+      });
+  });
+
+  it(`should make a correct API call to /comments`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const movieLoader = Operation.fetchReviews(1);
+
+    apiMock
+      .onGet(`/comments/1`)
+      .reply(200, [{fake: true}]);
+
+    return movieLoader(dispatch, jest.fn(), api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.GET_REVIEWS,
+          payload: [{fake: true}]
+        });
+      });
+  });
+
+  it(`should return an error for any malformed request to server`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const movieLoader = Operation.fetchReviews(`huita666`);
+
+    const response = {
+      error: `Nothing found`
+    };
+
+    apiMock
+      .onGet(`/comments/huita666`)
+      .reply(400, response);
+
+    return movieLoader(dispatch, jest.fn(), api)
+      .then(() => {
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.GET_NETWORK_ERROR,
+          payload: response.error
         });
       });
   });
@@ -59,6 +105,13 @@ describe(`Data reducer test suite`, () => {
       type: ActionType.CHANGE_GENRE,
       payload: mockGenres[3]
     }).currentGenre).toEqual(mockGenres[3]);
+  });
+
+  it(`should return obtained reviews correctly`, () => {
+    expect(dataReducer(originalState, {
+      type: ActionType.GET_REVIEWS,
+      payload: mockReviews
+    }).reviews).toEqual(mockReviews);
   });
 
   it(`should return original state in case the action is not passed or unknown`, () => {

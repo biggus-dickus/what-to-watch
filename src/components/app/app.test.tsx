@@ -5,6 +5,7 @@ import * as renderer from 'react-test-renderer';
 
 import {mockFilms} from '../../mocks/films';
 import {mockGenres} from '../../mocks/genres';
+import {mockHTMLMediaMethods} from '../../mocks/events';
 import mockUser from '../../mocks/user';
 
 import {App} from './app';
@@ -21,6 +22,8 @@ const props = {
 
 describe(`App test suite:`, () => {
   it(`renders in its entirety without crashing`, () => {
+    mockHTMLMediaMethods();
+
     const div = document.createElement(`div`);
     ReactDOM.render(<Router><App {...props} /></Router>, div);
     ReactDOM.unmountComponentAtNode(div);

@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmReviews test suite <FilmReviews /> should render correctly 1`] = `
+<div
+  className="movie-card__reviews movie-card__row"
+  data-test="at-reviews"
+>
+  <div
+    className="movie-card__reviews-col"
+  >
+    <div
+      className="review"
+      data-test="at-review-item"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Anderson's films are too precious for some, but for those of us willing to lose ourselves in them, they're a delight. “The Grand Budapest Hotel” is no different, except that he has added a hint of gravitas to the mix, improving the recipe.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+            data-test="at-review-author"
+          >
+            Bill Goodykoontz
+          </cite>
+          <time
+            className="review__date"
+            dateTime="6/8/2019"
+          >
+            June 8, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        8.0
+      </div>
+    </div>
+    <div
+      className="review"
+      data-test="at-review-item"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+            data-test="at-review-author"
+          >
+            Kate Muir
+          </cite>
+          <time
+            className="review__date"
+            dateTime="5/8/2019"
+          >
+            May 8, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        8.9
+      </div>
+    </div>
+  </div>
+</div>
+`;

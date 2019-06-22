@@ -52,29 +52,24 @@ exports[`<MyList /> should render correctly 1`] = `
       </a>
     </div>
   </header>
-  <section
-    className="catalog"
+  <div
+    className="catalog__movies-list"
   >
-    <h2
-      className="catalog__title visually-hidden"
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      tabIndex={0}
     >
-      Catalog
-    </h2>
-    <div
-      className="catalog__movies-list"
-    >
-      <article
-        className="small-movie-card catalog__movies-card"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        tabIndex={0}
+      <a
+        className="small-movie-card__wrapping-link"
+        href="/https://thepiratebay.org"
+        onClick={[Function]}
       >
-        <button
+        <i
+          aria-hidden={true}
           className="small-movie-card__play-btn"
-          type="button"
-        >
-          Play
-        </button>
+        />
         <div
           className="small-movie-card__image"
         >
@@ -89,26 +84,29 @@ exports[`<MyList /> should render correctly 1`] = `
         <h3
           className="small-movie-card__title"
         >
-          <a
+          <span
             className="small-movie-card__link"
-            href="https://thepiratebay.org"
           >
             Johny English
-          </a>
+          </span>
         </h3>
-      </article>
-      <article
-        className="small-movie-card catalog__movies-card"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        tabIndex={0}
+      </a>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      tabIndex={0}
+    >
+      <a
+        className="small-movie-card__wrapping-link"
+        href="/https://thepiratebay.org"
+        onClick={[Function]}
       >
-        <button
+        <i
+          aria-hidden={true}
           className="small-movie-card__play-btn"
-          type="button"
-        >
-          Play
-        </button>
+        />
         <div
           className="small-movie-card__image"
         >
@@ -123,26 +121,29 @@ exports[`<MyList /> should render correctly 1`] = `
         <h3
           className="small-movie-card__title"
         >
-          <a
+          <span
             className="small-movie-card__link"
-            href="https://thepiratebay.org"
           >
             Pulp Fiction
-          </a>
+          </span>
         </h3>
-      </article>
-      <article
-        className="small-movie-card catalog__movies-card"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        tabIndex={0}
+      </a>
+    </article>
+    <article
+      className="small-movie-card catalog__movies-card"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      tabIndex={0}
+    >
+      <a
+        className="small-movie-card__wrapping-link"
+        href="/https://thepiratebay.org"
+        onClick={[Function]}
       >
-        <button
+        <i
+          aria-hidden={true}
           className="small-movie-card__play-btn"
-          type="button"
-        >
-          Play
-        </button>
+        />
         <div
           className="small-movie-card__image"
         >
@@ -157,26 +158,15 @@ exports[`<MyList /> should render correctly 1`] = `
         <h3
           className="small-movie-card__title"
         >
-          <a
+          <span
             className="small-movie-card__link"
-            href="https://thepiratebay.org"
           >
             Snatch
-          </a>
+          </span>
         </h3>
-      </article>
-    </div>
-    <div
-      className="catalog__more"
-    >
-      <button
-        className="catalog__button"
-        type="button"
-      >
-        Show more
-      </button>
-    </div>
-  </section>
+      </a>
+    </article>
+  </div>
   <footer
     className="page-footer"
   >

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Catalog from '../catalog/catalog';
+import FilmsList from '../films-list/films-list';
 import Footer from '../partials/footer/footer';
 import Logo from '../partials/logo/logo';
 import UserBlock from '../partials/user-block/user-block';
@@ -27,7 +27,7 @@ const MyList = (props: Props): React.ReactElement => {
         <UserBlock location={props.location} user={userData} />
       </header>
 
-      <Catalog movies={selectedMovies} />
+      <FilmsList films={selectedMovies} />
 
       <Footer pathname={location.pathname} />
     </div>

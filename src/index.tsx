@@ -17,15 +17,14 @@ import rootReducer from './store/reducers';
 
 // Components
 import App from './components/app/app';
-
-declare const __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: (params: object) => any;
+import ScrollToTop from './hocs/scroll-to-top';
 
 
 const api = createAPI((dispatchFunc) => store.dispatch(dispatchFunc));
 
 // https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
-const composeEnhancers = (__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ?
-  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
+const composeEnhancers = (window[`__REDUX_DEVTOOLS_EXTENSION_COMPOSE__`]) ?
+  window[`__REDUX_DEVTOOLS_EXTENSION_COMPOSE__`]({}) : compose;
 
 const enhancer = composeEnhancers(applyMiddleware(thunk.withExtraArgument(api)));
 
@@ -39,7 +38,7 @@ function init(): void {
   ReactDOM.render(
       <Provider {...{store}}>
         <Router>
-          <App />
+          <ScrollToTop><App /></ScrollToTop>
         </Router>
       </Provider>,
       document.getElementById(`root`) as HTMLElement

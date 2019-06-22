@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FilmOverview /> should render correctly 1`] = `
+Array [
+  <div
+    className="movie-rating"
+  >
+    <div
+      className="movie-rating__score"
+      data-test="at-film-rating"
+    >
+      6.7
+    </div>
+    <p
+      className="movie-rating__meta"
+    >
+      <span
+        className="movie-rating__level"
+        data-test="at-film-rating-word"
+      />
+      <span
+        className="movie-rating__count"
+      >
+        100500
+         ratings
+      </span>
+    </p>
+  </div>,
+  <div
+    className="movie-card__text"
+  >
+    Come Tatyana with a duck, we will eat and we will fuck
+    <p
+      className="movie-card__director"
+    >
+      <strong>
+        Director: 
+        Alan Smithie
+      </strong>
+    </p>
+    <p
+      className="movie-card__starring"
+    >
+      <strong>
+        Starring: 
+        Ben Dover, Major Woodie, Private Parts, I. C. Wiener
+      </strong>
+    </p>
+  </div>,
+]
+`;
