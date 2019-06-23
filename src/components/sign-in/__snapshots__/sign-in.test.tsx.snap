@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SignInView /> should render correctly 1`] = `
+exports[`SignInView test suite <SignInView /> should render correctly 1`] = `
 <div
   className="user-page"
 >

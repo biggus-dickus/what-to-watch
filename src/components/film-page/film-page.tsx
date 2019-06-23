@@ -48,12 +48,12 @@ export const FilmPage = (props: Props): React.ReactElement => {
   const [didMount, setDidMount] = React.useState(false);
   React.useEffect(() => setDidMount(true), []);
 
-  // Fetch reviews on load
+  // Fetch reviews on load and subsequent location changes
   React.useEffect(() => {
     (async function () {
       await loadReviews(+computedMatch.params.id);
     })();
-  }, []);
+  }, [pathname]);
 
   // Revert active tab to default one, but only on subsequent changes to location
   React.useEffect(() => {

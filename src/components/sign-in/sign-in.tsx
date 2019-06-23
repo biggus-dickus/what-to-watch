@@ -120,7 +120,9 @@ export class SignInView extends React.PureComponent<Props, State> {
 
             <Loader show={this.state.isLoading} />
 
-            {error && <div className="sign-in__message"><p>{error}</p></div>}
+            {error && <div className="sign-in__message" data-test="at-validation-error">
+              <p>{error}</p>
+            </div>}
 
             <div className="sign-in__fields">
               {formFields.map((field: FormField) => {
