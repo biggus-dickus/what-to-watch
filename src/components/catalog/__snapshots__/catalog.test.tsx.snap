@@ -125,6 +125,7 @@ exports[`<Catalog /> should render correctly 1`] = `
   </ul>
   <div
     className="catalog__movies-list"
+    data-test="at-films-list"
   >
     <article
       className="small-movie-card catalog__movies-card"
@@ -163,16 +164,6 @@ exports[`<Catalog /> should render correctly 1`] = `
         </h3>
       </a>
     </article>
-  </div>
-  <div
-    className="catalog__more"
-  >
-    <button
-      className="catalog__button"
-      type="button"
-    >
-      Show more
-    </button>
   </div>
 </section>
 `;

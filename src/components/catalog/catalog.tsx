@@ -20,10 +20,6 @@ const Catalog = (props: Props): React.ReactElement => {
       {genres.length ? <GenresList {...{currentGenre, genres, onGenreChange}} /> : null}
 
       <FilmsList films={movies} />
-
-      <div className="catalog__more">
-        <button className="catalog__button" type="button">Show more</button>
-      </div>
     </section>
   );
 };

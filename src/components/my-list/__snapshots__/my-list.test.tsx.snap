@@ -54,6 +54,7 @@ exports[`<MyList /> should render correctly 1`] = `
   </header>
   <div
     className="catalog__movies-list"
+    data-test="at-films-list"
   >
     <article
       className="small-movie-card catalog__movies-card"

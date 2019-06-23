@@ -4,6 +4,9 @@ export const HOVER_DELAY = 1000;
 // How many films to render in "More like this" section (film page)
 export const MORE_LIKE_THIS_LIMIT = 4;
 
+// How many films to display at once on mount
+export const FILMS_LIMIT = 20;
+
 // Navigation tabs on film page
 export const NAV_OVERVIEW_ID = `overview`;
 export const NAV_DETAILS_ID = `details`;
@@ -20,5 +23,5 @@ export const filmTabs = [
   {
     id: NAV_REVIEWS_ID,
     text: `Reviews`
-  },
+  }
 ];
