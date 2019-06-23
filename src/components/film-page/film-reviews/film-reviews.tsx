@@ -1,11 +1,14 @@
 import * as React from 'react';
+import {Link} from 'react-router-dom';
 
 import {Review} from '../../../types'; // eslint-disable-line
+import RouteConfig from '../../../config/routes';
 
 import {formatDate} from '../../../utilities/helpers';
 
 interface Props {
   error: string,
+  filmId: number,
   reviews: Review[]
 }
 
@@ -14,13 +17,18 @@ const sortByDate = (reviews: Review[]): Review[] => {
 };
 
 
-const FilmReviews = ({error, reviews = []}: Props): React.ReactElement => {
+const FilmReviews = ({error, filmId, reviews = []}: Props): React.ReactElement => {
   if (error) {
     return <p className="review" data-test="at-reviews-error">{error}</p>;
   }
 
   if (!reviews.length) {
-    return <p className="review" data-test="at-no-reviews">There are no reviews for this film yet.</p>;
+    return (
+      <p className="review no-reviews" data-test="at-no-reviews">
+        There are no reviews for this film yet.
+        Be the first to <Link to={RouteConfig.ADD_REVIEW.replace(`:id`, `` + filmId)}>add one</Link>!
+      </p>
+    );
   }
 
   return (

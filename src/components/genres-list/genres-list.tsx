@@ -1,12 +1,13 @@
 import * as React from 'react';
 
 import {Genre} from '../../types'; // eslint-disable-line
+import {GENRES_LIMIT} from '../../config/config';
 
 
 const GenresList = ({genres, currentGenre, onGenreChange}: Genre): React.ReactElement => {
   return (
-    <ul className="catalog__genres-list">
-      {genres.map((genre) => {
+    <ul className="catalog__genres-list" data-test="at-genres-list">
+      {genres.slice(0, GENRES_LIMIT).map((genre) => {
         const classList = [`catalog__genres-item`];
         const isActive = genre === currentGenre;
 

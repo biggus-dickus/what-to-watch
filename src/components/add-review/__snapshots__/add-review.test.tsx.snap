@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddReview test suite <AddReview /> should render correctly 1`] = `
+<mark>
+  Add a review
+</mark>
+`;

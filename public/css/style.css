@@ -395,8 +395,15 @@ main {
   font-weight: bold;
   cursor: pointer;
   transition: opacity 0.2s; }
-.add-review__btn:hover {
-  opacity: 0.5; }
+
+.add-review__btn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.add-review__btn:not(:disabled):hover {
+  opacity: 0.5;
+}
 
 .breadcrumbs {
   margin: 0 20px; }
@@ -1063,6 +1070,11 @@ main {
   font-weight: 500;
   line-height: 25px;
   padding: 5px; }
+
+.no-reviews a {
+  font-weight: 700;
+  color: rgba(31,22,15,.46);
+}
 
 .sign-in {
   max-width: 480px;

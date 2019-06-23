@@ -12,6 +12,7 @@ configure({adapter: new Adapter()});
 
 const props = {
   error: ``,
+  filmId: 1,
   reviews: mockReviews
 };
 

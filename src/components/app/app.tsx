@@ -13,6 +13,7 @@ import {getUserData} from '../../store/reducers/user/selectors';
 import PrivateRoute from '../../hocs/private-route';
 import PropsRoute from '../../hocs/props-route';
 
+import AddReview from '../add-review/add-review';
 import FilmPage from '../film-page/film-page';
 import Main from '../main/main';
 import MyList from '../my-list/my-list';
@@ -55,6 +56,15 @@ export class App extends React.PureComponent<Props, null> {
           exact
           component={MyList}
           isPrivate={!userData}
+          {...{userData}} />
+
+        <PrivateRoute
+          path={RouteConfig.ADD_REVIEW}
+          redirectTo={RouteConfig.SIGN_IN}
+          exact
+          component={AddReview}
+          isPrivate={!userData}
+          availableFilms={movies}
           {...{userData}} />
 
         <PropsRoute
