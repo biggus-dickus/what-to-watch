@@ -410,6 +410,11 @@ main {
   color: #866866;
 }
 
+.add-review__error {
+  color: #170202;
+  font-weight: 700;
+}
+
 .breadcrumbs {
   margin: 0 20px; }
 

@@ -9,6 +9,7 @@ import {mockFilms} from '../../mocks/films';
 import {mockLocation} from '../../mocks/user';
 import mockUser from '../../mocks/user';
 
+import {COMMENT_NAME, RATING_NAME} from './add-review';
 import {AddReview} from './add-review';
 
 configure({adapter: new Adapter()});
@@ -18,6 +19,7 @@ const props = {
   availableFilms: mockFilms,
   computedMatch: {params: {id: 3}},
   location: {...mockLocation, pathname: `/film/3/review`},
+  onReviewPost: jest.fn(),
   userData: mockUser
 };
 
@@ -33,5 +35,24 @@ describe(`AddReview test suite`, () => {
 
     const wrapper = shallow(<AddReview {...newProps} />);
     expect(wrapper.find(`NoMatch`)).toHaveLength(1);
+  });
+
+  it(`the "Submit" button should be disabled until the form is filled and valid`, () => {
+    const wrapper = shallow(<AddReview {...props} />);
+    expect(wrapper.find(`[data-test="at-review-submit-btn"]`).prop(`disabled`)).toEqual(true);
+
+    wrapper.setState({
+      [COMMENT_NAME]: `Wish in one hand, shit in the other. See which one gets filled first`,
+      [RATING_NAME]: `3`
+    });
+
+    expect(wrapper.find(`[data-test="at-review-submit-btn"]`).prop(`disabled`)).toEqual(false);
+  });
+
+  it(`should display the error it got through props`, () => {
+    const newProps = {...props, error: `Something went wrong`};
+    const wrapper = shallow(<AddReview {...newProps} />);
+
+    expect(wrapper.find(`[data-test="at-add-review-error"]`)).toHaveLength(1);
   });
 });

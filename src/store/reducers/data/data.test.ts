@@ -65,6 +65,27 @@ describe(`Data reducer test suite`, () => {
       });
   });
 
+  it(`should POST comments correctly`, () => {
+    const reviewData = {
+      filmId: 1,
+      rating: `5`,
+      comment: `Every sperm is sacred, every sperm is great. If a sperm is wasted, God gets quite irate.`
+    };
+    const {rating, comment} = reviewData;
+
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const posterFunc = Operation.postReview(reviewData);
+
+    apiMock
+      .onPost(`/comments/1`, {rating, comment})
+      .reply(200, [{fake: true}]);
+
+    return posterFunc(dispatch, jest.fn(), api)
+      .then((response) => expect(response).toEqual([{fake: true}]));
+  });
+
   it(`should return an error for any malformed request to server`, () => {
     const dispatch = jest.fn();
     const api = createAPI(dispatch);
