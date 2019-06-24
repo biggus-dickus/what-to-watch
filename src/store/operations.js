@@ -19,6 +19,11 @@ export const Operation = {
       });
   },
 
+  fetchPromo: () => (dispatch, _getState, api) => {
+    return api.get(ApiEndpoint.PROMO)
+      .then((response) => dispatch(ActionCreator.getPromoMovie(response.data)));
+  },
+
   tryLogin: (email, password) => (dispatch, _getState, api) => {
     const onFail = (error) => dispatch(ActionCreator.getAuthError(error));
 

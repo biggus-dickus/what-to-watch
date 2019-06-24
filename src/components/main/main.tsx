@@ -9,25 +9,23 @@ import UserBlock from '../partials/user-block/user-block';
 
 import * as Interface from '../../types'; // eslint-disable-line
 
-const grandBudapest = require(`../../../public/img/the-grand-budapest-hotel-poster.jpg`);
-const grandBudapestBg = require(`../../../public/img/bg-the-grand-budapest-hotel.jpg`);
-
 
 interface Props extends Interface.Genre {
   location: Interface.Location,
   userData: Interface.User,
-  movies: Array<Interface.Film>
+  movies: Array<Interface.Film>,
+  promo?: Interface.Film
 }
 
 
 const Main = (props: Props): React.ReactElement => {
-  const {userData} = props;
+  const {promo, userData} = props;
 
   return (
     <>
-      <section className="movie-card">
+      <section className="movie-card" style={{background: promo.bgColor}}>
         <div className="movie-card__bg">
-          <img src={grandBudapestBg} alt="The Grand Budapest Hotel" width="1300" height="552" />
+          <img src={promo.bgImage} alt={promo.name} />
         </div>
 
         <h1 className="visually-hidden">What to Watch</h1>
@@ -41,16 +39,16 @@ const Main = (props: Props): React.ReactElement => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src={grandBudapest} alt="The Grand Budapest Hotel poster" width="218" height="327"/>
+              <img src={promo.posterImage} alt={`${promo.name} poster`} />
             </div>
 
             <div className="movie-card__desc">
               <FilmTitle
-                name="The Grand Budapest Hotel"
-                genre="Drama"
-                released={2014} />
+                name={promo.name}
+                genre={promo.genre}
+                released={promo.released} />
 
-              <FilmButtons filmId={666} isAdded={false} />
+              <FilmButtons filmId={promo.id} isAdded={promo.isFavourite} />
             </div>
           </div>
         </div>

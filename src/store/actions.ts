@@ -33,6 +33,11 @@ export const ActionCreator = {
     payload: error
   }),
 
+  getPromoMovie: (movie) => ({
+    type: ActionType.GET_PROMO_MOVIE,
+    payload: movie
+  }),
+
   loadMovies: (movies: any[]) => ({
     type: ActionType.LOAD_MOVIES,
     payload: movies

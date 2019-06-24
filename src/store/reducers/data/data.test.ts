@@ -15,6 +15,7 @@ const originalState = {
   error: ``,
   genres: [],
   movies: [],
+  promo: {},
   reviews: []
 };
 

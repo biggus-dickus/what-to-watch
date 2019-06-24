@@ -75,7 +75,9 @@ export const FilmPage = (props: Props): React.ReactElement => {
 
     return (
       <>
-        <section className="movie-card movie-card--full">
+        <section
+          className="movie-card movie-card--full"
+          style={{background: film.bgColor}}>
           <div className="movie-card__hero">
             <div className="movie-card__bg">
               <img src={film.bgImage} alt={film.name} />
