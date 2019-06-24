@@ -3,22 +3,21 @@ import {Review} from '../types'; // eslint-disable-line
 export const mockReviews: Review[] = [
   {
     id: 1,
-    user: {
-      id: 4,
-      name: `Kate Muir`,
-    },
-    rating: 8.9,
-    comment: `Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director's funniest and most exquisitely designed movies in years.`,
-    date: `2019-05-08T14:13:56.569Z`
-  },
-  {
+    user: {id: 19, name: `Christina`},
+    rating: 4,
+    comment: `I love this movie. This film is a milestone in cinematography. Great Immersive camera-work. This film is an experience and i has already seen it 4 times and I only see more quality of the film.`,
+    date: `2019-06-17T16:39:57.295Z`
+  }, {
     id: 2,
-    user: {
-      id: 13,
-      name: `Bill Goodykoontz`,
-    },
-    rating: 8.0,
-    comment: `Anderson's films are too precious for some, but for those of us willing to lose ourselves in them, they're a delight. “The Grand Budapest Hotel” is no different, except that he has added a hint of gravitas to the mix, improving the recipe.`,
-    date: `2019-06-07T21:12:21.569Z`
+    user: {id: 14, name: `Corey`},
+    rating: 3,
+    comment: `Unfortunately we don't have a reliable way to tell the true ratings of a movie.`,
+    date: `2019-06-20T16:39:57.295Z`
+  }, {
+    id: 3,
+    user: {id: 13, name: `Zak`},
+    rating: 4,
+    comment: `I love this movie. This film is a milestone in cinematography. Great Immersive camera-work. This film is an experience and i has already seen it 4 times and I only see more quality of the film.`,
+    date: `2019-06-12T16:39:57.295Z`
   }
 ];

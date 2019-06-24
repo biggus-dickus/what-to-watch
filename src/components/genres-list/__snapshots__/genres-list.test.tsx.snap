@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<GenresList /> should render correctly 1`] = `
+exports[`GenresList test suite <GenresList /> should render correctly 1`] = `
 <ul
   className="catalog__genres-list"
+  data-test="at-genres-list"
 >
   <li
     className="catalog__genres-item"

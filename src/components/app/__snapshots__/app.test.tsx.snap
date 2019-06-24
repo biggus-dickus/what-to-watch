@@ -148,7 +148,8 @@ Array [
             </button>
             <a
               className="btn movie-card__button"
-              href="add-review.html"
+              href="/film/666/review"
+              onClick={[Function]}
             >
               Add review
             </a>
@@ -170,6 +171,7 @@ Array [
       </h2>
       <ul
         className="catalog__genres-list"
+        data-test="at-genres-list"
       >
         <li
           className="catalog__genres-item"

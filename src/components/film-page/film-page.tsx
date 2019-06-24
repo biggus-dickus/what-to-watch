@@ -82,7 +82,7 @@ export const FilmPage = (props: Props): React.ReactElement => {
             </div>
 
             <header className="page-header movie-card__head">
-              <Logo pathname={location.pathname}/>
+              <Logo pathname={location.pathname} />
 
               <UserBlock location={location} user={userData} />
             </header>
@@ -95,7 +95,7 @@ export const FilmPage = (props: Props): React.ReactElement => {
                   released={film.released}
                   ish1 />
 
-                <FilmButtons isAdded={film.isFavourite} />
+                <FilmButtons filmId={film.id} isAdded={film.isFavourite} />
               </div>
             </div>
           </div>
@@ -133,6 +133,7 @@ export const FilmPage = (props: Props): React.ReactElement => {
                 {activeTabId === NAV_REVIEWS_ID && (
                   <FilmReviews
                     error={props.error}
+                    filmId={film.id}
                     reviews={props.reviews} />
                 )}
               </div>

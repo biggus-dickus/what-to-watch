@@ -11,6 +11,7 @@ exports[`<Catalog /> should render correctly 1`] = `
   </h2>
   <ul
     className="catalog__genres-list"
+    data-test="at-genres-list"
   >
     <li
       className="catalog__genres-item catalog__genres-item--active"
