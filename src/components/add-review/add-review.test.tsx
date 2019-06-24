@@ -9,7 +9,7 @@ import {mockFilms} from '../../mocks/films';
 import {mockLocation} from '../../mocks/user';
 import mockUser from '../../mocks/user';
 
-import AddReview from './add-review';
+import {AddReview} from './add-review';
 
 configure({adapter: new Adapter()});
 

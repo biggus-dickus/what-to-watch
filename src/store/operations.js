@@ -43,5 +43,18 @@ export const Operation = {
 
         dispatch(ActionCreator.getReviews(res.data));
       });
+  },
+  
+  postReview: (data) => (dispatch, _getState, api) => {
+    const {filmId, comment, rating} = data;
+
+    return api.post(`${ApiEndpoint.REVIEWS}/${filmId}`, {comment, rating})
+      .then((res) => {
+        if (res.response && res.response.status === StatusCode.BAD_REQUEST) {
+          dispatch(ActionCreator.getNetworkError(res.response.data.error));
+        }
+
+        return res.data;
+      });
   }
 };

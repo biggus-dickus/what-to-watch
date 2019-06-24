@@ -1,7 +1,12 @@
 import * as React from 'react';
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Link, withRouter} from 'react-router-dom';
 
+import {History} from 'history'; // eslint-disable-line
 import {Film, Location, User} from '../../types'; // eslint-disable-line
+
+import {getError} from '../../store/reducers/data/selectors';
+import {Operation} from '../../store/operations';
 
 import {getFilmById} from '../film-page/helpers';
 import {isLength} from '../../utilities/validators';
@@ -15,39 +20,68 @@ import UserBlock from '../partials/user-block/user-block';
 interface Props {
   availableFilms: Film[],
   computedMatch: any,
+  history?: History,
   location: Location,
-  userData: User
+  userData: User,
+  onReviewPost: (data: PostData) => Promise<any>,
+  error?: string
 }
 
 interface State {
   comment: string,
-  rating: number
+  rating: string
+}
+
+interface PostData {
+  filmId: number,
+  rating: string,
+  comment: string
 }
 
 const COMMENT_NAME = `comment`;
 const RATING_NAME = `rating`;
 
 
-class AddReview extends React.PureComponent<Props, State> {
+export class AddReview extends React.PureComponent<Props, State> {
   constructor(props) {
     super(props);
 
     this.state = {
       [COMMENT_NAME]: ``,
-      [RATING_NAME]: 3,
+      [RATING_NAME]: `3`,
     };
   }
 
-  get isFormValid() {
-    return isLength(this.state[COMMENT_NAME], {
-      min: REVIEW_CHARS_MIN,
-      max: REVIEW_CHARS_MAX
-    });
+  get isFormValid(): boolean {
+    return this.state[RATING_NAME] &&
+      isLength(this.state[COMMENT_NAME], {
+        min: REVIEW_CHARS_MIN,
+        max: REVIEW_CHARS_MAX
+      });
   }
 
-  _handleInput = (e): void => {
-    const {name, value} = e.target;
-    this.setState({[name]: value});
+  _handleInput = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+    const {name, value} = e.target as HTMLInputElement;
+    const newState = {[name]: value} as Pick<State, keyof State>;
+    this.setState(newState);
+  };
+
+  _handleSubmit = (e: React.FormEvent): any => {
+    e.preventDefault();
+
+    const filmId = +this.props.computedMatch.params.id;
+
+    if (this.isFormValid) {
+      this.props.onReviewPost({
+        filmId,
+        rating: this.state[RATING_NAME],
+        comment: this.state[COMMENT_NAME]
+      }).then(() => {
+        if (!this.props.error) {
+          this.props.history.push(RouteConfig.FILM.replace(`:id`, `${filmId}`));
+        }
+      });
+    }
   };
 
   render():React.ReactElement {
@@ -92,10 +126,14 @@ class AddReview extends React.PureComponent<Props, State> {
           </div>
 
           <div className="add-review">
-            <form action="#" className="add-review__form">
+            <form
+              action="?"
+              method="post"
+              className="add-review__form"
+              onSubmit={this._handleSubmit}>
               <div className="rating">
                 <div className="rating__stars">
-                  {[1, 2, 3, 4, 5].map((val) => (
+                  {[`1`, `2`, `3`, `4`, `5`].map((val) => (
                     <React.Fragment key={val}>
                       <input
                         className="rating__input"
@@ -104,7 +142,8 @@ class AddReview extends React.PureComponent<Props, State> {
                         name={RATING_NAME}
                         value={val}
                         onChange={this._handleInput}
-                        defaultChecked={val === this.state[RATING_NAME]} />
+                        defaultChecked={val === this.state[RATING_NAME]}
+                        required />
                       <label className="rating__label" htmlFor={`star-${val}`}>
                         Rating {val}
                       </label>
@@ -116,10 +155,13 @@ class AddReview extends React.PureComponent<Props, State> {
               <div className="add-review__text">
                 <textarea
                   className="add-review__textarea"
-                  name={RATING_NAME}
+                  name={COMMENT_NAME}
                   id="review-text"
+                  minLength={REVIEW_CHARS_MIN}
+                  maxLength={REVIEW_CHARS_MAX}
                   onChange={this._handleInput}
-                  placeholder={`Your review ( ${REVIEW_CHARS_MIN}–${REVIEW_CHARS_MAX} characters)`} />
+                  placeholder={`Your review (${REVIEW_CHARS_MIN}–${REVIEW_CHARS_MAX} characters)`}
+                  required />
 
                 <div className="add-review__submit">
                   <button
@@ -130,6 +172,10 @@ class AddReview extends React.PureComponent<Props, State> {
                   </button>
                 </div>
               </div>
+
+              <p className="add-review__counter">
+                {this.state[COMMENT_NAME].length}/{REVIEW_CHARS_MAX} characters
+              </p>
             </form>
           </div>
         </section>
@@ -140,4 +186,12 @@ class AddReview extends React.PureComponent<Props, State> {
   }
 }
 
-export default AddReview;
+const mapStateToProps = (state) => ({
+  error: getError(state)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onReviewPost: (postData: PostData): Promise<any> => dispatch(Operation.postReview(postData))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(AddReview));

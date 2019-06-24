@@ -369,14 +369,13 @@ main {
   color: #252525;
   line-height: 24px; }
 .add-review__textarea:-ms-input-placeholder {
-  opacity: 1;
-  color: #252525; }
+  color: rgba(37, 37, 37, .55) }
 .add-review__textarea::-ms-input-placeholder {
-  opacity: 1;
-  color: #252525; }
+  color: rgba(37, 37, 37, .55) }
+.add-review__textarea::-webkit-input-placeholder {
+  color: rgba(37, 37, 37, .55) }
 .add-review__textarea::placeholder {
-  opacity: 1;
-  color: #252525; }
+  color: rgba(37, 37, 37, .55) }
 
 .add-review__submit {
   display: flex;
@@ -403,6 +402,12 @@ main {
 
 .add-review__btn:not(:disabled):hover {
   opacity: 0.5;
+}
+
+.add-review__counter {
+  margin-top: .5em;
+  font-size: 15px;
+  color: #866866;
 }
 
 .breadcrumbs {

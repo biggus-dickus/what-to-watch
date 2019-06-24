@@ -19,7 +19,7 @@ export const copyRelevantProps = (objToCopy: any, excludedProps: string[]): any 
 };
 
 /**
- * Format date string to human readable or local format.
+ * Format date string in human readable or local format.
  * @param {string} dateToFormat
  * @param {string} locale
  * @return {Object}
