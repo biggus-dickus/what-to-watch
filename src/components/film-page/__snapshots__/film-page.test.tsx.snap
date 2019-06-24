@@ -120,7 +120,8 @@ Array [
             </button>
             <a
               className="btn movie-card__button"
-              href="add-review.html"
+              href="/film/2/review"
+              onClick={[Function]}
             >
               Add review
             </a>

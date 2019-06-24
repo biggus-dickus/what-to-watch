@@ -44,7 +44,7 @@ export const Operation = {
         dispatch(ActionCreator.getReviews(res.data));
       });
   },
-  
+
   postReview: (data) => (dispatch, _getState, api) => {
     const {filmId, comment, rating} = data;
 
