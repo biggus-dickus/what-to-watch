@@ -61,5 +61,11 @@ export const Operation = {
 
         return res.data;
       });
+  },
+
+  // status = 1 | 0
+  addToFavourite: (filmId, status) => (dispatch, _getState, api) => {
+    return api.post(`${ApiEndpoint.FAVOURITE}/${filmId}/${status}`)
+      .then((response) => response);
   }
 };
