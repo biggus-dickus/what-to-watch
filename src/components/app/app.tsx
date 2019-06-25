@@ -2,7 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Switch} from 'react-router-dom';
 
-import {Film, Genre, User} from '../../types'; // eslint-disable-line
+import {Film, Genre, ToFavourite, User} from '../../types'; // eslint-disable-line
 
 import RouteConfig from '../../config/routes';
 
@@ -25,15 +25,26 @@ import SignIn from '../sign-in/sign-in';
 interface Props extends Genre {
   filteredMovies?: Array<Film>,
   movies: Array<Film>,
-  promo?: Film,
+  promo: Film,
   userData: User,
-  onPromoFetch?: () => Promise<any>
+  onPromoFetch: () => Promise<any>,
+  onReviewAdd: (id: number) => Promise<any>,
+  onReviewRemove: (id: number) => Promise<any>
 }
 
 
 export class App extends React.PureComponent<Props, null> {
   render(): React.ReactElement {
-    const {currentGenre, filteredMovies, genres, movies, promo, userData} = this.props;
+    const {
+      currentGenre,
+      filteredMovies,
+      genres,
+      movies,
+      promo,
+      onReviewAdd,
+      onReviewRemove,
+      userData
+    } = this.props;
 
     return (
       <Switch>
@@ -43,7 +54,7 @@ export class App extends React.PureComponent<Props, null> {
           component={Main}
           movies={(filteredMovies.length) ? filteredMovies : movies}
           onGenreChange={this._handleGenreChange}
-          {...{currentGenre, genres, promo, userData}} />
+          {...{currentGenre, genres, promo, userData, onReviewAdd, onReviewRemove}} />
 
         <PrivateRoute
           path={RouteConfig.SIGN_IN}
@@ -75,7 +86,7 @@ export class App extends React.PureComponent<Props, null> {
           exact
           component={FilmPage}
           availableMovies={movies}
-          {...{userData}} />
+          {...{userData, onReviewAdd, onReviewRemove}} />
 
         <NoMatch />
       </Switch>
@@ -100,7 +111,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreChange: (newGenre) => dispatch(ActionCreator.changeGenre(newGenre)),
-  onPromoFetch: () => dispatch(Operation.fetchPromo())
+  onPromoFetch: () => dispatch(Operation.fetchPromo()),
+  onReviewAdd: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.ADD)),
+  onReviewRemove: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.REMOVE))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

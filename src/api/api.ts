@@ -15,10 +15,13 @@ export const createAPI = (onLoginFail): AxiosInstance => {
   const onSuccess = (response) => response;
 
   const onFail = (err) => {
-    if (err.response.request.responseURL.indexOf(RouteConfig.SIGN_IN) === -1 &&
+    if (err.response.request &&
+      err.response.request.responseURL.indexOf(RouteConfig.SIGN_IN) === -1 &&
       err.response.status === StatusCode.FORBIDDEN) {
       onLoginFail();
     }
+
+    console.log(err)
 
     return err;
   };

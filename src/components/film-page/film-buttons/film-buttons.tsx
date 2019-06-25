@@ -1,20 +1,18 @@
 import * as React from 'react';
-import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {Operation} from '../../../store/operations';
-
 import RouteConfig from '../../../config/routes';
-import {ToFavourite} from '../../../types';
 
 interface Props {
   filmId: number,
   isAdded: boolean,
   onReviewAdd: (id: number) => Promise<any>,
-  onReviewRemove: (id: number) => Promise<any>,
+  onReviewRemove: (id: number) => Promise<any>
 }
 
 export const FilmButtons = ({filmId, isAdded, onReviewAdd, onReviewRemove}: Props): React.ReactElement => {
+  const [isFavourite, updateIsFavourite] = React.useState(isAdded);
+
   let btnIcon = (
     <svg viewBox="0 0 19 20" width="19" height="20" data-test="at-is-not-added">
       <use xlinkHref="img/sprite/sprite.svg#add" />
@@ -22,9 +20,11 @@ export const FilmButtons = ({filmId, isAdded, onReviewAdd, onReviewRemove}: Prop
   );
 
   let btnText = `My list`;
-  let clickHandler = onReviewAdd;
+  let clickHandler = (id) => onReviewAdd(id).then((res) => {
+    updateIsFavourite(true)
+  });
 
-  if (isAdded) {
+  if (isFavourite) {
     btnIcon = (
       <svg viewBox="0 0 18 14" width="18" height="14" data-test="at-is-added">
         <use xlinkHref="img/sprite/sprite.svg#in-list" />
@@ -32,7 +32,7 @@ export const FilmButtons = ({filmId, isAdded, onReviewAdd, onReviewRemove}: Prop
     );
 
     btnText = `In my list`;
-    clickHandler = onReviewRemove;
+    clickHandler = (id) => onReviewRemove(id).then(() => updateIsFavourite(false));
   }
 
   return (
@@ -62,9 +62,4 @@ export const FilmButtons = ({filmId, isAdded, onReviewAdd, onReviewRemove}: Prop
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  onReviewAdd: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.ADD)),
-  onReviewRemove: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.REMOVE)),
-});
-
-export default connect(null, mapDispatchToProps)(FilmButtons);
+export default FilmButtons;

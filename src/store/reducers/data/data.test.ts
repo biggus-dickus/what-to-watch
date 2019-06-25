@@ -87,6 +87,34 @@ describe(`Data reducer test suite`, () => {
       .then((response) => expect(response).toEqual([{fake: true}]));
   });
 
+  it(`should POST a film to watch list correctly`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const posterFunc = Operation.addToFavourite(5, 1);
+
+    apiMock
+      .onPost(`/favorite/5/1`)
+      .reply(200, [{fake: true}]);
+
+    return posterFunc(dispatch, jest.fn(), api)
+      .then((response) => expect(response).toEqual([{fake: true}]));
+  });
+
+  it(`should remove a film from watch list correctly via POST request`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const posterFunc = Operation.addToFavourite(5, 0);
+
+    apiMock
+      .onPost(`/favorite/5/0`)
+      .reply(200, [{fake: true}]);
+
+    return posterFunc(dispatch, jest.fn(), api)
+      .then((response) => expect(response).toEqual([{fake: true}]));
+  });
+
   it(`should return an error for any malformed request to server`, () => {
     const dispatch = jest.fn();
     const api = createAPI(dispatch);
