@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FilmButtons /> should render correctly 1`] = `
+exports[`FilmButtons test suite <FilmButtons /> should render correctly 1`] = `
 <div
   className="movie-card__buttons"
 >
@@ -23,9 +23,12 @@ exports[`<FilmButtons /> should render correctly 1`] = `
   </button>
   <button
     className="btn btn--list movie-card__button"
+    data-test="at-my-list-btn"
+    onClick={[Function]}
     type="button"
   >
     <svg
+      data-test="at-is-not-added"
       height="20"
       viewBox="0 0 19 20"
       width="19"

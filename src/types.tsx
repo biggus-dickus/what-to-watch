@@ -79,6 +79,13 @@ export interface RouteWithProps {
   [x: string]: any
 }
 
+/* eslint-disable */
+export enum ToFavourite {
+  REMOVE = 0,
+  ADD = 1
+}
+/* eslint-enable */
+
 export interface User {
   avatar_url: string, // eslint-disable-line
   email: string,

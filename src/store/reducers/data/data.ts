@@ -1,5 +1,5 @@
 import {ActionType} from '../../action-types';
-import Adapter from '../../../api/film-data-adapter';
+import adapter from '../../../api/film-data-adapter';
 
 import {Film, Review} from '../../../types'; // eslint-disable-line
 import {GenericAction} from '../../actions'; // eslint-disable-line
@@ -9,6 +9,7 @@ interface DataState {
   readonly error: string,
   readonly genres: string[],
   readonly movies: any[],
+  readonly promo: Film | {},
   readonly reviews: Review[]
 }
 
@@ -23,7 +24,8 @@ const initialState: DataState = {
   error: ``,
   genres: [],
   movies: [],
-  reviews: []
+  promo: {},
+  reviews: [],
 };
 
 export const dataReducer = (state: DataState = initialState, action: GenericAction | undefined) => {
@@ -31,7 +33,7 @@ export const dataReducer = (state: DataState = initialState, action: GenericActi
     case ActionType.LOAD_MOVIES:
       return {
         ...state,
-        movies: action.payload.map(Adapter),
+        movies: action.payload.map(adapter),
         genres: collectGenres(action.payload)
       };
 
@@ -51,6 +53,12 @@ export const dataReducer = (state: DataState = initialState, action: GenericActi
       return {
         ...state,
         error: action.payload
+      };
+
+    case ActionType.GET_PROMO_MOVIE:
+      return {
+        ...state,
+        promo: adapter(action.payload)
       };
 
     default: return state;

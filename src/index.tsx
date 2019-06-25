@@ -1,7 +1,7 @@
 // Vendor
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {Router} from 'react-router-dom';
 import {compose} from 'recompose';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
@@ -12,15 +12,16 @@ import {Store} from 'redux'; // eslint-disable-line
 
 // Store & Api
 import {createAPI} from './api/api';
+import history from './history';
 import {Operation} from './store/operations';
 import rootReducer from './store/reducers';
+import RouteConfig from './config/routes';
 
 // Components
 import App from './components/app/app';
 import ScrollToTop from './hocs/scroll-to-top';
 
-
-const api = createAPI((dispatchFunc) => store.dispatch(dispatchFunc));
+const api = createAPI(() => history.push(RouteConfig.SIGN_IN));
 
 // https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
 const composeEnhancers = (window[`__REDUX_DEVTOOLS_EXTENSION_COMPOSE__`]) ?
@@ -37,7 +38,7 @@ store.dispatch(Operation.getUserData()).then(() => init());
 function init(): void {
   ReactDOM.render(
       <Provider {...{store}}>
-        <Router>
+        <Router {...{history}}>
           <ScrollToTop><App /></ScrollToTop>
         </Router>
       </Provider>,

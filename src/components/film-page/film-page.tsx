@@ -25,6 +25,8 @@ interface Props {
   computedMatch: any,
   error?: string,
   location: Location,
+  onReviewAdd: (id: number) => Promise<any>,
+  onReviewRemove: (id: number) => Promise<any>,
   reviews?: any[],
   userData?: User,
   loadReviews: (filmId: number) => void
@@ -40,7 +42,16 @@ const getValidTabId = (hashVal:string):string => {
 
 
 export const FilmPage = (props: Props): React.ReactElement => {
-  const {availableMovies, computedMatch, location, userData, loadReviews} = props;
+  const {
+    availableMovies,
+    computedMatch,
+    location,
+    onReviewAdd,
+    onReviewRemove,
+    userData,
+    loadReviews
+  } = props;
+
   const {hash, pathname} = location;
 
   const [activeTabId, setActiveTabId] = React.useState(getValidTabId(hash.split(`#`)[1]));
@@ -75,7 +86,9 @@ export const FilmPage = (props: Props): React.ReactElement => {
 
     return (
       <>
-        <section className="movie-card movie-card--full">
+        <section
+          className="movie-card movie-card--full"
+          style={{background: film.bgColor}}>
           <div className="movie-card__hero">
             <div className="movie-card__bg">
               <img src={film.bgImage} alt={film.name} />
@@ -95,7 +108,11 @@ export const FilmPage = (props: Props): React.ReactElement => {
                   released={film.released}
                   ish1 />
 
-                <FilmButtons filmId={film.id} isAdded={film.isFavourite} />
+                <FilmButtons
+                  filmId={film.id}
+                  isAdded={film.isFavourite}
+                  {...{onReviewAdd, onReviewRemove}}
+                />
               </div>
             </div>
           </div>

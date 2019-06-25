@@ -71,21 +71,6 @@ describe(`User reducer test suite`, () => {
       });
   });
 
-  it(`should dispatch 'authorizationRequired' action on attempt to receive user data for unauthenticated user`, () => {
-    const {api, apiMock, dispatch, getUserData} = mockApiSetup();
-
-    apiMock.onGet(ApiEndpoint.LOGIN)
-      .reply(403, {error: `Authorization required`});
-
-    return getUserData(dispatch, jest.fn(), api).then(() => {
-      expect(dispatch).toHaveBeenCalledTimes(1);
-      expect(dispatch).toHaveBeenNthCalledWith(1, {
-        type: ActionType.AUTH_REQUIRED,
-        payload: true,
-      });
-    });
-  });
-
 
   it(`should set the 'authRequired' flag correctly`, () => {
     const newState = userReducer(originalState, {
