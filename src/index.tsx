@@ -33,6 +33,8 @@ const store: Store = createStore(rootReducer, enhancer);
 
 
 store.dispatch(Operation.loadMovies());
+store.dispatch(Operation.fetchPromo());
+
 store.dispatch(Operation.getUserData()).then(() => init());
 
 function init(): void {

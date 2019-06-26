@@ -27,7 +27,6 @@ interface Props extends Genre {
   movies: Array<Film>,
   promo: Film,
   userData: User,
-  onPromoFetch: () => Promise<any>,
   onReviewAdd: (id: number) => Promise<any>,
   onReviewRemove: (id: number) => Promise<any>
 }
@@ -93,10 +92,6 @@ export class App extends React.PureComponent<Props, null> {
     );
   }
 
-  componentDidMount(): void {
-    this.props.onPromoFetch();
-  }
-
   _handleGenreChange = (selectedGenre: string): void => this.props.onGenreChange(selectedGenre);
 }
 
@@ -111,7 +106,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreChange: (newGenre) => dispatch(ActionCreator.changeGenre(newGenre)),
-  onPromoFetch: () => dispatch(Operation.fetchPromo()),
   onReviewAdd: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.ADD)),
   onReviewRemove: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.REMOVE))
 });

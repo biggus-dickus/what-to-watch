@@ -20,10 +20,11 @@ export const createAPI = (onLoginFail): AxiosInstance => {
       err.response.status === StatusCode.FORBIDDEN) {
       onLoginFail();
     }
+    // else if (err.response.status === StatusCode.BAD_REQUEST) {
+    //   return err;
+    // }
 
-    console.log(err)
-
-    return err;
+    throw err;
   };
 
   api.interceptors.response.use(onSuccess, onFail);

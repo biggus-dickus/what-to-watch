@@ -6,7 +6,7 @@ import {GenericAction} from '../../actions'; // eslint-disable-line
 
 interface DataState {
   readonly currentGenre: string,
-  readonly error: string,
+  readonly error: any,
   readonly genres: string[],
   readonly movies: any[],
   readonly promo: Film | {},
@@ -21,7 +21,7 @@ const collectGenres = (films: Film[]) => [ALL]
 
 const initialState: DataState = {
   currentGenre: ALL,
-  error: ``,
+  error: null,
   genres: [],
   movies: [],
   promo: {},

@@ -12,6 +12,7 @@ interface Props {
 
 export const FilmButtons = ({filmId, isAdded, onReviewAdd, onReviewRemove}: Props): React.ReactElement => {
   const [isFavourite, updateIsFavourite] = React.useState(isAdded);
+  React.useEffect(() => updateIsFavourite(isAdded), [isAdded]);
 
   let btnIcon = (
     <svg viewBox="0 0 19 20" width="19" height="20" data-test="at-is-not-added">
@@ -20,9 +21,12 @@ export const FilmButtons = ({filmId, isAdded, onReviewAdd, onReviewRemove}: Prop
   );
 
   let btnText = `My list`;
-  let clickHandler = (id) => onReviewAdd(id).then((res) => {
-    updateIsFavourite(true)
-  });
+  let clickHandler = (id) => onReviewAdd(id)
+    .then((resp) => {
+      if (resp.is_favorite) {
+        updateIsFavourite(resp.is_favorite);
+      }
+    });
 
   if (isFavourite) {
     btnIcon = (

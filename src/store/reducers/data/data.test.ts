@@ -119,7 +119,7 @@ describe(`Data reducer test suite`, () => {
     const dispatch = jest.fn();
     const api = createAPI(dispatch);
     const apiMock = new MockAdapter(api);
-    const movieLoader = Operation.fetchReviews(`huita666`);
+    const loaderFunc = Operation.fetchReviews(`huita666`);
 
     const response = {
       error: `Nothing found`
@@ -129,7 +129,7 @@ describe(`Data reducer test suite`, () => {
       .onGet(`/comments/huita666`)
       .reply(400, response);
 
-    return movieLoader(dispatch, jest.fn(), api)
+    return loaderFunc(dispatch, jest.fn(), api)
       .then(() => {
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.GET_NETWORK_ERROR,
