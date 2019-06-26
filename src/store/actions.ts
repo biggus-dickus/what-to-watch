@@ -38,6 +38,11 @@ export const ActionCreator = {
     payload: movie
   }),
 
+  getWatchList: (movies) => ({
+    type: ActionType.GET_WATCH_LIST,
+    payload: movies
+  }),
+
   loadMovies: (movies: any[]) => ({
     type: ActionType.LOAD_MOVIES,
     payload: movies

@@ -10,8 +10,8 @@ configure({adapter: new Adapter()});
 const props = {
   filmId: 1,
   isAdded: false,
-  onReviewAdd: jest.fn(() => Promise.resolve()),
-  onReviewRemove: jest.fn(() => Promise.resolve())
+  onAddToWatchList: jest.fn(() => Promise.resolve({'is_favorite': true})),
+  onRemoveFromWatchList: jest.fn(() => Promise.resolve())
 };
 
 describe(`FilmButtons e2e test suite`, () => {
@@ -20,7 +20,7 @@ describe(`FilmButtons e2e test suite`, () => {
     const btn = wrapper.find(`[data-test="at-my-list-btn"]`);
 
     btn.simulate(`click`);
-    expect(props.onReviewAdd).toHaveBeenCalled();
+    expect(props.onAddToWatchList).toHaveBeenCalled();
   });
 
   it(`"My list" button should call onReviewRemove callback when the film IS in user's favourites`, () => {
@@ -29,6 +29,6 @@ describe(`FilmButtons e2e test suite`, () => {
     const btn = wrapper.find(`[data-test="at-my-list-btn"]`);
 
     btn.simulate(`click`);
-    expect(props.onReviewRemove).toHaveBeenCalled();
+    expect(props.onRemoveFromWatchList).toHaveBeenCalled();
   });
 });

@@ -20,8 +20,8 @@ const props = {
   computedMatch: {params: {id: 2}},
   location: {...mockLocation, pathname: `/film/2`},
   loadReviews: jest.fn(),
-  onReviewAdd: jest.fn(),
-  onReviewRemove: jest.fn()
+  onAddToWatchList: jest.fn(),
+  onRemoveFromWatchList: jest.fn()
 };
 
 const film = getFilmById(mockFilms, props.computedMatch.params.id);

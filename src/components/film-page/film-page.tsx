@@ -25,8 +25,8 @@ interface Props {
   computedMatch: any,
   error?: string,
   location: Location,
-  onReviewAdd: (id: number) => Promise<any>,
-  onReviewRemove: (id: number) => Promise<any>,
+  onAddToWatchList: (id: number) => Promise<any>,
+  onRemoveFromWatchList: (id: number) => Promise<any>,
   reviews?: any[],
   userData?: User,
   loadReviews: (filmId: number) => void
@@ -46,8 +46,8 @@ export const FilmPage = (props: Props): React.ReactElement => {
     availableMovies,
     computedMatch,
     location,
-    onReviewAdd,
-    onReviewRemove,
+    onAddToWatchList,
+    onRemoveFromWatchList,
     userData,
     loadReviews
   } = props;
@@ -111,7 +111,7 @@ export const FilmPage = (props: Props): React.ReactElement => {
                 <FilmButtons
                   filmId={film.id}
                   isAdded={film.isFavourite}
-                  {...{onReviewAdd, onReviewRemove}}
+                  {...{onAddToWatchList, onRemoveFromWatchList, location}}
                 />
               </div>
             </div>

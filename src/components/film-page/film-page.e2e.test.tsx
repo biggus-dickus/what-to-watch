@@ -18,8 +18,8 @@ const props = {
   computedMatch: {params: {id: 2}},
   loadReviews: jest.fn(),
   location: {...mockLocation, hash: `#${NAV_OVERVIEW_ID}`, pathname: `/film/2`},
-  onReviewAdd: jest.fn(),
-  onReviewRemove: jest.fn()
+  onAddToWatchList: jest.fn(),
+  onRemoveFromWatchList: jest.fn()
 };
 
 it(`Clicking on film tabs should change the content correctly`, () => {

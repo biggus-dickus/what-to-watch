@@ -59,5 +59,11 @@ export const Operation = {
     return api.post(`${ApiEndpoint.FAVOURITE}/${filmId}/${status}`)
       .then((response) => response.data)
       .catch((e) => dispatch(ActionCreator.getNetworkError(e)));
+  },
+
+  getFavourite: () => (dispatch, _getState, api) => {
+    return api.get(ApiEndpoint.FAVOURITE)
+      .then((response) => dispatch(ActionCreator.getWatchList(response.data)))
+      .catch((e) => dispatch(ActionCreator.getNetworkError(e)));
   }
 };

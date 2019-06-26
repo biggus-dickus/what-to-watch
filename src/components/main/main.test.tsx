@@ -14,8 +14,8 @@ const props = {
   location: {...mockLocation},
   movies: mockFilms,
   promo: mockFilms[1],
-  onReviewAdd: jest.fn(),
-  onReviewRemove: jest.fn(),
+  onAddToWatchList: jest.fn(),
+  onRemoveFromWatchList: jest.fn(),
   onViewChange: jest.fn(),
   userData: mockUser
 };

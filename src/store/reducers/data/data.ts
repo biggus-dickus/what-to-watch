@@ -10,7 +10,8 @@ interface DataState {
   readonly genres: string[],
   readonly movies: any[],
   readonly promo: Film | {},
-  readonly reviews: Review[]
+  readonly reviews: Review[],
+  readonly watchList: Film[]
 }
 
 
@@ -26,6 +27,7 @@ const initialState: DataState = {
   movies: [],
   promo: {},
   reviews: [],
+  watchList: []
 };
 
 export const dataReducer = (state: DataState = initialState, action: GenericAction | undefined) => {
@@ -59,6 +61,12 @@ export const dataReducer = (state: DataState = initialState, action: GenericActi
       return {
         ...state,
         promo: adapter(action.payload)
+      };
+
+    case ActionType.GET_WATCH_LIST:
+      return {
+        ...state,
+        watchList: action.payload.map(adapter)
       };
 
     default: return state;

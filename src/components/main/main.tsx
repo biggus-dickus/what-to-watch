@@ -15,13 +15,13 @@ interface Props extends Interface.Genre {
   userData: Interface.User,
   movies: Array<Interface.Film>,
   promo: Interface.Film,
-  onReviewAdd: (id: number) => Promise<any>,
-  onReviewRemove: (id: number) => Promise<any>
+  onAddToWatchList: (id: number) => Promise<any>,
+  onRemoveFromWatchList: (id: number) => Promise<any>
 }
 
 
 const Main = (props: Props): React.ReactElement => {
-  const {promo, userData, onReviewAdd, onReviewRemove} = props;
+  const {promo, userData, onAddToWatchList, onRemoveFromWatchList} = props;
 
   return (
     <>
@@ -53,7 +53,7 @@ const Main = (props: Props): React.ReactElement => {
               <FilmButtons
                 filmId={promo.id}
                 isAdded={promo.isFavourite}
-                {...{onReviewAdd, onReviewRemove}} />
+                {...{onAddToWatchList, onRemoveFromWatchList}} />
             </div>
           </div>
         </div>

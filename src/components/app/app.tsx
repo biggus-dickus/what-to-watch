@@ -27,8 +27,8 @@ interface Props extends Genre {
   movies: Array<Film>,
   promo: Film,
   userData: User,
-  onReviewAdd: (id: number) => Promise<any>,
-  onReviewRemove: (id: number) => Promise<any>
+  onAddToWatchList: (id: number) => Promise<any>,
+  onRemoveFromWatchList: (id: number) => Promise<any>
 }
 
 
@@ -40,8 +40,8 @@ export class App extends React.PureComponent<Props, null> {
       genres,
       movies,
       promo,
-      onReviewAdd,
-      onReviewRemove,
+      onAddToWatchList,
+      onRemoveFromWatchList,
       userData
     } = this.props;
 
@@ -53,7 +53,7 @@ export class App extends React.PureComponent<Props, null> {
           component={Main}
           movies={(filteredMovies.length) ? filteredMovies : movies}
           onGenreChange={this._handleGenreChange}
-          {...{currentGenre, genres, promo, userData, onReviewAdd, onReviewRemove}} />
+          {...{currentGenre, genres, promo, userData, onAddToWatchList, onRemoveFromWatchList}} />
 
         <PrivateRoute
           path={RouteConfig.SIGN_IN}
@@ -85,7 +85,7 @@ export class App extends React.PureComponent<Props, null> {
           exact
           component={FilmPage}
           availableMovies={movies}
-          {...{userData, onReviewAdd, onReviewRemove}} />
+          {...{userData, onAddToWatchList, onRemoveFromWatchList}} />
 
         <NoMatch />
       </Switch>
@@ -106,8 +106,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreChange: (newGenre) => dispatch(ActionCreator.changeGenre(newGenre)),
-  onReviewAdd: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.ADD)),
-  onReviewRemove: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.REMOVE))
+  onAddToWatchList: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.ADD)),
+  onRemoveFromWatchList: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.REMOVE))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

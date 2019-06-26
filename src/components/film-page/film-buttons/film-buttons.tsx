@@ -6,11 +6,11 @@ import RouteConfig from '../../../config/routes';
 interface Props {
   filmId: number,
   isAdded: boolean,
-  onReviewAdd: (id: number) => Promise<any>,
-  onReviewRemove: (id: number) => Promise<any>
+  onAddToWatchList: (id: number) => Promise<any>,
+  onRemoveFromWatchList: (id: number) => Promise<any>
 }
 
-export const FilmButtons = ({filmId, isAdded, onReviewAdd, onReviewRemove}: Props): React.ReactElement => {
+export const FilmButtons = ({filmId, isAdded, onAddToWatchList, onRemoveFromWatchList}: Props): React.ReactElement => {
   const [isFavourite, updateIsFavourite] = React.useState(isAdded);
   React.useEffect(() => updateIsFavourite(isAdded), [isAdded]);
 
@@ -21,7 +21,7 @@ export const FilmButtons = ({filmId, isAdded, onReviewAdd, onReviewRemove}: Prop
   );
 
   let btnText = `My list`;
-  let clickHandler = (id) => onReviewAdd(id)
+  let clickHandler = (id) => onAddToWatchList(id)
     .then((resp) => {
       if (resp.is_favorite) {
         updateIsFavourite(resp.is_favorite);
@@ -36,7 +36,8 @@ export const FilmButtons = ({filmId, isAdded, onReviewAdd, onReviewRemove}: Prop
     );
 
     btnText = `In my list`;
-    clickHandler = (id) => onReviewRemove(id).then(() => updateIsFavourite(false));
+    clickHandler = (id) => onRemoveFromWatchList(id)
+      .then(() => updateIsFavourite(false));
   }
 
   return (

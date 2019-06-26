@@ -3,7 +3,9 @@ import MockAdapter from 'axios-mock-adapter';
 import {createAPI} from '../../../api/api';
 
 import {ActionType} from '../../action-types';
+import {ApiEndpoint} from '../../../config/api-endpoints';
 import {Operation} from '../../operations';
+
 import {mockGenres} from '../../../mocks/genres';
 import {mockFilms} from '../../../mocks/films';
 import {mockReviews} from '../../../mocks/reviews';
@@ -16,7 +18,8 @@ const originalState = {
   genres: [],
   movies: [],
   promo: {},
-  reviews: []
+  reviews: [],
+  watchList: []
 };
 
 const newState = dataReducer(originalState, {
@@ -33,7 +36,7 @@ describe(`Data reducer test suite`, () => {
     const movieLoader = Operation.loadMovies();
 
     apiMock
-      .onGet(`/films`)
+      .onGet(ApiEndpoint.FILMS)
       .reply(200, [{fake: true}]);
 
     return movieLoader(dispatch, jest.fn(), api)
@@ -53,7 +56,7 @@ describe(`Data reducer test suite`, () => {
     const movieLoader = Operation.fetchReviews(1);
 
     apiMock
-      .onGet(`/comments/1`)
+      .onGet(`${ApiEndpoint.REVIEWS}/1`)
       .reply(200, [{fake: true}]);
 
     return movieLoader(dispatch, jest.fn(), api)
@@ -80,7 +83,7 @@ describe(`Data reducer test suite`, () => {
     const posterFunc = Operation.postReview(reviewData);
 
     apiMock
-      .onPost(`/comments/1`, {rating, comment})
+      .onPost(`${ApiEndpoint.REVIEWS}/1`, {rating, comment})
       .reply(200, [{fake: true}]);
 
     return posterFunc(dispatch, jest.fn(), api)
@@ -94,7 +97,7 @@ describe(`Data reducer test suite`, () => {
     const posterFunc = Operation.addToFavourite(5, 1);
 
     apiMock
-      .onPost(`/favorite/5/1`)
+      .onPost(`${ApiEndpoint.FAVOURITE}/5/1`)
       .reply(200, [{fake: true}]);
 
     return posterFunc(dispatch, jest.fn(), api)
@@ -108,11 +111,31 @@ describe(`Data reducer test suite`, () => {
     const posterFunc = Operation.addToFavourite(5, 0);
 
     apiMock
-      .onPost(`/favorite/5/0`)
+      .onPost(`${ApiEndpoint.FAVOURITE}/5/0`)
       .reply(200, [{fake: true}]);
 
     return posterFunc(dispatch, jest.fn(), api)
       .then((response) => expect(response).toEqual([{fake: true}]));
+  });
+
+  it(`should GET films from a user watch list correctly`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const loaderFunc = Operation.getFavourite();
+
+    apiMock
+      .onGet(ApiEndpoint.FAVOURITE)
+      .reply(200, [{fake: true}]);
+
+    return loaderFunc(dispatch, jest.fn(), api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.GET_WATCH_LIST,
+          payload: [{fake: true}]
+        });
+      });
   });
 
   it(`should return an error for any malformed request to server`, () => {
@@ -126,7 +149,7 @@ describe(`Data reducer test suite`, () => {
     };
 
     apiMock
-      .onGet(`/comments/huita666`)
+      .onGet(`${ApiEndpoint.REVIEWS}/huita666`)
       .reply(400, response);
 
     return loaderFunc(dispatch, jest.fn(), api)

@@ -9,6 +9,7 @@ export const getCurrentGenre = (state) => state[DATA].currentGenre;
 export const getReviews = (state) => state[DATA].reviews;
 export const getError = (state) => state[DATA].error;
 export const getPromo = (state) => state[DATA].promo;
+export const getWatchList = (state) => state[DATA].watchList;
 
 export const getFilteredMovies = createSelector(
     getMovies,

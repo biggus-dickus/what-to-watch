@@ -20,9 +20,6 @@ export const createAPI = (onLoginFail): AxiosInstance => {
       err.response.status === StatusCode.FORBIDDEN) {
       onLoginFail();
     }
-    // else if (err.response.status === StatusCode.BAD_REQUEST) {
-    //   return err;
-    // }
 
     throw err;
   };
