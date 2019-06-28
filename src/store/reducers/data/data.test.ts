@@ -3,7 +3,9 @@ import MockAdapter from 'axios-mock-adapter';
 import {createAPI} from '../../../api/api';
 
 import {ActionType} from '../../action-types';
+import {ApiEndpoint} from '../../../config/api-endpoints';
 import {Operation} from '../../operations';
+
 import {mockGenres} from '../../../mocks/genres';
 import {mockFilms} from '../../../mocks/films';
 import {mockReviews} from '../../../mocks/reviews';
@@ -16,7 +18,8 @@ const originalState = {
   genres: [],
   movies: [],
   promo: {},
-  reviews: []
+  reviews: [],
+  watchList: []
 };
 
 const newState = dataReducer(originalState, {
@@ -33,7 +36,7 @@ describe(`Data reducer test suite`, () => {
     const movieLoader = Operation.loadMovies();
 
     apiMock
-      .onGet(`/films`)
+      .onGet(ApiEndpoint.FILMS)
       .reply(200, [{fake: true}]);
 
     return movieLoader(dispatch, jest.fn(), api)
@@ -53,7 +56,7 @@ describe(`Data reducer test suite`, () => {
     const movieLoader = Operation.fetchReviews(1);
 
     apiMock
-      .onGet(`/comments/1`)
+      .onGet(`${ApiEndpoint.REVIEWS}/1`)
       .reply(200, [{fake: true}]);
 
     return movieLoader(dispatch, jest.fn(), api)
@@ -80,7 +83,7 @@ describe(`Data reducer test suite`, () => {
     const posterFunc = Operation.postReview(reviewData);
 
     apiMock
-      .onPost(`/comments/1`, {rating, comment})
+      .onPost(`${ApiEndpoint.REVIEWS}/1`, {rating, comment})
       .reply(200, [{fake: true}]);
 
     return posterFunc(dispatch, jest.fn(), api)
@@ -91,45 +94,101 @@ describe(`Data reducer test suite`, () => {
     const dispatch = jest.fn();
     const api = createAPI(dispatch);
     const apiMock = new MockAdapter(api);
-    const posterFunc = Operation.addToFavourite(5, 1);
+    const posterFunc = Operation.toggleFavourite(5, 1, false);
 
     apiMock
-      .onPost(`/favorite/5/1`)
+      .onPost(`${ApiEndpoint.FAVOURITE}/5/1`)
       .reply(200, [{fake: true}]);
 
     return posterFunc(dispatch, jest.fn(), api)
-      .then((response) => expect(response).toEqual([{fake: true}]));
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.UPDATE_MOVIE,
+          payload: [{fake: true}]
+        });
+      });
+  });
+
+  it(`should consider the case when the promo film is being updated`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const posterFunc = Operation.toggleFavourite(5, 1, true); // the 3rd argument
+
+    apiMock
+      .onPost(`${ApiEndpoint.FAVOURITE}/5/1`)
+      .reply(200, [{fake: true}]);
+
+    return posterFunc(dispatch, jest.fn(), api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(2);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.GET_PROMO_MOVIE,
+          payload: [{fake: true}]
+        });
+        expect(dispatch).toHaveBeenNthCalledWith(2, {
+          type: ActionType.UPDATE_MOVIE,
+          payload: [{fake: true}]
+        });
+      });
   });
 
   it(`should remove a film from watch list correctly via POST request`, () => {
     const dispatch = jest.fn();
     const api = createAPI(dispatch);
     const apiMock = new MockAdapter(api);
-    const posterFunc = Operation.addToFavourite(5, 0);
+    const posterFunc = Operation.toggleFavourite(5, 0);
 
     apiMock
-      .onPost(`/favorite/5/0`)
+      .onPost(`${ApiEndpoint.FAVOURITE}/5/0`)
       .reply(200, [{fake: true}]);
 
     return posterFunc(dispatch, jest.fn(), api)
-      .then((response) => expect(response).toEqual([{fake: true}]));
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.UPDATE_MOVIE,
+          payload: [{fake: true}]
+        });
+      });
+  });
+
+  it(`should GET films from a user watch list correctly`, () => {
+    const dispatch = jest.fn();
+    const api = createAPI(dispatch);
+    const apiMock = new MockAdapter(api);
+    const loaderFunc = Operation.getFavourite();
+
+    apiMock
+      .onGet(ApiEndpoint.FAVOURITE)
+      .reply(200, [{fake: true}]);
+
+    return loaderFunc(dispatch, jest.fn(), api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.GET_WATCH_LIST,
+          payload: [{fake: true}]
+        });
+      });
   });
 
   it(`should return an error for any malformed request to server`, () => {
     const dispatch = jest.fn();
     const api = createAPI(dispatch);
     const apiMock = new MockAdapter(api);
-    const movieLoader = Operation.fetchReviews(`huita666`);
+    const loaderFunc = Operation.fetchReviews(`huita666`);
 
     const response = {
       error: `Nothing found`
     };
 
     apiMock
-      .onGet(`/comments/huita666`)
+      .onGet(`${ApiEndpoint.REVIEWS}/huita666`)
       .reply(400, response);
 
-    return movieLoader(dispatch, jest.fn(), api)
+    return loaderFunc(dispatch, jest.fn(), api)
       .then(() => {
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.GET_NETWORK_ERROR,
@@ -162,6 +221,36 @@ describe(`Data reducer test suite`, () => {
       type: ActionType.GET_REVIEWS,
       payload: mockReviews
     }).reviews).toEqual(mockReviews);
+  });
+
+  it(`should update the film correctly`, () => {
+    const newMovieState = {...originalState, movies: mockFilms};
+    /* eslint-disable */
+    const updatedMovie =   {
+      background_color: `pink`,
+      background_image: `pic.png`,
+      description: `Come Tatyana with a duck, we will eat and we will fuck`,
+      director: `Alan Smithie`,
+      is_favorite: !mockFilms[0].isFavourite,
+      poster_image: `poster.jpg`,
+      rating: 6.66,
+      released: 1984,
+      run_time: 100,
+      scores_count: 100500,
+      starring: [`Ben Dover`, `Major Woodie`, `Private Parts`, `I. C. Wiener`],
+      video: `https://thepiratebay.org`,
+      name: `Fantastic Beasts: The Crimes of Grindelwald`,
+      id: 1,
+      genre: `pr0n`,
+      preview_image: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
+      preview_video_link: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
+    };
+    /* eslint-enable */
+
+    expect(dataReducer(newMovieState, {
+      type: ActionType.UPDATE_MOVIE,
+      payload: updatedMovie
+    }).movies[0].isFavourite).toEqual(updatedMovie.is_favorite);
   });
 
   it(`should return original state in case the action is not passed or unknown`, () => {

@@ -21,9 +21,7 @@ export const createAPI = (onLoginFail): AxiosInstance => {
       onLoginFail();
     }
 
-    console.log(err)
-
-    return err;
+    throw err;
   };
 
   api.interceptors.response.use(onSuccess, onFail);

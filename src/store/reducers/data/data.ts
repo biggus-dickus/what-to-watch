@@ -6,11 +6,12 @@ import {GenericAction} from '../../actions'; // eslint-disable-line
 
 interface DataState {
   readonly currentGenre: string,
-  readonly error: string,
+  readonly error: any,
   readonly genres: string[],
   readonly movies: any[],
   readonly promo: Film | {},
-  readonly reviews: Review[]
+  readonly reviews: Review[],
+  readonly watchList: Film[]
 }
 
 
@@ -21,11 +22,12 @@ const collectGenres = (films: Film[]) => [ALL]
 
 const initialState: DataState = {
   currentGenre: ALL,
-  error: ``,
+  error: null,
   genres: [],
   movies: [],
   promo: {},
   reviews: [],
+  watchList: []
 };
 
 export const dataReducer = (state: DataState = initialState, action: GenericAction | undefined) => {
@@ -59,6 +61,24 @@ export const dataReducer = (state: DataState = initialState, action: GenericActi
       return {
         ...state,
         promo: adapter(action.payload)
+      };
+
+    case ActionType.GET_WATCH_LIST:
+      return {
+        ...state,
+        watchList: action.payload.map(adapter)
+      };
+
+    case ActionType.UPDATE_MOVIE:
+      const newMovie = adapter(action.payload);
+      const movieToReplace = state.movies.find((movie) => movie.id === newMovie.id);
+
+      const newMovies = [...state.movies];
+      newMovies.splice(state.movies.indexOf(movieToReplace), 1, newMovie);
+
+      return {
+        ...state,
+        movies: newMovies
       };
 
     default: return state;

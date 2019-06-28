@@ -17,8 +17,7 @@ const props = {
   movies: mockFilms,
   onGenreChange: jest.fn(),
   onPromoFetch: jest.fn(),
-  onReviewAdd: jest.fn(),
-  onReviewRemove: jest.fn(),
+  onWatchListToggle: jest.fn(),
   promo: mockFilms[1],
   userData: mockUser
 };

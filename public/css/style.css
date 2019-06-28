@@ -557,6 +557,13 @@ main {
 .catalog__button:hover {
   border-color: rgba(217, 202, 116, 0.5); }
 
+.catalog__notification a {
+  color: inherit;
+}
+.catalog__notification a:hover {
+  text-decoration: none;
+}
+
 .copyright {
   text-align: center;
   font-size: 14px;

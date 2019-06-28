@@ -1,7 +1,7 @@
 import {Action} from 'redux'; // eslint-disable-line
 
 import {ActionType} from './action-types';
-import {Review, User} from '../types'; // eslint-disable-line
+import {Film, Review, User} from '../types'; // eslint-disable-line
 
 export interface GenericAction extends Action<string> {
   payload?: any
@@ -33,12 +33,17 @@ export const ActionCreator = {
     payload: error
   }),
 
-  getPromoMovie: (movie) => ({
+  getPromoMovie: (movie: Film) => ({
     type: ActionType.GET_PROMO_MOVIE,
     payload: movie
   }),
 
-  loadMovies: (movies: any[]) => ({
+  getWatchList: (movies: Film[]) => ({
+    type: ActionType.GET_WATCH_LIST,
+    payload: movies
+  }),
+
+  loadMovies: (movies: Film[]) => ({
     type: ActionType.LOAD_MOVIES,
     payload: movies
   }),
@@ -46,5 +51,10 @@ export const ActionCreator = {
   requireAuthorization: (isRequired: boolean) => ({
     type: ActionType.AUTH_REQUIRED,
     payload: isRequired
+  }),
+
+  updateMovie: (movie: Film) => ({
+    type: ActionType.UPDATE_MOVIE,
+    payload: movie
   })
 };

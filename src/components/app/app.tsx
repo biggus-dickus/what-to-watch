@@ -2,7 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Switch} from 'react-router-dom';
 
-import {Film, Genre, ToFavourite, User} from '../../types'; // eslint-disable-line
+import {Film, Genre, onWatchListToggleType, User} from '../../types'; // eslint-disable-line
 
 import RouteConfig from '../../config/routes';
 
@@ -27,9 +27,7 @@ interface Props extends Genre {
   movies: Array<Film>,
   promo: Film,
   userData: User,
-  onPromoFetch: () => Promise<any>,
-  onReviewAdd: (id: number) => Promise<any>,
-  onReviewRemove: (id: number) => Promise<any>
+  onWatchListToggle: onWatchListToggleType
 }
 
 
@@ -40,9 +38,8 @@ export class App extends React.PureComponent<Props, null> {
       filteredMovies,
       genres,
       movies,
+      onWatchListToggle,
       promo,
-      onReviewAdd,
-      onReviewRemove,
       userData
     } = this.props;
 
@@ -54,7 +51,7 @@ export class App extends React.PureComponent<Props, null> {
           component={Main}
           movies={(filteredMovies.length) ? filteredMovies : movies}
           onGenreChange={this._handleGenreChange}
-          {...{currentGenre, genres, promo, userData, onReviewAdd, onReviewRemove}} />
+          {...{currentGenre, genres, promo, userData, onWatchListToggle}} />
 
         <PrivateRoute
           path={RouteConfig.SIGN_IN}
@@ -86,15 +83,12 @@ export class App extends React.PureComponent<Props, null> {
           exact
           component={FilmPage}
           availableMovies={movies}
-          {...{userData, onReviewAdd, onReviewRemove}} />
+          promoId={promo.id}
+          {...{userData, onWatchListToggle}} />
 
         <NoMatch />
       </Switch>
     );
-  }
-
-  componentDidMount(): void {
-    this.props.onPromoFetch();
   }
 
   _handleGenreChange = (selectedGenre: string): void => this.props.onGenreChange(selectedGenre);
@@ -111,9 +105,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreChange: (newGenre) => dispatch(ActionCreator.changeGenre(newGenre)),
-  onPromoFetch: () => dispatch(Operation.fetchPromo()),
-  onReviewAdd: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.ADD)),
-  onReviewRemove: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.REMOVE))
+  onWatchListToggle: (id, isAdded, isPromo) => dispatch(Operation.toggleFavourite(id, isAdded, isPromo))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

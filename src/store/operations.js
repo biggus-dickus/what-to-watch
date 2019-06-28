@@ -16,7 +16,8 @@ export const Operation = {
         if (response.data) {
           dispatch(ActionCreator.getUserData(response.data));
         }
-      });
+      })
+      .catch((e) => dispatch(ActionCreator.getNetworkError(e)));
   },
 
   fetchPromo: () => (dispatch, _getState, api) => {
@@ -28,26 +29,16 @@ export const Operation = {
     const onFail = (error) => dispatch(ActionCreator.getAuthError(error));
 
     return api.post(ApiEndpoint.LOGIN, {email, password})
-      .then((res) => {
-        if (res.response && res.response.status === StatusCode.BAD_REQUEST) {
-          onFail(res.response.data.error);
-          return;
-        }
-
-        dispatch(ActionCreator.getUserData(res.data));
-      })
-      .catch((err) => onFail(err));
+      .then((res) => dispatch(ActionCreator.getUserData(res.data)))
+      .catch((err) => onFail(err.response.data.error));
   },
 
   fetchReviews: (filmId) => (dispatch, _getState, api) => {
     return api.get(`${ApiEndpoint.REVIEWS}/${filmId}`)
       .then((res) => {
-        if (res.response && res.response.data.error) {
-          dispatch(ActionCreator.getNetworkError(res.response.data.error));
-        }
-
         dispatch(ActionCreator.getReviews(res.data));
-      });
+      })
+      .catch((e) => dispatch(ActionCreator.getNetworkError(e.response.data.error)));
   },
 
   postReview: (data) => (dispatch, _getState, api) => {
@@ -64,8 +55,23 @@ export const Operation = {
   },
 
   // status = 1 | 0
-  addToFavourite: (filmId, status) => (dispatch, _getState, api) => {
-    return api.post(`${ApiEndpoint.FAVOURITE}/${filmId}/${status}`)
-      .then((response) => response.data);
+  toggleFavourite: (filmId, status, isPromo) => (dispatch, _getState, api) => {
+    return api.post(`${ApiEndpoint.FAVOURITE}/${filmId}/${+status}`)
+      .then((response) => {
+        if (isPromo) {
+          dispatch(ActionCreator.getPromoMovie(response.data));
+          dispatch(ActionCreator.updateMovie(response.data));
+          return;
+        }
+
+        dispatch(ActionCreator.updateMovie(response.data));
+      })
+      .catch((e) => dispatch(ActionCreator.getNetworkError(e)));
+  },
+
+  getFavourite: () => (dispatch, _getState, api) => {
+    return api.get(ApiEndpoint.FAVOURITE)
+      .then((response) => dispatch(ActionCreator.getWatchList(response.data)))
+      .catch((e) => dispatch(ActionCreator.getNetworkError(e)));
   }
 };
