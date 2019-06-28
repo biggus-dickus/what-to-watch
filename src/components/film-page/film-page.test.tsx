@@ -17,11 +17,11 @@ configure({adapter: new Adapter()});
 
 const props = {
   availableMovies: mockFilms,
+  promoId: 1,
   computedMatch: {params: {id: 2}},
   location: {...mockLocation, pathname: `/film/2`},
   loadReviews: jest.fn(),
-  onAddToWatchList: jest.fn(),
-  onRemoveFromWatchList: jest.fn()
+  onWatchListToggle: jest.fn()
 };
 
 const film = getFilmById(mockFilms, props.computedMatch.params.id);

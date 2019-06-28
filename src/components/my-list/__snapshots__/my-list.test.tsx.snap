@@ -52,9 +52,14 @@ exports[`MyList test suite <MyList /> should render correctly 1`] = `
       </a>
     </div>
   </header>
-  <div
+  <section
     className="catalog"
   >
+    <h2
+      className="visually-hidden"
+    >
+      Catalog of selected films
+    </h2>
     <div
       className="catalog__movies-list"
       data-test="at-films-list"
@@ -171,7 +176,7 @@ exports[`MyList test suite <MyList /> should render correctly 1`] = `
         </a>
       </article>
     </div>
-  </div>
+  </section>
   <footer
     className="page-footer"
   >

@@ -10,25 +10,13 @@ configure({adapter: new Adapter()});
 const props = {
   filmId: 1,
   isAdded: false,
-  onAddToWatchList: jest.fn(() => Promise.resolve({'is_favorite': true})),
-  onRemoveFromWatchList: jest.fn(() => Promise.resolve())
+  onWatchListToggle: jest.fn()
 };
 
-describe(`FilmButtons e2e test suite`, () => {
-  it(`"My list" button should call onReviewAdd callback when the film IS NOT in user's favourites`, () => {
-    const wrapper = shallow(<FilmButtons {...props} />);
-    const btn = wrapper.find(`[data-test="at-my-list-btn"]`);
+it(`"My list" button should call onWatchListToggle callback`, () => {
+  const wrapper = shallow(<FilmButtons {...props} />);
+  const btn = wrapper.find(`[data-test="at-my-list-btn"]`);
 
-    btn.simulate(`click`);
-    expect(props.onAddToWatchList).toHaveBeenCalled();
-  });
-
-  it(`"My list" button should call onReviewRemove callback when the film IS in user's favourites`, () => {
-    const newProps = {...props, isAdded: true};
-    const wrapper = shallow(<FilmButtons {...newProps} />);
-    const btn = wrapper.find(`[data-test="at-my-list-btn"]`);
-
-    btn.simulate(`click`);
-    expect(props.onRemoveFromWatchList).toHaveBeenCalled();
-  });
+  btn.simulate(`click`);
+  expect(props.onWatchListToggle).toHaveBeenCalled();
 });

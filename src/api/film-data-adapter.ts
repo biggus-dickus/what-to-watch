@@ -1,8 +1,9 @@
 import Route from '../config/routes';
+import {Film} from '../types'; // eslint-disable-line
 
 const [film] = Route.FILM.split(`:`);
 
-const FilmDataAdapter = (data: any): object => {
+const FilmDataAdapter = (data: any): Film => {
   return {
     bgColor: data.background_color,
     bgImage: data.background_image,

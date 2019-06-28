@@ -2,7 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Switch} from 'react-router-dom';
 
-import {Film, Genre, ToFavourite, User} from '../../types'; // eslint-disable-line
+import {Film, Genre, onWatchListToggleType, User} from '../../types'; // eslint-disable-line
 
 import RouteConfig from '../../config/routes';
 
@@ -27,8 +27,7 @@ interface Props extends Genre {
   movies: Array<Film>,
   promo: Film,
   userData: User,
-  onAddToWatchList: (id: number) => Promise<any>,
-  onRemoveFromWatchList: (id: number) => Promise<any>
+  onWatchListToggle: onWatchListToggleType
 }
 
 
@@ -39,9 +38,8 @@ export class App extends React.PureComponent<Props, null> {
       filteredMovies,
       genres,
       movies,
+      onWatchListToggle,
       promo,
-      onAddToWatchList,
-      onRemoveFromWatchList,
       userData
     } = this.props;
 
@@ -53,7 +51,7 @@ export class App extends React.PureComponent<Props, null> {
           component={Main}
           movies={(filteredMovies.length) ? filteredMovies : movies}
           onGenreChange={this._handleGenreChange}
-          {...{currentGenre, genres, promo, userData, onAddToWatchList, onRemoveFromWatchList}} />
+          {...{currentGenre, genres, promo, userData, onWatchListToggle}} />
 
         <PrivateRoute
           path={RouteConfig.SIGN_IN}
@@ -85,7 +83,8 @@ export class App extends React.PureComponent<Props, null> {
           exact
           component={FilmPage}
           availableMovies={movies}
-          {...{userData, onAddToWatchList, onRemoveFromWatchList}} />
+          promoId={promo.id}
+          {...{userData, onWatchListToggle}} />
 
         <NoMatch />
       </Switch>
@@ -106,8 +105,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onGenreChange: (newGenre) => dispatch(ActionCreator.changeGenre(newGenre)),
-  onAddToWatchList: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.ADD)),
-  onRemoveFromWatchList: (id) => dispatch(Operation.addToFavourite(id, ToFavourite.REMOVE))
+  onWatchListToggle: (id, isAdded, isPromo) => dispatch(Operation.toggleFavourite(id, isAdded, isPromo))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

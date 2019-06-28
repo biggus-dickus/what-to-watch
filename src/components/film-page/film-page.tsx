@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {Film, Location, User} from '../../types'; // eslint-disable-line
+import {Film, Location, onWatchListToggleType, User} from '../../types'; // eslint-disable-line
 import {NAV_OVERVIEW_ID, NAV_DETAILS_ID, NAV_REVIEWS_ID, filmTabs} from '../../config/config';
 
 import {getError, getReviews} from '../../store/reducers/data/selectors';
@@ -22,11 +22,11 @@ import UserBlock from '../partials/user-block/user-block';
 
 interface Props {
   availableMovies: Film[],
+  promoId: number,
   computedMatch: any,
   error?: string,
   location: Location,
-  onAddToWatchList: (id: number) => Promise<any>,
-  onRemoveFromWatchList: (id: number) => Promise<any>,
+  onWatchListToggle: onWatchListToggleType,
   reviews?: any[],
   userData?: User,
   loadReviews: (filmId: number) => void
@@ -44,10 +44,10 @@ const getValidTabId = (hashVal:string):string => {
 export const FilmPage = (props: Props): React.ReactElement => {
   const {
     availableMovies,
+    promoId,
     computedMatch,
     location,
-    onAddToWatchList,
-    onRemoveFromWatchList,
+    onWatchListToggle,
     userData,
     loadReviews
   } = props;
@@ -111,7 +111,7 @@ export const FilmPage = (props: Props): React.ReactElement => {
                 <FilmButtons
                   filmId={film.id}
                   isAdded={film.isFavourite}
-                  {...{onAddToWatchList, onRemoveFromWatchList, location}}
+                  {...{onWatchListToggle, promoId}}
                 />
               </div>
             </div>

@@ -55,9 +55,17 @@ export const Operation = {
   },
 
   // status = 1 | 0
-  addToFavourite: (filmId, status) => (dispatch, _getState, api) => {
-    return api.post(`${ApiEndpoint.FAVOURITE}/${filmId}/${status}`)
-      .then((response) => response.data)
+  toggleFavourite: (filmId, status, isPromo) => (dispatch, _getState, api) => {
+    return api.post(`${ApiEndpoint.FAVOURITE}/${filmId}/${+status}`)
+      .then((response) => {
+        if (isPromo) {
+          dispatch(ActionCreator.getPromoMovie(response.data));
+          dispatch(ActionCreator.updateMovie(response.data));
+          return;
+        }
+
+        dispatch(ActionCreator.updateMovie(response.data));
+      })
       .catch((e) => dispatch(ActionCreator.getNetworkError(e)));
   },
 

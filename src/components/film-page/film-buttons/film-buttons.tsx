@@ -1,19 +1,19 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 
+import {onWatchListToggleType} from '../../../types'; // eslint-disable-line
+
 import RouteConfig from '../../../config/routes';
 
 interface Props {
   filmId: number,
+  promoId?: number,
   isAdded: boolean,
-  onAddToWatchList: (id: number) => Promise<any>,
-  onRemoveFromWatchList: (id: number) => Promise<any>
+  isPromo?: boolean,
+  onWatchListToggle: onWatchListToggleType
 }
 
-export const FilmButtons = ({filmId, isAdded, onAddToWatchList, onRemoveFromWatchList}: Props): React.ReactElement => {
-  const [isFavourite, updateIsFavourite] = React.useState(isAdded);
-  React.useEffect(() => updateIsFavourite(isAdded), [isAdded]);
-
+export const FilmButtons = ({filmId, promoId, isAdded, isPromo = false, onWatchListToggle}: Props): React.ReactElement => {
   let btnIcon = (
     <svg viewBox="0 0 19 20" width="19" height="20" data-test="at-is-not-added">
       <use xlinkHref="img/sprite/sprite.svg#add" />
@@ -21,14 +21,8 @@ export const FilmButtons = ({filmId, isAdded, onAddToWatchList, onRemoveFromWatc
   );
 
   let btnText = `My list`;
-  let clickHandler = (id) => onAddToWatchList(id)
-    .then((resp) => {
-      if (resp.is_favorite) {
-        updateIsFavourite(resp.is_favorite);
-      }
-    });
 
-  if (isFavourite) {
+  if (isAdded) {
     btnIcon = (
       <svg viewBox="0 0 18 14" width="18" height="14" data-test="at-is-added">
         <use xlinkHref="img/sprite/sprite.svg#in-list" />
@@ -36,9 +30,12 @@ export const FilmButtons = ({filmId, isAdded, onAddToWatchList, onRemoveFromWatc
     );
 
     btnText = `In my list`;
-    clickHandler = (id) => onRemoveFromWatchList(id)
-      .then(() => updateIsFavourite(false));
   }
+
+  // When film is toggled on film page, and it's also in promo on main page,
+  // promo must also be updated accordingly by reducer.
+  // It would have been better not to create the 'promo' entity at all, but fuck it.
+  const isPromoResolved = filmId === promoId || isPromo;
 
   return (
     <div className="movie-card__buttons">
@@ -53,7 +50,7 @@ export const FilmButtons = ({filmId, isAdded, onAddToWatchList, onRemoveFromWatc
         className="btn btn--list movie-card__button"
         data-test="at-my-list-btn"
         type="button"
-        onClick={clickHandler.bind(null, filmId)}>
+        onClick={onWatchListToggle.bind(null, filmId, !isAdded, isPromoResolved)}>
         {btnIcon}
         <span>{btnText}</span>
       </button>

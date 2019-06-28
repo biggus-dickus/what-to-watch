@@ -46,6 +46,7 @@ export interface GenericFormProps {
 }
 
 export type onGenreChangeType = (newGenre: string) => void;
+export type onWatchListToggleType = (id: number, isAdded: boolean, isPromo: boolean) => Promise<any>;
 
 export interface Genre {
   currentGenre: string,
@@ -78,13 +79,6 @@ export interface RouteWithProps {
   path: string,
   [x: string]: any
 }
-
-/* eslint-disable */
-export enum ToFavourite {
-  REMOVE = 0,
-  ADD = 1
-}
-/* eslint-enable */
 
 export interface User {
   avatar_url: string, // eslint-disable-line

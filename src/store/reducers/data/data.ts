@@ -69,6 +69,18 @@ export const dataReducer = (state: DataState = initialState, action: GenericActi
         watchList: action.payload.map(adapter)
       };
 
+    case ActionType.UPDATE_MOVIE:
+      const newMovie = adapter(action.payload);
+      const movieToReplace = state.movies.find((movie) => movie.id === newMovie.id);
+
+      const newMovies = [...state.movies];
+      newMovies.splice(state.movies.indexOf(movieToReplace), 1, newMovie);
+
+      return {
+        ...state,
+        movies: newMovies
+      };
+
     default: return state;
   }
 };
