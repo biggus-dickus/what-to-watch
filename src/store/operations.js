@@ -1,4 +1,5 @@
 import {ActionCreator} from './actions';
+import {ActionType} from './action-types';
 import {ApiEndpoint} from '../config/api-endpoints';
 import {StatusCode} from '../config/status-codes';
 
@@ -38,7 +39,10 @@ export const Operation = {
       .then((res) => {
         dispatch(ActionCreator.getReviews(res.data));
       })
-      .catch((e) => dispatch(ActionCreator.getNetworkError(e.response.data.error)));
+      .catch((e) => dispatch(ActionCreator.getNetworkError({
+        type: ActionType.GET_REVIEWS,
+        message: e.response.data.error.message
+      })));
   },
 
   postReview: (data) => (dispatch, _getState, api) => {

@@ -15,6 +15,8 @@ configure({adapter: new Adapter()});
 
 const props = {
   availableMovies: mockFilms,
+  isPlayerShown: false,
+  onVideoToggle: jest.fn(),
   promoId: 1,
   computedMatch: {params: {id: 2}},
   loadReviews: jest.fn(),

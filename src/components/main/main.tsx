@@ -1,26 +1,29 @@
 import * as React from 'react';
 
+import * as Interface from '../../types'; // eslint-disable-line
+
 import Catalog from '../catalog/catalog';
 import FilmButtons from '../film-page/film-buttons/film-buttons';
 import FilmTitle from '../film-page/film-title/film-title';
 import Footer from '../partials/footer/footer';
 import Logo from '../partials/logo/logo';
 import UserBlock from '../partials/user-block/user-block';
-
-import * as Interface from '../../types'; // eslint-disable-line
+import VideoPlayer from '../video-player/video-player';
 
 
 interface Props extends Interface.Genre {
+  isPlayerShown: boolean,
   location: Interface.Location,
   userData: Interface.User,
   movies: Array<Interface.Film>,
   promo: Interface.Film,
-  onWatchListToggle: Interface.onWatchListToggleType
+  onWatchListToggle: Interface.onWatchListToggleType,
+  onVideoToggle: () => void
 }
 
 
 const Main = (props: Props): React.ReactElement => {
-  const {onWatchListToggle, promo, userData} = props;
+  const {isPlayerShown, onVideoToggle, onWatchListToggle, promo, userData} = props;
 
   return (
     <>
@@ -53,6 +56,7 @@ const Main = (props: Props): React.ReactElement => {
                 filmId={promo.id}
                 isAdded={promo.isFavourite}
                 isPromo={true}
+                onPlayerLaunch={onVideoToggle}
                 {...{onWatchListToggle}} />
             </div>
           </div>
@@ -64,6 +68,14 @@ const Main = (props: Props): React.ReactElement => {
 
         <Footer pathname={props.location.pathname} />
       </div>
+
+      <VideoPlayer
+        show={isPlayerShown}
+        duration={promo.runTime}
+        filmName={promo.name}
+        poster={promo.bgImage}
+        src={promo.video}
+        onClose={onVideoToggle} />
     </>
   );
 };

@@ -5,7 +5,7 @@ import * as Adapter from 'enzyme-adapter-react-16';
 import {mockFilms} from '../../mocks/films';
 
 import FilmCard from './film-card';
-import Video from '../video-player/video-player';
+import VideoPreview from '../video-preview/video-preview';
 
 configure({adapter: new Adapter()});
 
@@ -16,14 +16,14 @@ describe(`FilmCard test suite.`, () => {
   it(`Hovering over FilmCard changes 'isHovered' status to true`, () => {
     movieCard.simulate(`mouseenter`);
 
-    const video = movieCard.find(Video);
+    const video = movieCard.find(VideoPreview);
     expect(video.props().isHovered).toBe(true);
   });
 
   it(`Moving the mouse away from FilmCard changes 'isHovered' status to false`, () => {
     movieCard.simulate(`mouseleave`);
 
-    const video = movieCard.find(Video);
+    const video = movieCard.find(VideoPreview);
     expect(video.props().isHovered).toBe(false);
   });
 });

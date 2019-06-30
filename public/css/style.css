@@ -347,6 +347,10 @@ main {
   -webkit-clip-path: inset(100%);
   clip-path: inset(100%); }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .add-review {
   padding-top: 62px;
   width: 520px;
@@ -867,22 +871,22 @@ main {
 
 .player {
   position: fixed;
-  z-index: 9999;
+  z-index: 1000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
-  /* &::after {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.40);
-  } */ }
+}
+
+.player:not(.is-playing)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.40);
+}
 
 .player__video {
   width: 100%;
@@ -958,6 +962,7 @@ main {
   display: block;
   width: 17px;
   height: 17px;
+  border: 0;
   border-radius: 50%;
   background: #D9CD8D;
   font-size: 0;

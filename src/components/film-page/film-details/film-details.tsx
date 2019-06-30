@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {minToHm} from '../../../utilities/helpers';
 
 interface Props {
   director: string,
@@ -7,13 +8,6 @@ interface Props {
   runTime: number,
   starring: string[]
 }
-
-const minToHm = (duration: number): number[] => {
-  const hours = Math.floor(duration / 60);
-  const minutes = duration % 60;
-
-  return [hours, minutes];
-};
 
 
 const FilmDetails = (props: Props): React.ReactElement => {

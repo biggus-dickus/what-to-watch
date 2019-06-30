@@ -19,13 +19,16 @@ import Footer from '../partials/footer/footer';
 import Logo from '../partials/logo/logo';
 import NoMatch from '../no-match/no-match';
 import UserBlock from '../partials/user-block/user-block';
+import VideoPlayer from '../video-player/video-player';
 
 interface Props {
   availableMovies: Film[],
   promoId: number,
   computedMatch: any,
-  error?: string,
+  error?: {type: string, message: string},
+  isPlayerShown: boolean,
   location: Location,
+  onVideoToggle: () => void,
   onWatchListToggle: onWatchListToggleType,
   reviews?: any[],
   userData?: User,
@@ -49,7 +52,9 @@ export const FilmPage = (props: Props): React.ReactElement => {
     location,
     onWatchListToggle,
     userData,
-    loadReviews
+    loadReviews,
+    isPlayerShown,
+    onVideoToggle
   } = props;
 
   const {hash, pathname} = location;
@@ -111,6 +116,7 @@ export const FilmPage = (props: Props): React.ReactElement => {
                 <FilmButtons
                   filmId={film.id}
                   isAdded={film.isFavourite}
+                  onPlayerLaunch={onVideoToggle}
                   {...{onWatchListToggle, promoId}}
                 />
               </div>
@@ -168,6 +174,14 @@ export const FilmPage = (props: Props): React.ReactElement => {
 
           <Footer pathname={location.pathname} />
         </div>
+
+        <VideoPlayer
+          show={isPlayerShown}
+          duration={film.runTime}
+          filmName={film.name}
+          poster={film.bgImage}
+          src={film.video}
+          onClose={onVideoToggle} />
       </>
     );
   }

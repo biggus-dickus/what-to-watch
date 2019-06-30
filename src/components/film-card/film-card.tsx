@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 
-import Video from '../video-player/video-player';
+import VideoPreview from '../video-preview/video-preview';
 
 interface Props {
   name: string,
@@ -21,14 +21,14 @@ const FilmCard = (props: Props): React.ReactElement => {
 
   return (
     <article className="small-movie-card catalog__movies-card"
-      tabIndex={0}
       onMouseEnter={onCardHover}
       onMouseLeave={onCardDismiss}>
 
       <Link className="small-movie-card__wrapping-link" to={pageUrl}>
         <i className="small-movie-card__play-btn" aria-hidden />
         <div className="small-movie-card__image">
-          <Video src={previewVideo}
+          <VideoPreview
+            src={previewVideo}
             poster={previewImage}
             width={280}
             height={175}

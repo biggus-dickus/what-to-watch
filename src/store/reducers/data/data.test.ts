@@ -181,7 +181,10 @@ describe(`Data reducer test suite`, () => {
     const loaderFunc = Operation.fetchReviews(`huita666`);
 
     const response = {
-      error: `Nothing found`
+      error: {
+        type: ActionType.GET_REVIEWS,
+        message: `Nothing found`
+      }
     };
 
     apiMock

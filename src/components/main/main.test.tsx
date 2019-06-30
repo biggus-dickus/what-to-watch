@@ -11,9 +11,11 @@ import Main from './main';
 
 const props = {
   ...mockGenreEntity,
+  isPlayerShown: false,
   location: {...mockLocation},
   movies: mockFilms,
   promo: mockFilms[1],
+  onVideoToggle: jest.fn(),
   onWatchListToggle: jest.fn(),
   onViewChange: jest.fn(),
   userData: mockUser

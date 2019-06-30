@@ -30,8 +30,20 @@ interface Props extends Genre {
   onWatchListToggle: onWatchListToggleType
 }
 
+interface State {
+  isPlayerShown: boolean
+}
 
-export class App extends React.PureComponent<Props, null> {
+
+export class App extends React.PureComponent<Props, State> {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isPlayerShown: false
+    };
+  }
+
   render(): React.ReactElement {
     const {
       currentGenre,
@@ -43,6 +55,8 @@ export class App extends React.PureComponent<Props, null> {
       userData
     } = this.props;
 
+    const {isPlayerShown} = this.state;
+
     return (
       <Switch>
         <PropsRoute
@@ -51,7 +65,8 @@ export class App extends React.PureComponent<Props, null> {
           component={Main}
           movies={(filteredMovies.length) ? filteredMovies : movies}
           onGenreChange={this._handleGenreChange}
-          {...{currentGenre, genres, promo, userData, onWatchListToggle}} />
+          onVideoToggle={this._handleVideoToggle}
+          {...{currentGenre, genres, promo, userData, onWatchListToggle, isPlayerShown}} />
 
         <PrivateRoute
           path={RouteConfig.SIGN_IN}
@@ -84,7 +99,8 @@ export class App extends React.PureComponent<Props, null> {
           component={FilmPage}
           availableMovies={movies}
           promoId={promo.id}
-          {...{userData, onWatchListToggle}} />
+          onVideoToggle={this._handleVideoToggle}
+          {...{userData, onWatchListToggle, isPlayerShown}} />
 
         <NoMatch />
       </Switch>
@@ -92,6 +108,8 @@ export class App extends React.PureComponent<Props, null> {
   }
 
   _handleGenreChange = (selectedGenre: string): void => this.props.onGenreChange(selectedGenre);
+
+  _handleVideoToggle = (): void => this.setState((state) => ({isPlayerShown: !state.isPlayerShown}));
 }
 
 const mapStateToProps = (state) => ({
