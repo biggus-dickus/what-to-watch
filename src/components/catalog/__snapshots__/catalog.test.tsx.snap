@@ -132,7 +132,6 @@ exports[`<Catalog /> should render correctly 1`] = `
       className="small-movie-card catalog__movies-card"
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      tabIndex={0}
     >
       <a
         className="small-movie-card__wrapping-link"

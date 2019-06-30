@@ -1,118 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<VideoPlayer /> renders correctly 1`] = `
-<div
-  className="player"
->
-  <video
-    className="player__video"
-    poster="poster.jpg"
-    src="https://thepiratebay.org"
-  />
-  <button
-    className="player__exit"
-    onClick={[Function]}
-    type="button"
-  >
-    Exit
-  </button>
-  <div
-    className="player__controls"
-  >
-    <div
-      className="player__controls-row"
-    >
-      <div
-        className="player__time"
-      >
-        <progress
-          className="player__progress"
-          max={7200}
-          onClick={[Function]}
-          value={0}
-        />
-        <button
-          className="player__toggler"
-          style={
-            Object {
-              "left": "0.00%",
-            }
-          }
-          type="button"
-        >
-          Toggler
-        </button>
-      </div>
-      <div
-        className="player__time-value"
-      >
-        02
-        :
-        00
-        :
-        00
-      </div>
-    </div>
-    <div
-      className="player__controls-row"
-    >
-      <button
-        className="player__play"
-        onClick={[Function]}
-        type="button"
-      >
-        <svg
-          height="19"
-          viewBox="0 0 19 19"
-          width="19"
-        >
-          <use
-            xlinkHref="img/sprite/sprite.svg#play-s"
-          />
-        </svg>
-        <span>
-          Play
-        </span>
-      </button>
-      <div
-        className="player__name"
-      >
-        Bohemian Rhapsody
-      </div>
-      <button
-        className="player__full-screen"
-        onClick={[Function]}
-        type="button"
-      >
-        <svg
-          height="27"
-          viewBox="0 0 27 27"
-          width="27"
-        >
-          <use
-            xlinkHref="img/sprite/sprite.svg#full-screen"
-          />
-        </svg>
-        <span>
-          Full screen
-        </span>
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`VideoPlayer test suite <VideoPlayer /> renders correctly 1`] = `
 <div
   className="player"
 >
   <video
     className="player__video"
+    onPause={[Function]}
+    onPlay={[Function]}
     poster="poster.jpg"
     src="https://thepiratebay.org"
   />
   <button
     className="player__exit"
+    data-test="at-exit-btn"
     onClick={[Function]}
     type="button"
   >
@@ -142,7 +43,7 @@ exports[`VideoPlayer test suite <VideoPlayer /> renders correctly 1`] = `
           }
           type="button"
         >
-          Toggler
+          Sliding thumb
         </button>
       </div>
       <div

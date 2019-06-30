@@ -4,6 +4,7 @@ import * as Adapter from 'enzyme-adapter-react-16';
 import {configure, shallow} from 'enzyme';
 
 import {mockFilms} from '../../mocks/films';
+import {PlayState} from './video-player'; // eslint-disable-line
 
 import VideoPlayer from './video-player';
 
@@ -40,11 +41,10 @@ describe(`VideoPlayer test suite`, () => {
     expect(wrapper.find(`[data-test="at-play-btn-icon"]`)).toHaveLength(1);
     expect(wrapper.find(`[data-test="at-pause-btn-icon"]`)).toHaveLength(0);
 
-    wrapper.setState({isPaused: true});
+    wrapper.setState({play: PlayState.PLAY});
 
     expect(wrapper.find(`[data-test="at-play-btn"]`).text()).toEqual(`Pause`);
     expect(wrapper.find(`[data-test="at-pause-btn-icon"]`)).toHaveLength(1);
     expect(wrapper.find(`[data-test="at-play-btn-icon"]`)).toHaveLength(0);
   });
 });
-

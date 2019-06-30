@@ -33,4 +33,4 @@ export const filmTabs = [
 export const REVIEW_CHARS_MIN = 50;
 export const REVIEW_CHARS_MAX = 400;
 
-export const MEDIA_INITIAL_VOLUME = 0.33;
+export const INITIAL_MEDIA_VOLUME = 0.33;

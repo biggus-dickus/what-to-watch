@@ -107,6 +107,8 @@ Array [
           >
             <button
               className="btn btn--play movie-card__button"
+              data-test="at-play-btn"
+              onClick={[Function]}
               type="button"
             >
               <svg
@@ -288,7 +290,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -325,7 +326,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -362,7 +362,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -399,7 +398,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -436,7 +434,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -473,7 +470,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -510,7 +506,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -547,7 +542,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -584,7 +578,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -621,7 +614,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -658,7 +650,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -695,7 +686,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -732,7 +722,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -769,7 +758,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -806,7 +794,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -843,7 +830,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -880,7 +866,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -917,7 +902,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"
@@ -954,7 +938,6 @@ Array [
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          tabIndex={0}
         >
           <a
             className="small-movie-card__wrapping-link"

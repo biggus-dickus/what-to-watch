@@ -1,7 +1,17 @@
 import * as React from 'react';
 
-import {MEDIA_INITIAL_VOLUME} from '../../config/config';
+import {INITIAL_MEDIA_VOLUME} from '../../config/config';
 import {secToHms} from '../../utilities/helpers';
+
+/* eslint-disable */
+export enum PlayState {
+  INITIAL = '',
+  PLAY = 'is-playing',
+  PAUSE = 'is-paused'
+}
+/* eslint-enable */
+
+type playStateType = PlayState.INITIAL | PlayState.PLAY | PlayState.PAUSE;
 
 interface Props {
   show: boolean,
@@ -13,8 +23,7 @@ interface Props {
 }
 
 interface State {
-  readonly isPlaying: boolean,
-  readonly isPaused: boolean,
+  readonly play: playStateType,
   readonly timeElapsed: number,
   readonly timeElapsedPercentage: number,
 }
@@ -40,8 +49,7 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
     super(props);
 
     this.state = {
-      isPlaying: false,
-      isPaused: false,
+      play: PlayState.INITIAL,
       timeElapsed: this.timeElapsed,
       timeElapsedPercentage: this.timeElapsedPercentage
     };
@@ -90,12 +98,13 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
 
     if (this._ref.current) {
       // Start playback
-      if (!prevState.isPlaying && this.state.isPlaying) {
+      if (!prevState.play && this.state.play === PlayState.PLAY ||
+        prevState.play === PlayState.PAUSE && this.state.play === PlayState.PLAY) {
         this._ref.current.play();
       }
 
       // Pause playback
-      if (!prevState.isPaused && this.state.isPaused) {
+      if (prevState.play === PlayState.PLAY && this.state.play === PlayState.PAUSE) {
         this._ref.current.pause();
       }
     }
@@ -107,7 +116,7 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
 
   render() {
     const {show, filmName, poster, src} = this.props;
-    const {isPaused, isPlaying, timeElapsed, timeElapsedPercentage} = this.state;
+    const {play, timeElapsed, timeElapsedPercentage} = this.state;
 
     if (show) {
       let playBtnIcon = (
@@ -119,17 +128,10 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
       let playBtnText = `Play`;
 
       const classList = [`player`];
-      if (isPlaying) {
+      if (play === PlayState.PLAY) {
         classList.push(`is-playing`);
         if (classList.includes(`is-paused`)) {
           classList.splice(classList.indexOf(`is-paused`), 1);
-        }
-      }
-
-      if (isPaused) {
-        classList.push(`is-paused`);
-        if (classList.includes(`is-playing`)) {
-          classList.splice(classList.indexOf(`is-playing`), 1);
         }
 
         playBtnIcon = (
@@ -141,6 +143,13 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
         playBtnText = `Pause`;
       }
 
+      if (play === PlayState.PAUSE) {
+        classList.push(`is-paused`);
+        if (classList.includes(`is-playing`)) {
+          classList.splice(classList.indexOf(`is-playing`), 1);
+        }
+      }
+
       const [h, m, s] = secToHms(this.videoDuration);
 
       return (
@@ -148,11 +157,15 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
           <video
             className="player__video"
             ref={this._ref}
-            // onPlay={this.onPlay}
-            // onPause={this.onPause}
+            onPlay={this._onPlay}
+            onPause={this._onPause}
             {...{poster, src}} />
 
-          <button type="button" className="player__exit" onClick={this._onExit}>
+          <button
+            type="button"
+            className="player__exit"
+            data-test="at-exit-btn"
+            onClick={this._onExit}>
             Exit
           </button>
 
@@ -168,7 +181,7 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
                   type="button"
                   className="player__toggler"
                   style={{left: `${timeElapsedPercentage.toFixed(2)}%`}}>
-                  Toggler
+                  Sliding thumb
                 </button>
               </div>
 
@@ -208,9 +221,6 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
     return null;
   }
 
-  // onPlay = () => console.log('play')
-  // onPause = () => console.log('pause')
-
   _setCurrentTime = (e): void => {
     if (this._ref.current && this.state.timeElapsed) {
       const rect = e.target.getBoundingClientRect();
@@ -249,31 +259,47 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
   };
 
   _handlePlaybackToggle = ():void => {
-    if (!this.state.isPlaying && !this.state.isPaused) {
-      this._ref.current.volume = MEDIA_INITIAL_VOLUME;
+    if (!this.state.play) {
+      if (this._ref.current) {
+        this._ref.current.volume = INITIAL_MEDIA_VOLUME;
+      }
 
       this._setTimings();
-      this.setState({isPlaying: true});
+      this.setState({play: PlayState.PLAY});
       return;
     }
 
-    if (this.state.isPlaying) {
+    if (this.state.play === PlayState.PLAY) {
       this._freezeTimings();
-    } else if (this.state.isPaused) {
+    } else if (this.state.play === PlayState.PAUSE) {
       this._setTimings();
     }
 
     this.setState((state) => ({
-      isPlaying: !state.isPlaying,
-      isPaused: !state.isPaused
+      play: (state.play === PlayState.PLAY) ? PlayState.PAUSE : PlayState.PLAY
     }));
   };
 
+  // Two methods below will sync the default HTML5 player with the app player
+  _onPlay = () => {
+    if (this.state.play !== PlayState.PLAY) {
+      this._setTimings();
+      this.setState({play: PlayState.PLAY});
+    }
+  };
+
+  _onPause = () => {
+    if (this.state.play !== PlayState.PAUSE) {
+      this._freezeTimings();
+      this.setState({play: PlayState.PAUSE});
+    }
+  };
+
   _onExit = () => {
-    if (this.state.isPlaying || this.state.isPaused) {
+    if (this.state.play) {
       this._ref.current.load();
       this._clearTimings();
-      this.setState({isPlaying: false, isPaused: false});
+      this.setState({play: PlayState.INITIAL});
     }
 
     this.props.onClose();
