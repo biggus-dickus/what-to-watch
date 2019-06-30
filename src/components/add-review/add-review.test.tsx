@@ -5,6 +5,7 @@ import * as renderer from 'react-test-renderer';
 import * as Adapter from 'enzyme-adapter-react-16';
 import {configure, shallow} from 'enzyme';
 
+import {ActionType} from '../../store/action-types';
 import {mockFilms} from '../../mocks/films';
 import {mockLocation} from '../../mocks/user';
 import mockUser from '../../mocks/user';
@@ -50,7 +51,14 @@ describe(`AddReview test suite`, () => {
   });
 
   it(`should display the error it got through props`, () => {
-    const newProps = {...props, error: `Something went wrong`};
+    const newProps = {
+      ...props,
+      error: {
+        type: ActionType.POST_REVIEW,
+        message: `Something went wrong`
+      }
+    };
+
     const wrapper = shallow(<AddReview {...newProps} />);
 
     expect(wrapper.find(`[data-test="at-add-review-error"]`)).toHaveLength(1);

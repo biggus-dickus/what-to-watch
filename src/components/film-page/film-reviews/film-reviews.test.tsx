@@ -3,6 +3,7 @@ import * as renderer from 'react-test-renderer';
 import * as Adapter from 'enzyme-adapter-react-16';
 import {configure, shallow} from 'enzyme';
 
+import {ActionType} from '../../../store/action-types';
 import {mockReviews} from '../../../mocks/reviews';
 
 import FilmReviews from './film-reviews';
@@ -11,7 +12,7 @@ configure({adapter: new Adapter()});
 
 
 const props = {
-  error: ``,
+  error: null,
   filmId: 1,
   reviews: mockReviews
 };
@@ -33,7 +34,7 @@ describe(`FilmReviews test suite`, () => {
   it(`should render an error, and not reviews, if there is one in props`, () => {
     const newProps = {
       ...props,
-      error: `Nothing found`
+      error: {type: ActionType.GET_REVIEWS, message: `Nothing found`}
     };
 
     const wrapper = shallow(<FilmReviews {...newProps} />);

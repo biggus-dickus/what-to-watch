@@ -10,10 +10,11 @@ interface Props {
   promoId?: number,
   isAdded: boolean,
   isPromo?: boolean,
-  onWatchListToggle: onWatchListToggleType
+  onWatchListToggle: onWatchListToggleType,
+  onPlayerLaunch: () => void
 }
 
-export const FilmButtons = ({filmId, promoId, isAdded, isPromo = false, onWatchListToggle}: Props): React.ReactElement => {
+export const FilmButtons = ({filmId, promoId, isAdded, isPromo = false, onWatchListToggle, onPlayerLaunch}: Props): React.ReactElement => {
   let btnIcon = (
     <svg viewBox="0 0 19 20" width="19" height="20" data-test="at-is-not-added">
       <use xlinkHref="img/sprite/sprite.svg#add" />
@@ -33,13 +34,17 @@ export const FilmButtons = ({filmId, promoId, isAdded, isPromo = false, onWatchL
   }
 
   // When film is toggled on film page, and it's also in promo on main page,
-  // promo must also be updated accordingly by reducer.
+  // promo must be updated by reducer as well.
   // It would have been better not to create the 'promo' entity at all, but fuck it.
   const isPromoResolved = filmId === promoId || isPromo;
 
   return (
     <div className="movie-card__buttons">
-      <button className="btn btn--play movie-card__button" type="button">
+      <button
+        className="btn btn--play movie-card__button"
+        data-test="at-play-btn"
+        type="button"
+        onClick={onPlayerLaunch}>
         <svg viewBox="0 0 19 19" width="19" height="19">
           <use xlinkHref="img/sprite/sprite.svg#play-s" />
         </svg>

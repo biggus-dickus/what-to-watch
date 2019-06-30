@@ -1,13 +1,14 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 
+import {ActionType} from '../../../store/action-types';
 import {Review} from '../../../types'; // eslint-disable-line
 import RouteConfig from '../../../config/routes';
 
 import {formatDate} from '../../../utilities/helpers';
 
 interface Props {
-  error: string,
+  error: {type: string, message: string},
   filmId: number,
   reviews: Review[]
 }
@@ -18,8 +19,8 @@ const sortByDate = (reviews: Review[]): Review[] => {
 
 
 const FilmReviews = ({error, filmId, reviews = []}: Props): React.ReactElement => {
-  if (error) {
-    return <p className="review" data-test="at-reviews-error">{error}</p>;
+  if (error && error.type === ActionType.GET_REVIEWS) {
+    return <p className="review" data-test="at-reviews-error">{error.message}</p>;
   }
 
   if (!reviews.length) {

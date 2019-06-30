@@ -12,7 +12,8 @@ configure({adapter: new Adapter()});
 const props = {
   filmId: 1,
   isAdded: false,
-  onWatchListToggle: jest.fn()
+  onWatchListToggle: jest.fn(),
+  onPlayerLaunch: jest.fn()
 };
 
 describe(`FilmButtons test suite`, () => {

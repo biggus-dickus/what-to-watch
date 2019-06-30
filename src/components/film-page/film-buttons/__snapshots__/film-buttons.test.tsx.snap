@@ -6,6 +6,8 @@ exports[`FilmButtons test suite <FilmButtons /> should render correctly 1`] = `
 >
   <button
     className="btn btn--play movie-card__button"
+    data-test="at-play-btn"
+    onClick={[MockFunction]}
     type="button"
   >
     <svg
