@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {ReactElement} from 'react'; // eslint-disable-line
 
 import {INITIAL_MEDIA_VOLUME} from '../../config/config';
 import {secToHms} from '../../utilities/helpers';
@@ -114,7 +115,7 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
     window.removeEventListener(`keyup`, this._onEscPress);
   }
 
-  render() {
+  render(): ReactElement {
     const {show, filmName, poster, src} = this.props;
     const {play, timeElapsed, timeElapsedPercentage} = this.state;
 
@@ -258,7 +259,7 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
     }
   };
 
-  _handlePlaybackToggle = ():void => {
+  _handlePlaybackToggle = (): void => {
     if (!this.state.play) {
       if (this._ref.current) {
         this._ref.current.volume = INITIAL_MEDIA_VOLUME;
@@ -281,21 +282,21 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
   };
 
   // Two methods below will sync the default HTML5 player with the app player
-  _onPlay = () => {
+  _onPlay = (): void => {
     if (this.state.play !== PlayState.PLAY) {
       this._setTimings();
       this.setState({play: PlayState.PLAY});
     }
   };
 
-  _onPause = () => {
+  _onPause = (): void => {
     if (this.state.play !== PlayState.PAUSE) {
       this._freezeTimings();
       this.setState({play: PlayState.PAUSE});
     }
   };
 
-  _onExit = () => {
+  _onExit = (): void => {
     if (this.state.play) {
       this._ref.current.load();
       this._clearTimings();
@@ -305,7 +306,7 @@ export default class VideoPlayer extends React.PureComponent<Props, State> {
     this.props.onClose();
   };
 
-  _onEscPress = (e: KeyboardEvent) => {
+  _onEscPress = (e: KeyboardEvent): void => {
     if (e.key === `Escape` && this.props.show) {
       this._onExit();
     }

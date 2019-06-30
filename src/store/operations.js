@@ -51,7 +51,10 @@ export const Operation = {
     return api.post(`${ApiEndpoint.REVIEWS}/${filmId}`, {comment, rating})
       .then((res) => {
         if (res.response && res.response.status === StatusCode.BAD_REQUEST) {
-          dispatch(ActionCreator.getNetworkError(res.response.data.error));
+          dispatch(ActionCreator.getNetworkError({
+            type: ActionType.POST_REVIEW,
+            message: res.response.data.error.message
+          }));
         }
 
         return res.data;

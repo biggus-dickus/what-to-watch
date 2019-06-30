@@ -2,8 +2,11 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
 
-import {History} from 'history'; // eslint-disable-line
-import {Film, Location, User} from '../../types'; // eslint-disable-line
+/* eslint-disable */
+import {ActionType} from '../../store/action-types';
+import {History} from 'history';
+import {Film, Location, User} from '../../types';
+/* eslint-enable */
 
 import {getError} from '../../store/reducers/data/selectors';
 import {Operation} from '../../store/operations';
@@ -25,7 +28,7 @@ interface Props {
   location: Location,
   userData: User,
   onReviewPost: (data: PostData) => Promise<any>,
-  error?: string
+  error?: {type: string, message: string}
 }
 
 interface State {
@@ -79,7 +82,7 @@ export class AddReview extends React.PureComponent<Props, State> {
         rating: this.state[RATING_NAME],
         comment: this.state[COMMENT_NAME]
       }).then(() => {
-        if (!this.props.error) {
+        if (!this.props.error || this.props.error.type !== ActionType.POST_REVIEW) {
           history.push(RouteConfig.FILM.replace(`:id`, `${filmId}#${NAV_REVIEWS_ID}`));
         }
       });
@@ -92,6 +95,8 @@ export class AddReview extends React.PureComponent<Props, State> {
     const film = getFilmById(availableFilms, +computedMatch.params.id);
 
     if (film) {
+      const reviewError = (this.props.error && this.props.error.type === ActionType.POST_REVIEW) ? this.props.error.message : null;
+
       return (
         <section className="movie-card movie-card--full">
           <div className="movie-card__header">
@@ -134,9 +139,9 @@ export class AddReview extends React.PureComponent<Props, State> {
               className="add-review__form"
               onSubmit={this._handleSubmit}>
 
-              {this.props.error && (
+              {reviewError && (
                 <p className="add-review__error" data-test="at-add-review-error">
-                  {this.props.error}
+                  {reviewError}
                 </p>
               )}
 
@@ -177,7 +182,7 @@ export class AddReview extends React.PureComponent<Props, State> {
                     className="add-review__btn"
                     data-test="at-review-submit-btn"
                     type="submit"
-                    disabled={!this.isFormValid && !this.props.error}>
+                    disabled={!this.isFormValid && !reviewError}>
                     Post
                   </button>
                 </div>
