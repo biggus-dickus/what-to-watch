@@ -7,10 +7,10 @@ exports[`FilmReviews test suite <FilmReviews /> should render correctly 1`] = `
 >
   <div
     className="movie-card__reviews-col"
+    data-test="at-review-item"
   >
     <div
       className="review"
-      data-test="at-review-item"
     >
       <blockquote
         className="review__quote"
@@ -45,42 +45,6 @@ exports[`FilmReviews test suite <FilmReviews /> should render correctly 1`] = `
     </div>
     <div
       className="review"
-      data-test="at-review-item"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          I love this movie. This film is a milestone in cinematography. Great Immersive camera-work. This film is an experience and i has already seen it 4 times and I only see more quality of the film.
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-            data-test="at-review-author"
-          >
-            Christina
-          </cite>
-          <time
-            className="review__date"
-            dateTime="6/17/2019"
-          >
-            June 17, 2019
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        4.0
-      </div>
-    </div>
-    <div
-      className="review"
-      data-test="at-review-item"
     >
       <blockquote
         className="review__quote"
@@ -104,6 +68,45 @@ exports[`FilmReviews test suite <FilmReviews /> should render correctly 1`] = `
             dateTime="6/12/2019"
           >
             June 12, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        4.0
+      </div>
+    </div>
+  </div>
+  <div
+    className="movie-card__reviews-col"
+    data-test="at-review-item"
+  >
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          I love this movie. This film is a milestone in cinematography. Great Immersive camera-work. This film is an experience and i has already seen it 4 times and I only see more quality of the film.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+            data-test="at-review-author"
+          >
+            Christina
+          </cite>
+          <time
+            className="review__date"
+            dateTime="6/17/2019"
+          >
+            June 17, 2019
           </time>
         </footer>
       </blockquote>

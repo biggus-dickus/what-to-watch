@@ -26,9 +26,7 @@ describe(`FilmReviews test suite`, () => {
     const wrapper = shallow(<FilmReviews {...props} />);
 
     const firstReview = wrapper.find(`[data-test="at-review-item"]`).at(0);
-    const name = firstReview.find(`[data-test="at-review-author"]`);
-
-    expect(name.text()).toEqual(mockReviews[1].user.name);
+    expect(firstReview.find(`FilmReview`).at(0).props().id).toEqual(mockReviews[1].id);
   });
 
   it(`should render an error, and not reviews, if there is one in props`, () => {

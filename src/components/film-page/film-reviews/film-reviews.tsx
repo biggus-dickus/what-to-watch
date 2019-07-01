@@ -19,7 +19,7 @@ const sortByDate = (reviews: Review[]): Review[] => {
 
 
 const FilmReview = (review) => (
-  <div className="review" data-test="at-review-item">
+  <div className="review">
     <blockquote className="review__quote">
       <p className="review__text">{review.comment}</p>
 
@@ -62,7 +62,7 @@ const FilmReviews = ({error, filmId, reviews = []}: Props): React.ReactElement =
     <div className="movie-card__reviews movie-card__row" data-test="at-reviews">
       {[even, odd].map((it, i) =>
         it.length ? (
-          <div className="movie-card__reviews-col" key={`review-${i}`}>
+          <div className="movie-card__reviews-col" key={`review-${i}`} data-test="at-review-item">
             {it.map((review) => <FilmReview key={review.id} {...review} />)}
           </div>
         ) : null
