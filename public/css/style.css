@@ -770,9 +770,15 @@ main {
   padding-top: 20px; }
 
 .movie-card__reviews-col {
-  /*width: calc((100% - 60px) / 2);*/
+  width: calc((100% - 60px) / 2);
   margin-right: 60px;
-  max-width: 380px; }
+  max-width: 380px;
+}
+
+.movie-card__reviews-col:only-child {
+  width: auto;
+}
+
 .movie-card__reviews-col:last-child {
   margin-right: 0; }
 
