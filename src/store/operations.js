@@ -53,7 +53,7 @@ export const Operation = {
         if (res.response && res.response.status === StatusCode.BAD_REQUEST) {
           dispatch(ActionCreator.getNetworkError({
             type: ActionType.POST_REVIEW,
-            message: res.response.data.error.message
+            message: res.response.data.error
           }));
         }
 
