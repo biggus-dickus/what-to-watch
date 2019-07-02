@@ -1,7 +1,6 @@
 import Route from '../config/routes';
 import {Film} from '../types'; // eslint-disable-line
 
-const [film] = Route.FILM.split(`:`);
 
 const FilmDataAdapter = (data: any): Film => {
   return {
@@ -13,7 +12,7 @@ const FilmDataAdapter = (data: any): Film => {
     id: data.id,
     isFavourite: data.is_favorite,
     name: data.name,
-    pageUrl: `${film}${data.id}`,
+    pageUrl: Route.FILM.replace(`:id`, data.id),
     posterImage: data.poster_image,
     previewImage: data.preview_image,
     previewVideo: data.preview_video_link,

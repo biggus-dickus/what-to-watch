@@ -6,11 +6,11 @@ interface Params {
 }
 
 export default function scrollTo(offsetTop: number, config: Params = {}) {
-  const {behaviour, left} = config; // optional argument
+  const {behaviour = `smooth`, left = 0} = config; // optional argument
 
   window.scroll({
-    behavior: behaviour || `smooth`,
-    left: left || 0,
+    behavior: behaviour,
+    left,
     top: offsetTop
   });
 }
