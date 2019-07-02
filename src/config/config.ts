@@ -29,6 +29,9 @@ export const filmTabs = [
   }
 ];
 
+// Network constraints
+export const SERVER_TIMEOUT = 5000;
+
 // Film review constraints
 export const REVIEW_CHARS_MIN = 50;
 export const REVIEW_CHARS_MAX = 400;

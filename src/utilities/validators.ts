@@ -1,10 +1,8 @@
 export const isEmpty = (value: string): boolean => !value.trim().length;
 
-export const isValidEmail = (value: string): boolean => {
-  const re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+const emailRe = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 
-  return re.test(value);
-};
+export const isValidEmail = (value: string): boolean => emailRe.test(value);
 
 interface LengthParams {
   min?: number,
