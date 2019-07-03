@@ -1,17 +1,8 @@
 const path = require(`path`);
+const HtmlWebpackPlugin = require(`html-webpack-plugin`);
 
 module.exports = {
   entry: `./src/index.tsx`,
-  output: {
-    filename: `bundle.js`,
-    path: path.join(__dirname, `public`)
-  },
-  devServer: {
-    contentBase: path.join(__dirname, `public`),
-    compress: false,
-    port: 1488,
-    historyApiFallback: true
-  },
   resolve: {
     extensions: [`.js`, `.jsx`, `.ts`, `.tsx`, `json`]
   },
@@ -20,9 +11,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: `babel-loader`
-        }
+        loader: `babel-loader`
       },
       {
         test: /\.(tsx|ts)?$/,
@@ -33,11 +22,16 @@ module.exports = {
         use: {
           loader: `url-loader`,
           options: {
-            limit: 10240
+            limit: 8192
           }
         }
       }
     ]
   },
-  devtool: `source-map`
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, `public/index.html`),
+      inject: `body`
+    })
+  ]
 };
